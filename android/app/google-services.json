@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "107763524926",
+    "project_id": "online-voting-system-76856",
+    "storage_bucket": "online-voting-system-76856.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107763524926:android:17223d637827d4610af86f",
+        "android_client_info": {
+          "package_name": "com.example.evora_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107763524926-bh91ldvafb5abcjj72tn33mlvb68aeap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evora_final",
+            "certificate_hash": "e59b94c0de3c6c64b6848e7e5ad1d4c1c342fde4"
+          }
+        },
+        {
+          "client_id": "107763524926-k4k373apkj2tt7kapd90bp6tsho21em9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXspeeVNj90BkT9AAe0jAH3kjGfrJWHpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107763524926-k4k373apkj2tt7kapd90bp6tsho21em9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
