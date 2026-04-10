@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import '../../config/app_colors.dart';
 import '../../config/app_routes.dart';
 import '../../config/app_strings.dart';
 import '../../providers/cart_provider.dart';
+import '../../models/cart_item_model.dart';
 import '../../widgets/custom_button.dart';
 
 class CartScreen extends StatelessWidget {
@@ -20,7 +20,7 @@ class CartScreen extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => AppRoutes.navigateToUserDashboard(context),
         ),
         actions: [
           Consumer<CartProvider>(
@@ -93,7 +93,9 @@ class CartScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   ElevatedButton.icon(
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.categories);
+                    },
                     icon: const Icon(Icons.add),
                     label: const Text('Add Services'),
                   ),
@@ -104,81 +106,63 @@ class CartScreen extends StatelessWidget {
 
           return Column(
             children: [
-              // Event Type Header
+              // Event Type & Guest Header
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 margin: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.primary.withOpacity(0.05),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppColors.primary.withOpacity(0.1)),
                 ),
-                child: Row(
+                child: Column(
                   children: [
-                    Icon(
-                      Icons.celebration,
-                      color: AppColors.primary,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
+                    Row(
+                      children: [
+                        Icon(Icons.celebration, color: AppColors.primary),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
                             cartProvider.selectedEventTypeName ?? 'Event',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: AppColors.textPrimary,
                             ),
                           ),
-                          Text(
-                            '${cartProvider.itemCount} services selected',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    // Guest Count Editor
-                    GestureDetector(
-                      onTap: () => _showGuestCountDialog(context, cartProvider),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: AppColors.border),
-                        ),
-                        child: Row(
+                    const Divider(height: 24),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
                           children: [
-                            Icon(
-                              Icons.people,
-                              size: 18,
-                              color: AppColors.primary,
-                            ),
+                            Icon(Icons.people_outline, size: 20, color: AppColors.textSecondary),
                             const SizedBox(width: 8),
                             Text(
-                              '${cartProvider.guestCount}',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
-                              ),
-                            ),
-                            Icon(
-                              Icons.edit,
-                              size: 14,
-                              color: AppColors.textSecondary,
+                              "Number of Guests:",
+                              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
                             ),
                           ],
                         ),
-                      ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: AppColors.primary.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            "${cartProvider.guestCount}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -253,7 +237,10 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCartItemCard(BuildContext context, dynamic item, CartProvider cartProvider) {
+  Widget _buildCartItemCard(BuildContext context, CartItem item, CartProvider cartProvider) {
+    final bool isFood = item.subCategoryId.endsWith('_food') || item.subCategoryId == 'food_menu';
+    final double displayPrice = isFood ? item.price * cartProvider.guestCount : item.price;
+
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -265,37 +252,10 @@ class CartScreen extends StatelessWidget {
         children: [
           // Image
           ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(16),
-              bottomLeft: Radius.circular(16),
-            ),
-            child: item.image.isNotEmpty
-                ? CachedNetworkImage(
-              imageUrl: item.image,
-              width: 80,
-              height: 80,
-              fit: BoxFit.cover,
-              placeholder: (context, url) => Container(
-                width: 80,
-                height: 80,
-                color: AppColors.border,
-              ),
-              errorWidget: (context, url, error) => Container(
-                width: 80,
-                height: 80,
-                color: AppColors.border,
-                child: Icon(Icons.image, color: AppColors.textSecondary),
-              ),
-            )
-                : Container(
-              width: 80,
-              height: 80,
-              color: AppColors.primary.withOpacity(0.1),
-              child: Icon(
-                _getItemIcon(item.type),
-                color: AppColors.primary,
-              ),
-            ),
+            borderRadius: const BorderRadius.only(topLeft: Radius.circular(16), bottomLeft: Radius.circular(16)),
+            child: item.image.startsWith('http') 
+              ? Image.network(item.image, width: 90, height: 90, fit: BoxFit.cover)
+              : Image.asset(item.image, width: 90, height: 90, fit: BoxFit.cover),
           ),
 
           // Content
@@ -305,46 +265,50 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item.itemName,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    item.sectionName,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: AppColors.textSecondary,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
                   Row(
                     children: [
-                      Text(
-                        item.type == 'food'
-                            ? '${AppStrings.rupee}${item.price.toStringAsFixed(0)} × ${cartProvider.guestCount}'
-                            : '${AppStrings.rupee}${item.price.toStringAsFixed(0)}',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.primary,
+                      Expanded(
+                        child: Text(
+                          item.name,
+                          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        '${AppStrings.rupee}${(item.type == 'food' ? item.price * cartProvider.guestCount : item.totalPrice).toStringAsFixed(0)}',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
+                      if (isFood)
+                        Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(color: Colors.green.shade50, borderRadius: BorderRadius.circular(4)),
+                          child: const Icon(Icons.restaurant, size: 12, color: Colors.green),
                         ),
+                    ],
+                  ),
+                  if (item.selectedOptionName != null)
+                    Text(
+                      'Option: ${item.selectedOptionName}',
+                      style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                    ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (isFood)
+                            Text(
+                              '₹${item.price.toStringAsFixed(0)} / plate',
+                              style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                            ),
+                          Text(
+                            '₹${displayPrice.toStringAsFixed(0)}',
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.primary),
+                          ),
+                        ],
                       ),
+                      if (isFood)
+                        Text(
+                          'x${cartProvider.guestCount} guests',
+                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.textSecondary),
+                        ),
                     ],
                   ),
                 ],
@@ -354,20 +318,8 @@ class CartScreen extends StatelessWidget {
 
           // Remove Button
           IconButton(
-            onPressed: () {
-              cartProvider.removeItem(item.id);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('${item.itemName} removed'),
-                  backgroundColor: AppColors.error,
-                  duration: const Duration(seconds: 1),
-                ),
-              );
-            },
-            icon: Icon(
-              Icons.delete_outline,
-              color: AppColors.error,
-            ),
+            onPressed: () => cartProvider.removeItem(item.id),
+            icon: Icon(Icons.delete_outline, color: AppColors.error),
           ),
         ],
       ),
@@ -375,8 +327,6 @@ class CartScreen extends StatelessWidget {
   }
 
   Widget _buildPriceBreakdown(CartProvider cartProvider) {
-    final breakdown = cartProvider.getPriceBreakdown();
-
     return Container(
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.all(16),
@@ -397,36 +347,38 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          ...breakdown.entries.map((entry) => Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  entry.key,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors.textSecondary,
+          
+          // List each item with its logic
+          ...cartProvider.items.map((item) {
+            final bool isFood = item.subCategoryId.endsWith('_food') || item.subCategoryId == 'food_menu';
+            final double itemTotal = isFood ? item.price * cartProvider.guestCount : item.price;
+            
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      item.name + (isFood ? " (Food x${cartProvider.guestCount})" : ""),
+                      style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                    ),
                   ),
-                ),
-                Text(
-                  '${AppStrings.rupee}${entry.value.toStringAsFixed(0)}',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textPrimary,
+                  Text(
+                    '${AppStrings.rupee}${itemTotal.toStringAsFixed(0)}',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppColors.textPrimary),
                   ),
-                ),
-              ],
-            ),
-          )),
-          const Divider(),
-          const SizedBox(height: 8),
+                ],
+              ),
+            );
+          }),
+          
+          const Divider(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Total',
+                'Total Amount',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -446,53 +398,5 @@ class CartScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void _showGuestCountDialog(BuildContext context, CartProvider cartProvider) {
-    final controller = TextEditingController(
-      text: cartProvider.guestCount.toString(),
-    );
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Enter Guest Count'),
-        content: TextField(
-          controller: controller,
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            labelText: 'Number of Guests',
-            hintText: 'e.g., 200',
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              final count = int.tryParse(controller.text);
-              if (count != null && count > 0) {
-                cartProvider.setGuestCount(count);
-                Navigator.pop(context);
-              }
-            },
-            child: const Text('Save'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  IconData _getItemIcon(String type) {
-    switch (type) {
-      case 'package':
-        return Icons.palette;
-      case 'food':
-        return Icons.restaurant;
-      default:
-        return Icons.check_circle;
-    }
   }
 }

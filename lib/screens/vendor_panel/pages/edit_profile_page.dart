@@ -21,6 +21,7 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
   bool _isSaving = false;
 
   // Controllers
+  late TextEditingController _vendorNameController;
   late TextEditingController _businessNameController;
   late TextEditingController _descriptionController;
   late TextEditingController _phoneController;
@@ -42,6 +43,7 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
   }
 
   void _initializeControllers() {
+    _vendorNameController = TextEditingController();
     _businessNameController = TextEditingController();
     _descriptionController = TextEditingController();
     _phoneController = TextEditingController();
@@ -61,6 +63,7 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
     final vendor = authProvider.currentVendor;
 
     if (vendor != null) {
+      _vendorNameController.text = vendor.vendorName;
       _businessNameController.text = vendor.businessName;
       _descriptionController.text = vendor.description;
       _phoneController.text = vendor.businessPhone;
@@ -78,6 +81,7 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
 
   @override
   void dispose() {
+    _vendorNameController.dispose();
     _businessNameController.dispose();
     _descriptionController.dispose();
     _phoneController.dispose();
@@ -138,6 +142,14 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
             children: [
               // Business Info Section
               _buildSectionHeader(Icons.business, 'Business Information'),
+              const SizedBox(height: 16),
+
+              CustomTextField(
+                controller: _vendorNameController,
+                label: 'Vendor Name',
+                hint: 'Your display name',
+                prefixIcon: Icons.person_pin_outlined,
+              ),
               const SizedBox(height: 16),
 
               CustomTextField(
@@ -330,6 +342,7 @@ class _VendorEditProfilePageState extends State<VendorEditProfilePage> {
           .collection('vendors')
           .doc(vendorId)
           .update({
+        'vendorName': _vendorNameController.text.trim(),
         'businessName': _businessNameController.text.trim(),
         'description': _descriptionController.text.trim(),
         'businessPhone': _phoneController.text.trim(),

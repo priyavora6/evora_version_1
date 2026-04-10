@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../config/app_colors.dart';
+import '../../config/app_routes.dart';
 import '../../providers/budget_provider.dart';
 import 'budget_detail_screen.dart';
 import 'payment_tracking_screen.dart';
@@ -31,7 +32,13 @@ class _BudgetScreenState extends State<BudgetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Budget Tracker")),
+      appBar: AppBar(
+        title: const Text("Budget Tracker"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => AppRoutes.navigateToUserDashboard(context),
+        ),
+      ),
       body: Consumer<BudgetProvider>(
         builder: (context, provider, child) {
           if (provider.isLoading && provider.budget == null) {

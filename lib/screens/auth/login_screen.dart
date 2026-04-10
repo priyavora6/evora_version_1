@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (user == null) throw Exception("User session not found.");
 
         // 2. Sync Notification Token Immediately
-        await NotificationService().updateDeviceToken();
+        await NotificationService().updateFCMToken(); // ✅ Updated method name
 
         // 3. Fetch User Data to determine where they belong
         DocumentSnapshot userDoc = await FirebaseFirestore.instance

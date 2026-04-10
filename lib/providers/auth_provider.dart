@@ -84,11 +84,24 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // 🔑 OTP & VERIFICATION (Fixes error in email_otp_screen.dart)
-  // ═══════════════════════════════════════════════════════════════════════
+  // ✅ NEW: Toggle Browse Vendors preference
+  Future<void> toggleSeeVendors(bool value) async {
+    if (_currentUser == null) return;
+    try {
+      await _firestore.collection('users').doc(_currentUser!.id).update({
+        'wantToSeeVendors': value,
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+      _currentUser = _currentUser!.copyWith(wantToSeeVendors: value);
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Toggle vendors error: $e');
+    }
+  }
 
-  // 1. Generate and send OTP
+  // ═══════════════════════════════════════════════════════════════════════
+  // 🔑 OTP & VERIFICATION
+  // ═══════════════════════════════════════════════════════════════════════
   Future<String?> sendEmailOTP(String email) async {
     _setLoading(true);
     try {
@@ -101,14 +114,13 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // 2. Verify the entered OTP
   Future<bool> verifyEmailOTP(String email, String enteredOtp) async {
     _setLoading(true);
     _setError(null);
     try {
       bool success = await _authService.verifyEmailOTP(email, enteredOtp);
       if (success) {
-        await refreshUserData(); // Update local state after verification
+        await refreshUserData();
       }
       return success;
     } catch (e) {
@@ -132,6 +144,14 @@ class AuthProvider extends ChangeNotifier {
         await refreshUserData();
         _status = AuthStatus.authenticated;
         await _syncFCMToken();
+        
+        // ✅ Fixed: Use correct parameter name 'isVendorMode'
+        await _notificationService.sendWelcomeNotification(
+          userId: user.id,
+          userName: user.name,
+          isVendorMode: isVendor,
+        );
+        
         return true;
       }
       return false;
@@ -167,6 +187,7 @@ class AuthProvider extends ChangeNotifier {
           'roles': ['user'],
           'isActive': true,
           'createdAt': FieldValue.serverTimestamp(),
+          'wantToSeeVendors': false,
         }, SetOptions(merge: true));
 
         _currentUser = user;
@@ -174,7 +195,14 @@ class AuthProvider extends ChangeNotifier {
 
         await Future.delayed(const Duration(seconds: 1));
         await _syncFCMToken();
-        await _sendWelcomeNotification(user.id, user.name);
+        
+        // ✅ Fixed: Use correct parameter name 'isVendorMode'
+        await _notificationService.sendWelcomeNotification(
+          userId: user.id,
+          userName: user.name,
+          isVendorMode: roleIntent == 'vendor',
+        );
+        
         return true;
       }
       return false;
@@ -187,6 +215,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<void> logout() async {
+    await _syncLogoutFCMToken();
     await _authService.logout();
     _currentUser = null;
     _currentVendor = null;
@@ -278,22 +307,21 @@ class AuthProvider extends ChangeNotifier {
   Future<void> _syncFCMToken() async {
     if (_currentUser != null) {
       try {
-        await _notificationService.updateDeviceToken();
+        await _notificationService.updateFCMToken();
       } catch (e) {
         debugPrint("FCM Error: $e");
       }
     }
   }
 
-  Future<void> _sendWelcomeNotification(String userId, String userName) async {
-    try {
-      await _firestore.collection('notifications').add({
-        'userId': userId,
-        'title': "Welcome to EVORA, $userName! 🥂",
-        'message': "Your journey to an unforgettable event starts here.",
-        'type': 'general', 'isRead': false, 'createdAt': FieldValue.serverTimestamp(),
-      });
-    } catch (e) { debugPrint("Notification Fail: $e"); }
+  Future<void> _syncLogoutFCMToken() async {
+    if (_currentUser != null) {
+      try {
+        await _notificationService.deleteFCMToken();
+      } catch (e) {
+        debugPrint("FCM Logout Error: $e");
+      }
+    }
   }
 
   void _setLoading(bool value) { _isLoading = value; notifyListeners(); }

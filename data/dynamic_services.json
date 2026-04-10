@@ -1,0 +1,113 @@
+{
+  "categories": [
+    {
+      "id": "wedding",
+      "name": "💍 Wedding",
+      "icon": "💍",
+      "image": "https://example.com/wedding_banner.jpg",
+      "subcategories": [
+        {
+          "id": "wedding_rituals",
+          "name": "🌼 Rituals & Ceremonies",
+          "subcategoryIcon": "🌼",
+          "services": [
+            {
+              "id": "haldi_setup",
+              "name": "Haldi Ceremony Setup",
+              "image": "https://example.com/haldi.jpg",
+              "basePrice": 8000,
+              "description": "Complete Haldi ceremony decoration with fresh flowers and turmerics.",
+              "rating": 4.8,
+              "reviews": 120,
+              "options": [
+                {
+                  "type": "radio",
+                  "name": "Decoration Theme *",
+                  "required": true,
+                  "choices": [
+                    {"label": "Simple Yellow Theme", "price": 0},
+                    {"label": "Floral + Yellow Theme", "price": 3000},
+                    {"label": "Premium Marigold Theme", "price": 5000}
+                  ]
+                },
+                {
+                  "type": "radio",
+                  "name": "Seating Arrangement *",
+                  "required": true,
+                  "choices": [
+                    {"label": "Floor Cushions", "price": 0},
+                    {"label": "Low Seating Chairs", "price": 2000}
+                  ]
+                },
+                {
+                  "type": "checkbox",
+                  "name": "Add-ons (Optional)",
+                  "required": false,
+                  "choices": [
+                    {"label": "Photo Booth Props", "price": 2000},
+                    {"label": "Haldi Paste & Bowls", "price": 1500},
+                    {"label": "Floral Jewellery Set", "price": 2500}
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "mehendi_artist",
+              "name": "Bridal Mehendi Artist",
+              "image": "https://example.com/mehendi.jpg",
+              "basePrice": 5000,
+              "description": "Professional mehendi artist with traditional and modern designs.",
+              "rating": 4.9,
+              "reviews": 85,
+              "options": [
+                {
+                  "type": "radio",
+                  "name": "Design Style *",
+                  "required": true,
+                  "choices": [
+                    {"label": "Traditional Rajasthani", "price": 0},
+                    {"label": "Arabic Style", "price": 2000},
+                    {"label": "Minimalist", "price": -1000}
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "mandap_setup",
+              "name": "Premium Mandap Setup",
+              "image": "https://example.com/mandap.jpg",
+              "basePrice": 25000,
+              "description": "Luxury wedding mandap with floral arches and lighting.",
+              "rating": 4.7,
+              "reviews": 200,
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "birthday",
+      "name": "🎂 Birthday",
+      "icon": "🎂",
+      "image": "https://example.com/birthday_banner.jpg",
+      "subcategories": [
+        {
+          "id": "birthday_decor",
+          "name": "Decoration",
+          "subcategoryIcon": "🎈",
+          "services": [
+            {
+              "id": "birthday_theme_setup",
+              "name": "Theme Decoration Setup",
+              "basePrice": 5000,
+              "description": "Complete birthday theme decoration.",
+              "rating": 4.6,
+              "reviews": 89
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,3 @@
-// lib/screens/events/event_form_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -9,8 +7,6 @@ import '../../config/app_strings.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/cart_provider.dart';
 import '../../providers/user_event_provider.dart';
-import '../../services/user_event_service.dart';
-import '../../models/user_event_model.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
 import '../../widgets/loading_indicator.dart';
@@ -39,17 +35,13 @@ class _EventFormScreenState extends State<EventFormScreen> {
   DateTime _selectedDate = DateTime.now().add(const Duration(days: 30));
   TimeOfDay _selectedTime = const TimeOfDay(hour: 10, minute: 0);
   bool _isLoading = false;
-  bool _isCheckingDate = false;
-  List<UserEvent> _existingEventsOnDate = [];
-
-  final UserEventService _eventService = UserEventService();
+  String _vendorPreference = 'platform'; 
 
   @override
   void initState() {
     super.initState();
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     _guestCountController.text = cartProvider.guestCount.toString();
-    _checkDateAvailability(_selectedDate);
   }
 
   @override
@@ -64,103 +56,26 @@ class _EventFormScreenState extends State<EventFormScreen> {
     super.dispose();
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // 📅 CHECK DATE AVAILABILITY
-  // ═══════════════════════════════════════════════════════════════════════
-  Future<void> _checkDateAvailability(DateTime date) async {
-    setState(() => _isCheckingDate = true);
-
-    try {
-      final events = await _eventService.getEventsOnDate(date);
-      if (mounted) {
-        setState(() {
-          _existingEventsOnDate = events;
-          _isCheckingDate = false;
-        });
-      }
-    } catch (e) {
-      debugPrint('Error checking date availability: $e');
-      if (mounted) {
-        setState(() => _isCheckingDate = false);
-      }
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════════
-  // 📅 SELECT DATE
-  // ═══════════════════════════════════════════════════════════════════════
   Future<void> _selectDate() async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: _selectedDate,
       firstDate: DateTime.now(),
       lastDate: DateTime.now().add(const Duration(days: 730)),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(primary: AppColors.primary),
-          ),
-          child: child!,
-        );
-      },
     );
-
-    if (picked != null && picked != _selectedDate) {
-      setState(() => _selectedDate = picked);
-      _checkDateAvailability(picked);
-    }
+    if (picked != null) setState(() => _selectedDate = picked);
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // ⏰ SELECT TIME
-  // ═══════════════════════════════════════════════════════════════════════
   Future<void> _selectTime() async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: _selectedTime,
-      builder: (context, child) => Theme(
-        data: Theme.of(context).copyWith(
-          colorScheme: ColorScheme.light(primary: AppColors.primary),
-        ),
-        child: child!,
-      ),
     );
-
-    if (picked != null) {
-      setState(() => _selectedTime = picked);
-    }
+    if (picked != null) setState(() => _selectedTime = picked);
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // ✅ CREATE EVENT
-  // ═══════════════════════════════════════════════════════════════════════
   Future<void> _createEvent() async {
     if (!_formKey.currentState!.validate()) return;
-
-    // Check for date conflicts
-    if (_existingEventsOnDate.isNotEmpty) {
-      final proceed = await showDialog<bool>(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: const Text("Date Busy!"),
-          content: const Text(
-            "There are already events scheduled for this day. Do you want to proceed anyway?",
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: const Text("Cancel"),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: const Text("Book Anyway"),
-            ),
-          ],
-        ),
-      );
-
-      if (proceed != true) return;
-    }
 
     setState(() => _isLoading = true);
 
@@ -168,33 +83,21 @@ class _EventFormScreenState extends State<EventFormScreen> {
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     final userEventProvider = Provider.of<UserEventProvider>(context, listen: false);
 
-    // Get user info
-    final user = authProvider.currentUser;
+    final user = authProvider.user; // ✅ Get user from your AuthProvider
     if (user == null) {
       setState(() => _isLoading = false);
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Please login to book event")),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Please login first")));
       return;
     }
 
-    // Parse guest count and budget
-    final guestCount = int.tryParse(_guestCountController.text) ?? 100;
-    final budget = double.tryParse(_budgetController.text) ?? 0.0;
-
-    // Update cart guest count
-    cartProvider.setGuestCount(guestCount);
-
     try {
-      // Create event with all required fields
       final eventId = await userEventProvider.createEvent(
         userId: user.id,
         userName: user.name,
         userPhone: user.phone,
         userEmail: user.email,
         eventTypeId: cartProvider.selectedEventTypeId ?? 'custom',
-        eventTypeName: cartProvider.selectedEventTypeName ?? 'Custom Event',
+        eventTypeName: cartProvider.selectedEventTypeName ?? 'Event',
         eventName: _eventNameController.text.trim(),
         description: _descriptionController.text.trim(),
         eventDate: _selectedDate,
@@ -202,388 +105,153 @@ class _EventFormScreenState extends State<EventFormScreen> {
         location: _locationController.text.trim(),
         venue: _venueController.text.trim(),
         city: _cityController.text.trim(),
-        guestCount: guestCount,
-        estimatedBudget: budget,
+        guestCount: int.parse(_guestCountController.text),
+        estimatedBudget: double.tryParse(_budgetController.text) ?? 0.0,
         totalEstimatedCost: cartProvider.totalPrice,
-        selectedItems: cartProvider.items, // ✅ Added missing required parameter
+        selectedItems: cartProvider.items, // ✅ Simplified now that models are unified
+        vendorPreference: _vendorPreference,
+        wantsPlatformVendors: _vendorPreference == 'platform',
+        usesOwnVendors: _vendorPreference == 'own',
       );
 
-      setState(() => _isLoading = false);
-
-      if (eventId != null && mounted) {
-        // Clear cart
+      if (eventId != null) {
         cartProvider.clearCart();
-
-        // Show success message
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Event booking request submitted successfully!'),
-            backgroundColor: Colors.green,
-          ),
-        );
-
-        // Navigate to confirmation
-        Navigator.pushReplacementNamed(
-          context,
-          AppRoutes.eventConfirmation,
-          arguments: {'eventId': eventId},
-        );
-      } else {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(userEventProvider.error ?? 'Failed to create event'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        Navigator.pushReplacementNamed(context, AppRoutes.eventConfirmation, arguments: {'eventId': eventId});
       }
     } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
+    } finally {
       setState(() => _isLoading = false);
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error: ${e.toString()}'),
-          backgroundColor: Colors.red,
-        ),
-      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+    final bool isUserAVendor = authProvider.isVendor;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Book Event'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Summary Card
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.primary,
-                      AppColors.primary.withOpacity(0.8),
-                    ],
+      appBar: AppBar(title: const Text('Book Event')),
+      body: _isLoading 
+        ? const Center(child: LoadingIndicator())
+        : SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildSummaryCard(),
+                  const SizedBox(height: 30),
+                  _buildSectionTitle('Event Details'),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: _eventNameController,
+                    label: 'Event Name *',
+                    hint: "e.g. My Wedding",
+                    prefixIcon: Icons.celebration,
+                    validator: Validators.validateRequired,
                   ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Consumer<CartProvider>(
-                  builder: (context, cart, _) => Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: _guestCountController,
+                    label: 'No. of Guests *',
+                    hint: "e.g. 200",
+                    prefixIcon: Icons.people,
+                    keyboardType: TextInputType.number,
+                    validator: Validators.validateRequired,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    controller: _locationController,
+                    label: 'Location / Address *',
+                    hint: "e.g. 123 Street, Area",
+                    prefixIcon: Icons.location_on,
+                    validator: Validators.validateRequired,
+                  ),
+                  const SizedBox(height: 20),
+                  _buildDateTimeRow(),
+                  const SizedBox(height: 30),
+                  _buildSectionTitle('Venue Details'),
+                  const SizedBox(height: 15),
+                  CustomTextField(controller: _venueController, label: 'Venue Name *', validator: Validators.validateRequired),
+                  const SizedBox(height: 15),
+                  CustomTextField(controller: _cityController, label: 'City *', validator: Validators.validateRequired),
+                  const SizedBox(height: 30),
+                  _buildSectionTitle('Vendor Preference'),
+                  _buildVendorOption('platform', 'Evora Vendors', Icons.verified_user),
+                  
+                  // 🛡️ Admin Vendor Deal Info
+                  if (isUserAVendor && _vendorPreference == 'platform')
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade50,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.blue.shade200),
+                      ),
+                      child: Row(
                         children: [
-                          Text(
-                            cart.selectedEventTypeName ?? 'Event',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            '${AppStrings.rupee}${cart.totalPrice.toStringAsFixed(0)}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          Icon(Icons.info_outline, color: Colors.blue.shade700, size: 20),
+                          const SizedBox(width: 12),
+                          const Expanded(
+                            child: Text(
+                              'As an Evora Professional, selecting "Evora Vendors" means you cannot provide your own services for this event. Payments will be handled via Admin-Vendor deal.',
+                              style: TextStyle(fontSize: 12, color: Colors.blue),
                             ),
                           ),
                         ],
                       ),
-                      if (cart.items.isNotEmpty) ...[
-                        const SizedBox(height: 10),
-                        const Divider(color: Colors.white24),
-                        const SizedBox(height: 5),
-                        Text(
-                          '${cart.items.length} service(s) selected',
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white70,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              // Event Details Section
-              const Text(
-                'Event Details',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-              const SizedBox(height: 15),
-
-              // Event Name
-              CustomTextField(
-                controller: _eventNameController,
-                label: 'Event Name *',
-                hint: "e.g. John's Birthday Party",
-                prefixIcon: Icons.celebration_outlined,
-                validator: Validators.validateRequired,
-                textCapitalization: TextCapitalization.words,
-              ),
-              const SizedBox(height: 20),
-
-              // Description
-              CustomTextField(
-                controller: _descriptionController,
-                label: 'Description',
-                hint: 'Brief description of your event',
-                prefixIcon: Icons.description_outlined,
-                maxLines: 3,
-              ),
-              const SizedBox(height: 20),
-
-              // Date & Time
-              Row(
-                children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: _selectDate,
-                      child: AbsorbPointer(
-                        child: CustomTextField(
-                          controller: TextEditingController(
-                            text: DateFormat('dd MMM yyyy').format(_selectedDate),
-                          ),
-                          label: 'Event Date *',
-                          prefixIcon: Icons.calendar_today,
-                          readOnly: true,
-                        ),
-                      ),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: _selectTime,
-                      child: AbsorbPointer(
-                        child: CustomTextField(
-                          controller: TextEditingController(
-                            text: _selectedTime.format(context),
-                          ),
-                          label: 'Time *',
-                          prefixIcon: Icons.access_time,
-                          readOnly: true,
-                        ),
-                      ),
-                    ),
-                  ),
+
+                  _buildVendorOption('own', 'Own Vendors', Icons.people),
+                  const SizedBox(height: 40),
+                  CustomButton(text: 'Request Booking', onPressed: _createEvent),
                 ],
               ),
-
-              // Date Availability Check
-              const SizedBox(height: 10),
-              if (_isCheckingDate)
-                const Padding(
-                  padding: EdgeInsets.only(left: 4.0),
-                  child: Text(
-                    "Checking availability...",
-                    style: TextStyle(fontSize: 12, color: Colors.grey),
-                  ),
-                )
-              else if (_existingEventsOnDate.isNotEmpty)
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.orange),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Row(
-                        children: [
-                          Icon(Icons.warning, color: Colors.orange, size: 18),
-                          SizedBox(width: 8),
-                          Text(
-                            "Events already booked on this day:",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.orange,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      ..._existingEventsOnDate.map(
-                            (e) => Padding(
-                          padding: const EdgeInsets.only(bottom: 4.0),
-                          child: Text(
-                            "• ${e.eventName} (${e.eventTypeName})",
-                            style: const TextStyle(fontSize: 13),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              else
-                const Padding(
-                  padding: EdgeInsets.only(left: 4.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.check_circle, size: 16, color: Colors.green),
-                      SizedBox(width: 5),
-                      Text(
-                        "Date available!",
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-              const SizedBox(height: 30),
-
-              // Venue Details Section
-              const Text(
-                'Venue Details',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-              const SizedBox(height: 15),
-
-              // Venue Name
-              CustomTextField(
-                controller: _venueController,
-                label: 'Venue Name *',
-                hint: 'e.g. Grand Ballroom',
-                prefixIcon: Icons.business_outlined,
-                validator: Validators.validateRequired,
-              ),
-              const SizedBox(height: 20),
-
-              // Location Address
-              CustomTextField(
-                controller: _locationController,
-                label: 'Address *',
-                hint: 'Full venue address',
-                prefixIcon: Icons.location_on_outlined,
-                validator: Validators.validateRequired,
-                maxLines: 2,
-              ),
-              const SizedBox(height: 20),
-
-              // City
-              CustomTextField(
-                controller: _cityController,
-                label: 'City *',
-                hint: 'e.g. Mumbai',
-                prefixIcon: Icons.location_city_outlined,
-                validator: Validators.validateRequired,
-              ),
-
-              const SizedBox(height: 30),
-
-              // Guest & Budget Section
-              const Text(
-                'Guest & Budget',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-              const SizedBox(height: 15),
-
-              // Guest Count
-              CustomTextField(
-                controller: _guestCountController,
-                label: 'Expected Guests *',
-                hint: 'Number of guests',
-                prefixIcon: Icons.people_outline,
-                keyboardType: TextInputType.number,
-                validator: Validators.validateNumber,
-              ),
-              const SizedBox(height: 20),
-
-              // Budget
-              CustomTextField(
-                controller: _budgetController,
-                label: 'Your Budget',
-                hint: 'Approximate budget in ₹',
-                prefixIcon: Icons.currency_rupee,
-                keyboardType: TextInputType.number,
-              ),
-
-              const SizedBox(height: 40),
-
-              // Submit Button
-              _isLoading
-                  ? const Center(
-                child: Column(
-                  children: [
-                    LoadingIndicator(),
-                    SizedBox(height: 10),
-                    Text(
-                      'Submitting your booking request...',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppColors.textSecondary,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-                  : CustomButton(
-                text: 'Request Booking',
-                onPressed: _createEvent,
-              ),
-
-              const SizedBox(height: 20),
-
-              // Info Note
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Row(
-                  children: [
-                    Icon(Icons.info_outline, color: Colors.blue, size: 20),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        'Your booking request will be reviewed by our team. You will be notified once approved.',
-                        style: TextStyle(fontSize: 12, color: Colors.blue),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 20),
-            ],
+            ),
           ),
+    );
+  }
+
+  Widget _buildSummaryCard() {
+    return Consumer<CartProvider>(
+      builder: (context, cart, _) => Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(color: AppColors.primary, borderRadius: BorderRadius.circular(16)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(cart.selectedEventTypeName ?? 'Event Summary', style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+            Text('₹${cart.totalPrice.toStringAsFixed(0)}', style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+          ],
         ),
       ),
     );
+  }
+
+  Widget _buildDateTimeRow() {
+    return Row(
+      children: [
+        Expanded(child: ListTile(title: const Text("Date"), subtitle: Text(DateFormat('dd MMM yyyy').format(_selectedDate)), onTap: _selectDate, tileColor: Colors.grey.shade100)),
+        const SizedBox(width: 10),
+        Expanded(child: ListTile(title: const Text("Time"), subtitle: Text(_selectedTime.format(context)), onTap: _selectTime, tileColor: Colors.grey.shade100)),
+      ],
+    );
+  }
+
+  Widget _buildVendorOption(String value, String title, IconData icon) {
+    return RadioListTile(
+      value: value,
+      groupValue: _vendorPreference,
+      onChanged: (val) => setState(() => _vendorPreference = val.toString()),
+      title: Text(title),
+      secondary: Icon(icon, color: AppColors.primary),
+    );
+  }
+
+  Widget _buildSectionTitle(String title) {
+    return Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
   }
 }

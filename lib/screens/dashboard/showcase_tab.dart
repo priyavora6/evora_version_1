@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
 import '../../config/app_colors.dart';
 import '../../config/app_routes.dart';
+import '../../providers/cart_provider.dart';
+import '../../models/category_model.dart'; // ✅ Import CategoryModel
+import 'dashboard_screen.dart';
 
 class ShowcaseTab extends StatefulWidget {
   const ShowcaseTab({super.key});
@@ -17,15 +21,14 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
     'All',
     'Wedding',
     'Engagement',
-    'Birthday',
-    'Anniversary',
-    'Corporate',
-    'Baby Shower',
     'Party',
+    'Corporate',
+    'Anniversary',
+    'Baby Shower',
     'Graduation'
   ];
 
-  // ═══════════════════════════════════════════════════════════════════════
+   //═══════════════════════════════════════════════════════════════════════
   // 💼 MASSIVE PORTFOLIO DATA (8 Categories x 10 Items = 80 Real Events)
   // ═══════════════════════════════════════════════════════════════════════
   List<Map<String, dynamic>> get portfolioItems => [
@@ -673,29 +676,28 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
 
   ];
 
+
   // 🧭 NAVIGATION HELPER
-  void _navigateToEvent(BuildContext context, String category) {
-    String typeId = 'wedding';
-    switch (category) {
-      case 'Wedding': typeId = 'wedding'; break;
-      case 'Birthday': typeId = 'birthday'; break;
-      case 'Corporate': typeId = 'corporate'; break;
-      case 'Anniversary': typeId = 'anniversary'; break;
-      case 'Party': typeId = 'party'; break;
-      case 'Baby Shower': typeId = 'babyshower'; break;
-      case 'Engagement': typeId = 'engagement'; break;
-      case 'Graduation': typeId = 'graduation'; break;
-      default: typeId = 'wedding';
-    }
+  void _navigateToEvent(BuildContext context, String categoryName, String typeId) {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    cartProvider.clearCart();
+
+    // ✅ Create a model to pass to the next screen
+    final selectedCategory = CategoryModel(
+      id: typeId,
+      name: categoryName,
+      emoji: '',
+      description: '',
+      icon: '',
+    );
 
     Navigator.pushNamed(
       context,
-      AppRoutes.sections,
-      arguments: {'eventTypeId': typeId, 'eventTypeName': category},
+      AppRoutes.subCategory, // Navigates to SubcategoriesScreen
+      arguments: {'category': selectedCategory}, // ✅ Matches updated app_routes.dart
     );
   }
 
-  // 📄 DETAIL SHEET
   void _openProjectDetails(BuildContext context, Map<String, dynamic> item) {
     showModalBottomSheet(
       context: context,
@@ -705,7 +707,7 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
         item: item,
         onBook: () {
           Navigator.pop(context);
-          _navigateToEvent(context, item['category']);
+          _navigateToEvent(context, item['category'], item['typeId'] ?? 'party');
         },
       ),
     );
@@ -722,22 +724,30 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
       appBar: AppBar(
         title: const Text(
           'Event Gallery',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0xFF1A237E),
+        backgroundColor: AppColors.primary,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 20),
-          onPressed: () => Navigator.pushNamedAndRemoveUntil(context, AppRoutes.dashboard, (r) => false),
+          onPressed: () {
+            // ✅ Redirect to Home Tab of Dashboard
+            final dashboardState = context.findAncestorStateOfType<DashboardScreenState>();
+            if (dashboardState != null) {
+              dashboardState.setIndex(0);
+            } else {
+              AppRoutes.navigateToUserDashboard(context);
+            }
+          },
         ),
       ),
       body: Column(
         children: [
           // ─── FILTER CHIPS ───
           Container(
-            color: const Color(0xFF1A237E),
-            padding: const EdgeInsets.only(bottom: 15),
+            color: AppColors.primary,
+            padding: const EdgeInsets.symmetric(vertical: 8),
             height: 60,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -747,20 +757,29 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
                 final cat = categories[index];
                 final isSelected = selectedFilter == cat;
                 return Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: ChoiceChip(
-                    label: Text(cat),
-                    selected: isSelected,
-                    onSelected: (val) => setState(() => selectedFilter = cat),
-                    selectedColor: Colors.white,
-                    backgroundColor: Colors.indigo.shade300,
-                    labelStyle: TextStyle(
-                      color: isSelected ? Colors.black : Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide.none,
+                  padding: const EdgeInsets.only(right: 12),
+                  child: InkWell(
+                    onTap: () => setState(() => selectedFilter = cat),
+                    borderRadius: BorderRadius.circular(25),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: isSelected ? Colors.white : Colors.white.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(
+                          color: isSelected ? Colors.white : Colors.white.withOpacity(0.4),
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Text(
+                        cat,
+                        style: TextStyle(
+                          color: isSelected ? AppColors.primary : Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
                     ),
                   ),
                 );
@@ -791,10 +810,6 @@ class _ShowcaseTabState extends State<ShowcaseTab> {
   }
 }
 
-// ═══════════════════════════════════════════════════════════
-// WIDGETS
-// ═══════════════════════════════════════════════════════════
-
 class _PortfolioCard extends StatelessWidget {
   final Map<String, dynamic> item;
   final VoidCallback onTap;
@@ -809,13 +824,7 @@ class _PortfolioCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
+          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4))],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -827,14 +836,7 @@ class _PortfolioCard extends StatelessWidget {
                   imageUrl: item['image'],
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  placeholder: (context, url) => Container(
-                    color: Colors.grey[200],
-                    child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    color: Colors.grey[200],
-                    child: const Icon(Icons.broken_image, color: Colors.grey),
-                  ),
+                  errorWidget: (context, url, error) => Container(color: Colors.grey[200], child: const Icon(Icons.broken_image)),
                 ),
               ),
             ),
@@ -843,40 +845,14 @@ class _PortfolioCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item['category'].toUpperCase(),
-                    style: const TextStyle(
-                      color: Color(0xFF1A237E),
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text(item['category'].toUpperCase(), style: const TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
-                  Text(
-                    item['title'],
-                    style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  Text(item['title'], style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14), maxLines: 1),
                   const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      const Icon(Icons.location_on, size: 12, color: Colors.grey),
-                      const SizedBox(width: 4),
-                      Expanded(
-                        child: Text(
-                          item['location'],
-                          style: const TextStyle(color: Colors.grey, fontSize: 11),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
+                  Row(children: [
+                    const Icon(Icons.location_on, size: 12, color: Colors.grey),
+                    Expanded(child: Text(item['location'], style: const TextStyle(color: Colors.grey, fontSize: 11), maxLines: 1)),
+                  ]),
                 ],
               ),
             )
@@ -896,125 +872,34 @@ class _PortfolioDetailSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.85,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
+      height: MediaQuery.of(context).size.height * 0.8,
+      decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-                child: CachedNetworkImage(
-                  imageUrl: item['image'],
-                  height: 300,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => Container(
-                    height: 300,
-                    color: Colors.grey[200],
-                    child: const Center(child: CircularProgressIndicator()),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    height: 300,
-                    color: Colors.grey[200],
-                    child: const Icon(Icons.error),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 16,
-                right: 16,
-                child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: Icon(Icons.close, color: Colors.black),
-                  ),
-                ),
-              ),
-            ],
-          ),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1A237E).withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      item['category'],
-                      style: const TextStyle(
-                        color: Color(0xFF1A237E),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CachedNetworkImage(imageUrl: item['image'], height: 250, width: double.infinity, fit: BoxFit.cover),
                   ),
-                  const SizedBox(height: 12),
-                  Text(
-                    item['title'],
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
+                  const SizedBox(height: 20),
+                  Text(item['title'], style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      const Icon(Icons.location_on, color: Colors.grey),
-                      const SizedBox(width: 6),
-                      Text(
-                        item['location'],
-                        style: const TextStyle(color: Colors.grey, fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  const Divider(height: 30),
-                  const Text(
-                    "Event Highlights",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    item['desc'],
-                    style: const TextStyle(
-                      fontSize: 15,
-                      color: Colors.black54,
-                      height: 1.5,
-                    ),
-                  ),
+                  Text(item['desc'], style: const TextStyle(color: Colors.black54, height: 1.5)),
                   const SizedBox(height: 30),
                   SizedBox(
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
                       onPressed: onBook,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1A237E),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: const Text(
-                        "Plan an Event Like This",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+                      child: const Text("Plan an Event Like This", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                     ),
                   ),
-                  const SizedBox(height: 20),
                 ],
               ),
             ),

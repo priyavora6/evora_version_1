@@ -47,10 +47,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Future<void> _handleRegister() async {
-    // 1. Validate Form Fields
     if (!_formKey.currentState!.validate()) return;
 
-    // 2. Check if Passwords match
     if (_passwordController.text != _confirmPasswordController.text) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -66,21 +64,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
     try {
-      // 3. 🔥 CALL REGISTER WITH ROLE INTENT
-      // This saves the user's choice ('user' or 'vendor') into Firestore immediately
       final registered = await authProvider.register(
         email: _emailController.text.trim(),
         password: _passwordController.text,
         name: _nameController.text.trim(),
         phone: _phoneController.text.trim(),
-        roleIntent: _selectedRole, // ✅ Sending the choice to the database
+        roleIntent: _selectedRole,
       );
 
       if (!mounted) return;
 
       if (registered) {
-        // ✅ SUCCESS: Move to the Email Verification screen.
-        // We pass arguments so the next screen knows what to show.
         Navigator.pushReplacementNamed(
           context,
           AppRoutes.emailVerifyWaiting,
@@ -91,7 +85,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           },
         );
       } else {
-        // Show error message from provider
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(authProvider.errorMessage ?? "Registration failed"),
@@ -132,7 +125,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Logo Section
                 Center(
                   child: Column(
                     children: [
@@ -169,7 +161,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 30),
 
-                // Full Name
                 CustomTextField(
                   controller: _nameController,
                   label: AppStrings.fullName,
@@ -180,7 +171,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Email
                 CustomTextField(
                   controller: _emailController,
                   label: AppStrings.email,
@@ -191,7 +181,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Phone
                 CustomTextField(
                   controller: _phoneController,
                   label: AppStrings.phoneNumber,
@@ -203,7 +192,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Password
                 CustomTextField(
                   controller: _passwordController,
                   label: AppStrings.password,
@@ -218,7 +206,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Confirm Password
                 CustomTextField(
                   controller: _confirmPasswordController,
                   label: AppStrings.confirmPassword,
@@ -266,7 +253,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 35),
 
-                // Register Button
                 _isProcessing
                     ? const Center(child: LoadingIndicator())
                     : CustomButton(
@@ -276,7 +262,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 const SizedBox(height: 30),
 
-                // Login Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -306,7 +291,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  // 🔥 Helper widget for the Role selection cards
   Widget _buildRoleOption({required String title, required String value, required IconData icon}) {
     bool isSelected = _selectedRole == value;
     return GestureDetector(

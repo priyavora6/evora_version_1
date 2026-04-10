@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../config/app_colors.dart';
 import '../../../models/vendor_model.dart';
+import '../../../providers/auth_provider.dart';
 import '../../../screens/payment/payment_screen.dart';
 
 class VendorsTab extends StatelessWidget {
@@ -21,6 +23,9 @@ class VendorsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final bool isUserAVendor = authProvider.isVendor;
+
     return StreamBuilder<DocumentSnapshot>(
       stream: FirebaseFirestore.instance
           .collection('userEvents')
@@ -41,12 +46,14 @@ class VendorsTab extends StatelessWidget {
 
         final eventData = snapshot.data!.data() as Map<String, dynamic>;
         final List<dynamic> assignedVendors = eventData['assignedVendors'] ?? [];
+        final String vendorPreference = eventData['vendorPreference'] ?? 'platform';
+        
+        final bool isAdminVendorDeal = isUserAVendor && vendorPreference == 'platform';
 
         if (assignedVendors.isEmpty) {
           return _buildEmptyState();
         }
 
-        // 💰 Calculate totals
         double totalAmount = 0;
         double paidAmount = 0;
         int paidCount = 0;
@@ -63,22 +70,78 @@ class VendorsTab extends StatelessWidget {
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _buildPaymentSummary(
-              context,
-              totalAmount: totalAmount,
-              paidAmount: paidAmount,
-              vendorCount: assignedVendors.length,
-              paidCount: paidCount,
-            ),
+            if (isAdminVendorDeal)
+              _buildAdminDealBanner()
+            else
+              _buildPaymentSummary(
+                context,
+                totalAmount: totalAmount,
+                paidAmount: paidAmount,
+                vendorCount: assignedVendors.length,
+                paidCount: paidCount,
+              ),
             const SizedBox(height: 16),
             _buildHeader(assignedVendors.length),
             const SizedBox(height: 16),
             ...assignedVendors.map((vendor) {
-              return _buildVendorCard(context, vendor as Map<String, dynamic>);
+              return _buildVendorCard(
+                context, 
+                vendor as Map<String, dynamic>,
+                hidePayment: isAdminVendorDeal,
+              );
             }).toList(),
           ],
         );
       },
+    );
+  }
+
+  Widget _buildAdminDealBanner() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [AppColors.primary, Color(0xFF1A237E)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withOpacity(0.3),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.handshake_rounded, color: Colors.white, size: 28),
+              SizedBox(width: 12),
+              Text(
+                'Admin-Vendor Deal',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            'Since you are an Evora Professional, your payment for Evora Vendors is handled directly via admin agreements. No payment is required from your side.',
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.9),
+              fontSize: 14,
+              height: 1.4,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -281,7 +344,7 @@ class VendorsTab extends StatelessWidget {
     );
   }
 
-  Widget _buildVendorCard(BuildContext context, Map<String, dynamic> data) {
+  Widget _buildVendorCard(BuildContext context, Map<String, dynamic> data, {bool hidePayment = false}) {
     final String vendorId = data['vendorId'] ?? '';
     final String name = data['vendorName'] ?? 'Matched Professional';
     final String type = data['serviceType'] ?? 'Service';
@@ -292,220 +355,251 @@ class VendorsTab extends StatelessWidget {
     final bool isPaid = paymentStatus == 'paid';
     Color statusColor = status == 'confirmed' ? Colors.green : Colors.orange;
 
-    return Card(
-      elevation: 0,
-      margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-        side: BorderSide(
-          color: isPaid ? Colors.green.shade300 : Colors.grey.shade200,
-          width: isPaid ? 1.5 : 1,
-        ),
-      ),
-      child: Column(
-        children: [
-          InkWell(
-            onTap: () => _showVendorProfile(context, vendorId),
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: isPaid
-                              ? Colors.green.withOpacity(0.1)
-                              : AppColors.primary.withOpacity(0.1),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          isPaid ? Icons.check_circle : _getIcon(type),
-                          color: isPaid ? Colors.green : AppColors.primary,
-                          size: 24,
-                        ),
-                      ),
-                      const SizedBox(width: 15),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              type.toUpperCase(),
-                              style: const TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Text(
-                              name,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            "₹${price.toStringAsFixed(0)}",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: isPaid ? Colors.green : Colors.black87,
-                            ),
-                          ),
-                          if (isPaid)
-                            Container(
-                              margin: const EdgeInsets.only(top: 4),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.green.shade50,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Text(
-                                '✓ PAID',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green,
-                                ),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const Divider(height: 24),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return FutureBuilder<DocumentSnapshot>(
+      future: FirebaseFirestore.instance.collection('vendors').doc(vendorId).get(),
+      builder: (context, vendorSnapshot) {
+        final vendorData = vendorSnapshot.data?.data() as Map<String, dynamic>?;
+        final String? phone = vendorData?['businessPhone'];
+
+        return Card(
+          elevation: 0,
+          margin: const EdgeInsets.only(bottom: 12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+            side: BorderSide(
+              color: (isPaid || hidePayment) ? Colors.green.shade300 : Colors.grey.shade200,
+              width: (isPaid || hidePayment) ? 1.5 : 1,
+            ),
+          ),
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () => _showVendorProfile(context, vendorId),
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.lens, size: 10, color: statusColor),
-                          const SizedBox(width: 6),
-                          Text(
-                            status[0].toUpperCase() + status.substring(1),
-                            style: TextStyle(
-                              color: statusColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: (isPaid || hidePayment)
+                                  ? Colors.green.withOpacity(0.1)
+                                  : AppColors.primary.withOpacity(0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              (isPaid || hidePayment) ? Icons.check_circle : _getIcon(type),
+                              color: (isPaid || hidePayment) ? Colors.green : AppColors.primary,
+                              size: 24,
                             ),
                           ),
+                          const SizedBox(width: 15),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  type.toUpperCase(),
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Text(
+                                  name,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                if (hidePayment && phone != null)
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 4),
+                                    child: Text(
+                                      phone,
+                                      style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                          if (!hidePayment)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "₹${price.toStringAsFixed(0)}",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: isPaid ? Colors.green : Colors.black87,
+                                  ),
+                                ),
+                                if (isPaid)
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 4),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 2,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green.shade50,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Text(
+                                      '✓ PAID',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
                         ],
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: isPaid
-                              ? Colors.green.withOpacity(0.1)
-                              : Colors.orange.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              isPaid ? Icons.check_circle : Icons.pending,
-                              size: 14,
-                              color: isPaid ? Colors.green : Colors.orange,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              isPaid ? 'Paid' : 'Pending',
-                              style: TextStyle(
-                                color: isPaid ? Colors.green : Colors.orange,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
+                      const Divider(height: 24),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.lens, size: 10, color: statusColor),
+                              const SizedBox(width: 6),
+                              Text(
+                                status[0].toUpperCase() + status.substring(1),
+                                style: TextStyle(
+                                  color: statusColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ],
+                          ),
+                          if (!hidePayment)
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: isPaid
+                                    ? Colors.green.withOpacity(0.1)
+                                    : Colors.orange.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    isPaid ? Icons.check_circle : Icons.pending,
+                                    size: 14,
+                                    color: isPaid ? Colors.green : Colors.orange,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    isPaid ? 'Paid' : 'Pending',
+                                    style: TextStyle(
+                                      color: isPaid ? Colors.green : Colors.orange,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-          // Action Buttons
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: isPaid ? Colors.green.shade50 : Colors.grey.shade50,
-              borderRadius: const BorderRadius.vertical(
-                bottom: Radius.circular(15),
-              ),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () => _showVendorProfile(context, vendorId),
-                    icon: const Icon(Icons.person_outline, size: 18),
-                    label: const Text('Profile'),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.grey.shade700,
-                      side: BorderSide(color: Colors.grey.shade300),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+              // Action Buttons
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: (isPaid || hidePayment) ? Colors.green.shade50 : Colors.grey.shade50,
+                  borderRadius: const BorderRadius.vertical(
+                    bottom: Radius.circular(15),
                   ),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  flex: 2,
-                  child: isPaid
-                      ? OutlinedButton.icon(
-                    onPressed: () => _showReceipt(context, data),
-                    icon: const Icon(Icons.receipt_long, size: 18),
-                    label: const Text('View Receipt'),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.green,
-                      side: const BorderSide(color: Colors.green),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: () => _showVendorProfile(context, vendorId),
+                        icon: const Icon(Icons.person_outline, size: 18),
+                        label: const Text('Profile'),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.grey.shade700,
+                          side: BorderSide(color: Colors.grey.shade300),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
                       ),
                     ),
-                  )
-                      : ElevatedButton.icon(
-                    onPressed: () => _navigateToPayment(context, data),
-                    icon: const Icon(Icons.payment, size: 18),
-                    label: Text('Pay ₹${price.toStringAsFixed(0)}'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      flex: 2,
+                      child: hidePayment
+                          ? ElevatedButton.icon(
+                              onPressed: phone != null ? () => launchUrl(Uri.parse("tel:$phone")) : null,
+                              icon: const Icon(Icons.phone, size: 18),
+                              label: const Text('Call Vendor'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(vertical: 10),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            )
+                          : isPaid
+                              ? OutlinedButton.icon(
+                                  onPressed: () => _showReceipt(context, data),
+                                  icon: const Icon(Icons.receipt_long, size: 18),
+                                  label: const Text('View Receipt'),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.green,
+                                    side: const BorderSide(color: Colors.green),
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                )
+                              : ElevatedButton.icon(
+                                  onPressed: () => _navigateToPayment(context, data),
+                                  icon: const Icon(Icons.payment, size: 18),
+                                  label: Text('Pay ₹${price.toStringAsFixed(0)}'),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  // ✅ Navigate to Payment Screen
   void _navigateToPayment(BuildContext context, Map<String, dynamic> vendorData) {
     Navigator.push(
       context,

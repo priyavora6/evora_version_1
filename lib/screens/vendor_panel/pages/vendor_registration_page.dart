@@ -24,6 +24,7 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
   bool _agreedToTerms = false;
 
   // Controllers
+  final _vendorNameController = TextEditingController();
   final _businessNameController = TextEditingController();
   final _descriptionController = TextEditingController();
   final _ownerNameController = TextEditingController();
@@ -65,6 +66,7 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
 
   @override
   void dispose() {
+    _vendorNameController.dispose();
     _businessNameController.dispose();
     _descriptionController.dispose();
     _ownerNameController.dispose();
@@ -186,6 +188,8 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
       children: [
         _buildSectionHeader(icon: Icons.business, title: 'Tell us about your business'),
         const SizedBox(height: 20),
+        CustomTextField(controller: _vendorNameController, label: 'Vendor Name *', hint: 'e.g. John Doe / Studio Name', prefixIcon: Icons.person_pin_outlined, validator: Validators.validateRequired, textCapitalization: TextCapitalization.words),
+        const SizedBox(height: 20),
         CustomTextField(controller: _businessNameController, label: 'Business Name *', hint: 'e.g. Perfect Moments Photography', prefixIcon: Icons.store_outlined, validator: Validators.validateRequired, textCapitalization: TextCapitalization.words),
         const SizedBox(height: 20),
         _buildDropdownField(label: 'Service Type *', value: _selectedServiceType, items: _serviceTypes, onChanged: (value) => setState(() => _selectedServiceType = value!)),
@@ -258,6 +262,7 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              _buildSummaryItem('Vendor Name', _vendorNameController.text),
               _buildSummaryItem('Business Name', _businessNameController.text),
               _buildSummaryItem('Service Type', _selectedServiceType),
               _buildSummaryItem('Owner Name', _ownerNameController.text),
@@ -363,7 +368,7 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
   bool _validateCurrentStep() {
     switch (_currentStep) {
       case 0:
-        if (_businessNameController.text.isEmpty || _descriptionController.text.isEmpty || _priceRangeController.text.isEmpty) { _showError('Please fill all required fields'); return false; } break;
+        if (_vendorNameController.text.isEmpty || _businessNameController.text.isEmpty || _descriptionController.text.isEmpty || _priceRangeController.text.isEmpty) { _showError('Please fill all required fields'); return false; } break;
       case 1:
         if (_ownerNameController.text.isEmpty || _businessPhoneController.text.isEmpty || _businessEmailController.text.isEmpty) { _showError('Please fill all required fields'); return false; } break;
       case 2:
@@ -393,6 +398,7 @@ class _VendorRegistrationPageState extends State<VendorRegistrationPage> {
       final vendorData = {
         'id': vendorDocId,
         'userId': user.id,
+        'vendorName': _vendorNameController.text.trim(),
         'businessName': _businessNameController.text.trim(),
         'serviceType': _selectedServiceType,
         'description': _descriptionController.text.trim(),

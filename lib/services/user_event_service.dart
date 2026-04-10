@@ -28,9 +28,15 @@ class UserEventService {
           .where('userId', isEqualTo: userId)
           .orderBy('eventDate', descending: true)
           .get();
-      return snapshot.docs
-          .map((doc) => UserEvent.fromFirestore(doc))
-          .toList();
+      
+      List<UserEvent> events = [];
+      for (var doc in snapshot.docs) {
+        UserEvent event = UserEvent.fromFirestore(doc);
+        // Fetch selected items for each event to ensure they are available in the list view if needed
+        List<CartItem> items = await getSelectedItems(doc.id);
+        events.add(event.copyWith(selectedItems: items));
+      }
+      return events;
     } catch (e) {
       print('Error getting user events: $e');
       return [];
@@ -61,13 +67,13 @@ class UserEventService {
       final List<CartItem> selectedItems = event.selectedItems;
       final eventData = event.toFirestore();
       
-      // We keep it in the main doc AND sub-collection for safety/ease of access
-      // But based on previous implementation, let's keep sub-collection as source of truth
+      // We remove selectedItems from the main document to store them in a sub-collection instead
       eventData.remove('selectedItems'); 
 
       DocumentReference eventRef = await _firestore.collection(_collection).add(eventData);
       String eventId = eventRef.id;
 
+      // ✅ FIX: Save the Selected Items into a SUB-COLLECTION
       WriteBatch batch = _firestore.batch();
       for (var item in selectedItems) {
         DocumentReference itemRef = _firestore

@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import '../../config/app_colors.dart';
 import '../../config/app_routes.dart';
 import '../../providers/user_event_provider.dart';
+import '../../providers/auth_provider.dart';
 import '../../models/user_event_model.dart';
 import '../../widgets/loading_indicator.dart';
 
@@ -17,6 +18,7 @@ import 'tabs/guests_tab.dart';
 import 'tabs/budget_tab.dart';
 import 'tabs/tasks_tab.dart';
 import 'tabs/vendors_tab.dart';
+import 'tabs/professionals_tab.dart';
 
 class EventDetailScreen extends StatefulWidget {
   final String eventId;
@@ -32,15 +34,15 @@ class EventDetailScreen extends StatefulWidget {
   State<EventDetailScreen> createState() => _EventDetailScreenState();
 }
 
-class _EventDetailScreenState extends State<EventDetailScreen> with SingleTickerProviderStateMixin {
+class _EventDetailScreenState extends State<EventDetailScreen> with TickerProviderStateMixin {
   late TabController _tabController;
+  String _vendorPreference = 'platform';
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 6, vsync: this, initialIndex: widget.initialTab);
 
-    // 🔥 Initial Load
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadEvent();
     });
@@ -49,6 +51,24 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
   Future<void> _loadEvent() async {
     if (!mounted) return;
     await Provider.of<UserEventProvider>(context, listen: false).fetchEventById(widget.eventId);
+    _updateTabController();
+  }
+
+  void _updateTabController() {
+    final event = Provider.of<UserEventProvider>(context, listen: false).selectedEvent;
+    if (event != null && event.vendorPreference != _vendorPreference) {
+      setState(() {
+        _vendorPreference = event.vendorPreference;
+        int newLength = _vendorPreference == 'none' ? 5 : 6;
+        int currentIndex = _tabController.index;
+        _tabController.dispose();
+        _tabController = TabController(
+          length: newLength,
+          vsync: this,
+          initialIndex: currentIndex < newLength ? currentIndex : 0,
+        );
+      });
+    }
   }
 
   @override
@@ -57,7 +77,6 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
     super.dispose();
   }
 
-  // 🕒 Fixed: Calculation logic
   int _calculateDaysLeft(DateTime? deadline) {
     if (deadline == null) return 0;
     final now = DateTime.now();
@@ -70,39 +89,49 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final bool isUserAVendor = authProvider.isVendor;
+
     return Scaffold(
       body: Consumer<UserEventProvider>(
         builder: (context, eventProvider, child) {
-          // 1. Loading State
           if (eventProvider.isLoading && eventProvider.selectedEvent == null) {
             return const Center(child: LoadingIndicator());
           }
 
           final event = eventProvider.selectedEvent;
 
-          // 2. Error State
           if (event == null) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.error_outline, size: 60, color: Colors.red),
+                  const Icon(Icons.check_circle_outline, size: 60, color: Colors.green),
                   const SizedBox(height: 16),
-                  const Text('Event data could not be loaded.'),
+                  const Text('Event deleted successfully.', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Go Back')
+                      onPressed: () => Navigator.pushNamedAndRemoveUntil(context, AppRoutes.dashboard, (route) => false),
+                      style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, foregroundColor: Colors.white),
+                      child: const Text('Back to Dashboard')
                   ),
                 ],
               ),
             );
           }
 
-          // 3. Logic based on updated model
+          // Sync tab controller if preference changed
+          if (event.vendorPreference != _vendorPreference) {
+            WidgetsBinding.instance.addPostFrameCallback((_) => _updateTabController());
+          }
+
+          // 🛡️ Admin Vendor Deal Logic
+          final bool isAdminVendorDeal = isUserAVendor && event.vendorPreference == 'platform';
+
           bool showPaymentWarning = (event.status == EventStatus.approved) &&
               (event.amountPaid < event.totalEstimatedCost) &&
-              (event.paymentDeadline != null);
+              (event.paymentDeadline != null) &&
+              !isAdminVendorDeal; // HIDE if it's an admin deal
 
           int daysLeft = showPaymentWarning ? _calculateDaysLeft(event.paymentDeadline) : 0;
           double headerHeight = showPaymentWarning ? 320.0 : 260.0;
@@ -120,10 +149,9 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
                       decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
                       child: const Icon(Icons.arrow_back_ios_new, size: 18, color: AppColors.primary),
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => AppRoutes.navigateToUserDashboard(context),
                   ),
                   actions: [
-                    // ✅ NEW: Refresh Button (Essential for checking Admin assignments)
                     IconButton(
                       icon: Container(
                         padding: const EdgeInsets.all(8),
@@ -163,17 +191,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
                               children: [
                                 if (showPaymentWarning)
                                   _buildWarningBanner(daysLeft),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Text(
-                                    event.eventTypeName,
-                                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white),
-                                  ),
-                                ),
+                                // REMOVED: event.eventTypeName badge container from here
                                 const SizedBox(height: 10),
                                 Text(
                                   event.eventName,
@@ -210,13 +228,14 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
                     unselectedLabelColor: Colors.white60,
                     tabAlignment: TabAlignment.start,
                     labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-                    tabs: const [
-                      Tab(text: 'Overview'),
-                      Tab(text: 'Services'),
-                      Tab(text: 'Guests'),
-                      Tab(text: 'Budget'),
-                      Tab(text: 'Tasks'),
-                      Tab(text: 'Professionals'), // ✅ Renamed from Team
+                    tabs: [
+                      const Tab(text: 'Overview'),
+                      const Tab(text: 'Services'),
+                      const Tab(text: 'Guests'),
+                      const Tab(text: 'Budget'),
+                      const Tab(text: 'Tasks'),
+                      if (_vendorPreference == 'platform') const Tab(text: 'Vendors'),
+                      if (_vendorPreference == 'own') const Tab(text: 'Professionals'),
                     ],
                   ),
                 ),
@@ -230,11 +249,17 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
                 GuestsTab(eventId: widget.eventId),
                 BudgetTab(eventId: widget.eventId, totalEstimated: event.totalEstimatedCost),
                 TasksTab(eventId: widget.eventId),
-                VendorsTab(
-                  eventTypeId: event.eventTypeId,
-                  eventId: widget.eventId,
-                  eventName: event.eventName,
-                ),
+                if (_vendorPreference == 'platform')
+                  VendorsTab(
+                    eventTypeId: event.eventTypeId,
+                    eventId: widget.eventId,
+                    eventName: event.eventName,
+                  ),
+                if (_vendorPreference == 'own')
+                  ProfessionalsTab(
+                    eventId: widget.eventId,
+                    eventName: event.eventName,
+                  ),
               ],
             ),
           );
@@ -243,7 +268,6 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
     );
   }
 
-  // 🎨 Sub-widget for cleaner code
   Widget _buildWarningBanner(int daysLeft) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -355,7 +379,8 @@ class _EventDetailScreenState extends State<EventDetailScreen> with SingleTicker
               final success = await eventProvider.deleteEvent(widget.eventId);
               if (mounted) {
                 if (success) {
-                  Navigator.pop(context); // Exit detail screen
+                  // ✅ Redirect to Dashboard and clear stack
+                  Navigator.pushNamedAndRemoveUntil(context, AppRoutes.dashboard, (route) => false);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Event deleted successfully')),
                   );

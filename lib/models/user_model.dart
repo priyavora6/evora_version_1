@@ -17,6 +17,7 @@ class UserModel {
   final bool isActive;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final bool wantToSeeVendors;     // ✅ NEW: Preference for Browse Vendors tab
 
   UserModel({
     required this.id,
@@ -35,6 +36,7 @@ class UserModel {
     this.isActive = true,
     this.createdAt,
     this.updatedAt,
+    this.wantToSeeVendors = false, // ✅ Default to false
   });
 
   // ── Role Helpers ──
@@ -59,12 +61,13 @@ class UserModel {
       dateOfBirth: data['dateOfBirth'],
       gender: data['gender'],
       roles: List<String>.from(data['roles'] ?? ['user']),
-      roleIntent: data['roleIntent'] ?? 'user',       // ✅ Added
-      vendorStatus: data['vendorStatus'],             // ✅ Added
+      roleIntent: data['roleIntent'] ?? 'user',
+      vendorStatus: data['vendorStatus'],
       vendorId: data['vendorId'],
       isActive: data['isActive'] ?? true,
       createdAt: (data['createdAt'] as Timestamp?)?.toDate(),
       updatedAt: (data['updatedAt'] as Timestamp?)?.toDate(),
+      wantToSeeVendors: data['wantToSeeVendors'] ?? false, // ✅ Added
     );
   }
 
@@ -81,12 +84,13 @@ class UserModel {
       dateOfBirth: data['dateOfBirth'],
       gender: data['gender'],
       roles: List<String>.from(data['roles'] ?? ['user']),
-      roleIntent: data['roleIntent'] ?? 'user',       // ✅ Added
-      vendorStatus: data['vendorStatus'],             // ✅ Added
+      roleIntent: data['roleIntent'] ?? 'user',
+      vendorStatus: data['vendorStatus'],
       vendorId: data['vendorId'],
       isActive: data['isActive'] ?? true,
       createdAt: data['createdAt'] != null ? (data['createdAt'] as Timestamp).toDate() : null,
       updatedAt: data['updatedAt'] != null ? (data['updatedAt'] as Timestamp).toDate() : null,
+      wantToSeeVendors: data['wantToSeeVendors'] ?? false, // ✅ Added
     );
   }
 
@@ -102,12 +106,13 @@ class UserModel {
       'dateOfBirth': dateOfBirth,
       'gender': gender,
       'roles': roles,
-      'roleIntent': roleIntent,                       // ✅ Added
-      'vendorStatus': vendorStatus,                   // ✅ Added
+      'roleIntent': roleIntent,
+      'vendorStatus': vendorStatus,
       'vendorId': vendorId,
       'isActive': isActive,
       'createdAt': createdAt ?? FieldValue.serverTimestamp(),
       'updatedAt': FieldValue.serverTimestamp(),
+      'wantToSeeVendors': wantToSeeVendors, // ✅ Added
     };
   }
 
@@ -124,12 +129,13 @@ class UserModel {
       'dateOfBirth': dateOfBirth,
       'gender': gender,
       'roles': roles,
-      'roleIntent': roleIntent,                       // ✅ Added
-      'vendorStatus': vendorStatus,                   // ✅ Added
+      'roleIntent': roleIntent,
+      'vendorStatus': vendorStatus,
       'vendorId': vendorId,
       'isActive': isActive,
       'createdAt': createdAt?.toIso8601String(),
       'updatedAt': updatedAt?.toIso8601String(),
+      'wantToSeeVendors': wantToSeeVendors, // ✅ Added
     };
   }
 
@@ -145,12 +151,13 @@ class UserModel {
     String? dateOfBirth,
     String? gender,
     List<String>? roles,
-    String? roleIntent,                               // ✅ Added
-    String? vendorStatus,                             // ✅ Added
+    String? roleIntent,
+    String? vendorStatus,
     String? vendorId,
     bool? isActive,
     DateTime? createdAt,
     DateTime? updatedAt,
+    bool? wantToSeeVendors, // ✅ Added
   }) {
     return UserModel(
       id: id ?? this.id,
@@ -163,18 +170,19 @@ class UserModel {
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,
       gender: gender ?? this.gender,
       roles: roles ?? this.roles,
-      roleIntent: roleIntent ?? this.roleIntent,      // ✅ Added
-      vendorStatus: vendorStatus ?? this.vendorStatus,// ✅ Added
+      roleIntent: roleIntent ?? this.roleIntent,
+      vendorStatus: vendorStatus ?? this.vendorStatus,
       vendorId: vendorId ?? this.vendorId,
       isActive: isActive ?? this.isActive,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      wantToSeeVendors: wantToSeeVendors ?? this.wantToSeeVendors, // ✅ Added
     );
   }
 
   @override
   String toString() {
-    return 'UserModel(id: $id, name: $name, email: $email, roleIntent: $roleIntent, status: $vendorStatus)';
+    return 'UserModel(id: $id, name: $name, email: $email, wantToSeeVendors: $wantToSeeVendors)';
   }
 
   @override

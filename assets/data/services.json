@@ -1,0 +1,3786 @@
+[
+  {
+    "subcategoryId": "food_menu",
+    "services": [
+      { "name": "Paneer Tikka", "emoji": "🧀", "price": 180, "foodCategory": "Starters", "description": "Marinated paneer cubes grilled in tandoor" },
+      { "name": "Hara Bhara Kebab", "emoji": "🌿", "price": 160, "foodCategory": "Starters", "description": "Spinach and peas patties with spices" },
+      { "name": "Veg Spring Roll", "emoji": "🥢", "price": 140, "foodCategory": "Starters", "description": "Crispy rolls with sautéed vegetables" },
+      { "name": "Mushroom Tikka", "emoji": "🍄", "price": 190, "foodCategory": "Starters", "description": "Stuffed mushroom caps grilled to perfection" },
+      { "name": "Paneer 65", "emoji": "🌶️", "price": 200, "foodCategory": "Starters", "description": "Spicy deep fried paneer chunks" },
+      { "name": "Veg Crispy", "emoji": "🥦", "price": 170, "foodCategory": "Starters", "description": "Batter fried assorted vegetables" },
+      { "name": "Corn Cheese Balls", "emoji": "🌽", "price": 210, "foodCategory": "Starters", "description": "Crunchy balls with melting cheese center" },
+      { "name": "Dahi Ke Kebab", "emoji": "🤍", "price": 220, "foodCategory": "Starters", "description": "Creamy kebabs made from hung curd" },
+      { "name": "Veg Seekh Kebab", "emoji": "🔥", "price": 180, "foodCategory": "Starters", "description": "Minced vegetable skewers" },
+      { "name": "Paneer Malai Tikka", "emoji": "🍶", "price": 210, "foodCategory": "Starters", "description": "Paneer marinated in cream and cashew" },
+      { "name": "Baby Corn Fry", "emoji": "🌽", "price": 160, "foodCategory": "Starters", "description": "Crispy fried baby corn with dip" },
+      { "name": "Gobi 65", "emoji": "🌶️", "price": 150, "foodCategory": "Starters", "description": "Spicy marinated cauliflower florets" },
+      { "name": "Tandoori Aloo", "emoji": "🥔", "price": 150, "foodCategory": "Starters", "description": "Scooped spiced potatoes from tandoor" },
+      { "name": "Veg Manchurian Dry", "emoji": "🥡", "price": 160, "foodCategory": "Starters", "description": "Cabbage balls in soya garlic sauce" },
+      { "name": "Aloo Tikki", "emoji": "🥔", "price": 120, "foodCategory": "Starters", "description": "Potato patties served with mint chutney" },
+      { "name": "Cheese Chilly Toast", "emoji": "🧀", "price": 180, "foodCategory": "Starters", "description": "Toast topped with cheese and green chilies" },
+      { "name": "Soya Chaap Tikka", "emoji": "🍖", "price": 190, "foodCategory": "Starters", "description": "Marinated soya chunks grilled" },
+      { "name": "Dragon Potato", "emoji": "🐉", "price": 160, "foodCategory": "Starters", "description": "Spicy honey glazed potato wedges" },
+      { "name": "Paneer Pakora", "emoji": "🧀", "price": 150, "foodCategory": "Starters", "description": "Classic gram flour batter fried paneer" },
+      { "name": "Veg Cutlet", "emoji": "🌿", "price": 130, "foodCategory": "Starters", "description": "Hearty mixed vegetable fried cakes" },
+
+      { "name": "Paneer Butter Masala", "emoji": "🧡", "price": 240, "foodCategory": "Punjabi", "description": "Rich tomato gravy with paneer chunks" },
+      { "name": "Kadhai Paneer", "emoji": "🥘", "price": 230, "foodCategory": "Punjabi", "description": "Paneer cooked with bell peppers" },
+      { "name": "Shahi Paneer", "emoji": "👑", "price": 250, "foodCategory": "Punjabi", "description": "Royal cashew based sweet gravy" },
+      { "name": "Palak Paneer", "emoji": "💚", "price": 220, "foodCategory": "Punjabi", "description": "Fresh spinach puree with paneer" },
+      { "name": "Malai Kofta", "emoji": "🤍", "price": 260, "foodCategory": "Punjabi", "description": "Paneer balls in creamy white gravy" },
+      { "name": "Paneer Tikka Masala", "emoji": "🔥", "price": 270, "foodCategory": "Punjabi", "description": "Grilled paneer in spicy tikka gravy" },
+      { "name": "Mix Veg", "emoji": "🌈", "price": 200, "foodCategory": "Punjabi", "description": "Assorted seasonal vegetables in masala" },
+      { "name": "Mutter Paneer", "emoji": "💚", "price": 210, "foodCategory": "Punjabi", "description": "Green peas and cottage cheese curry" },
+      { "name": "Aloo Gobi Mutter", "emoji": "🥔", "price": 180, "foodCategory": "Punjabi", "description": "Potato, cauliflower and peas dry" },
+      { "name": "Baingan Bharta", "emoji": "🍆", "price": 190, "foodCategory": "Punjabi", "description": "Roasted mashed eggplant with peas" },
+      { "name": "Bhindi Do Pyaza", "emoji": "🌿", "price": 180, "foodCategory": "Punjabi", "description": "Okra with double the onions" },
+      { "name": "Dum Aloo Punjabi", "emoji": "🥔", "price": 220, "foodCategory": "Punjabi", "description": "Baby potatoes in thick red gravy" },
+      { "name": "Kaju Curry", "emoji": "🦪", "price": 280, "foodCategory": "Punjabi", "description": "Roasted cashews in spicy brown gravy" },
+      { "name": "Methi Mutter Malai", "emoji": "💛", "price": 240, "foodCategory": "Punjabi", "description": "Fenugreek and peas in cream gravy" },
+      { "name": "Mushroom Masala", "emoji": "🍄", "price": 230, "foodCategory": "Punjabi", "description": "Fresh mushrooms in onion tomato gravy" },
+      { "name": "Paneer Lababdar", "emoji": "🧡", "price": 260, "foodCategory": "Punjabi", "description": "Creamy gravy with grated and cubed paneer" },
+      { "name": "Veg Kofta", "emoji": "🟤", "price": 210, "foodCategory": "Punjabi", "description": "Vegetable dumplings in spicy gravy" },
+      { "name": "Chole Bhature Special", "emoji": "🫘", "price": 180, "foodCategory": "Punjabi", "description": "Spiced chickpeas with fluffy bread" },
+      { "name": "Veg Kolhapuri", "emoji": "🌶️", "price": 220, "foodCategory": "Punjabi", "description": "Extra spicy mixed vegetable curry" },
+      { "name": "Jeera Aloo", "emoji": "🌿", "price": 160, "foodCategory": "Punjabi", "description": "Cumin tempered dry potatoes" },
+
+      { "name": "Veg Manchurian Gravy", "emoji": "🥡", "price": 180, "foodCategory": "Chinese", "description": "Veg balls in dark soya gravy" },
+      { "name": "Veg Hakka Noodles", "emoji": "🍜", "price": 170, "foodCategory": "Chinese", "description": "Stir fried noodles with veggies" },
+      { "name": "Veg Fried Rice", "emoji": "🍚", "price": 160, "foodCategory": "Chinese", "description": "Classic wok tossed fried rice" },
+      { "name": "Schezwan Noodles", "emoji": "🌶️", "price": 185, "foodCategory": "Chinese", "description": "Spicy noodles in schezwan sauce" },
+      { "name": "Chilly Paneer Gravy", "emoji": "🧀", "price": 220, "foodCategory": "Chinese", "description": "Paneer in spicy chilly sauce" },
+      { "name": "Triple Schezwan Rice", "emoji": "🌶️", "price": 240, "foodCategory": "Chinese", "description": "Rice, noodles and manchurian combo" },
+      { "name": "American Chopsuey", "emoji": "🍝", "price": 210, "foodCategory": "Chinese", "description": "Crispy noodles with sweet tangy sauce" },
+      { "name": "Singapore Noodles", "emoji": "🌏", "price": 190, "foodCategory": "Chinese", "description": "Yellow curry flavored noodles" },
+      { "name": "Veg Momos Steamed", "emoji": "🥟", "price": 120, "foodCategory": "Chinese", "description": "Handmade dumplings (10 pcs)" },
+      { "name": "Veg Momos Fried", "emoji": "🥟", "price": 140, "foodCategory": "Chinese", "description": "Crispy fried dumplings" },
+      { "name": "Honey Chilly Potato", "emoji": "🍯", "price": 160, "foodCategory": "Chinese", "description": "Crispy potato in sweet spicy glaze" },
+      { "name": "Burnt Garlic Rice", "emoji": "🧄", "price": 180, "foodCategory": "Chinese", "description": "Aromatic garlic tossed rice" },
+      { "name": "Veg Chowmein", "emoji": "🍜", "price": 150, "foodCategory": "Chinese", "description": "Street style spicy noodles" },
+      { "name": "Paneer 65 Dry", "emoji": "🧀", "price": 200, "foodCategory": "Chinese", "description": "Spicy fried paneer appetizer" },
+      { "name": "Kimchi Salad", "emoji": "🥬", "price": 100, "foodCategory": "Chinese", "description": "Traditional cabbage salad" },
+
+      { "name": "Masala Dosa", "emoji": "🫙", "price": 110, "foodCategory": "South Indian", "description": "Rice crepe with potato masala" },
+      { "name": "Paneer Dosa", "emoji": "🧀", "price": 140, "foodCategory": "South Indian", "description": "Dosa stuffed with paneer bhurji" },
+      { "name": "Mysore Masala Dosa", "emoji": "🌶️", "price": 130, "foodCategory": "South Indian", "description": "Spicy red chutney spread dosa" },
+      { "name": "Idli Sambar", "emoji": "🍚", "price": 80, "foodCategory": "South Indian", "description": "Steamed rice cakes with lentil stew" },
+      { "name": "Medu Vada", "emoji": "🍩", "price": 90, "foodCategory": "South Indian", "description": "Crispy deep fried lentil donuts" },
+      { "name": "Onion Uttapam", "emoji": "🧅", "price": 100, "foodCategory": "South Indian", "description": "Thick pancake with onion topping" },
+      { "name": "Rava Masala Dosa", "emoji": "🌟", "price": 130, "foodCategory": "South Indian", "description": "Crispy semolina crepe" },
+      { "name": "Paper Plain Dosa", "emoji": "📜", "price": 120, "foodCategory": "South Indian", "description": "Extra thin and large crispy dosa" },
+      { "name": "Cheese Masala Dosa", "emoji": "🧀", "price": 150, "foodCategory": "South Indian", "description": "Masala dosa with melted cheese" },
+      { "name": "Upma", "emoji": "🌾", "price": 70, "foodCategory": "South Indian", "description": "Savory semolina breakfast dish" },
+      { "name": "Pongal", "emoji": "🍚", "price": 90, "foodCategory": "South Indian", "description": "Rice and lentil ghee mash" },
+      { "name": "Curd Rice", "emoji": "🤍", "price": 80, "foodCategory": "South Indian", "description": "Tempered yogurt and rice" },
+      { "name": "Tomato Uttapam", "emoji": "🍅", "price": 110, "foodCategory": "South Indian", "description": "Pancake with tomato and chilly" },
+      { "name": "Set Dosa", "emoji": "🫓", "price": 100, "foodCategory": "South Indian", "description": "Spongy soft small dosas (3 pcs)" },
+      { "name": "Lemon Rice", "emoji": "🍋", "price": 120, "foodCategory": "South Indian", "description": "Tangy rice with peanuts and curry leaves" },
+
+      { "name": "White Sauce Pasta", "emoji": "🍝", "price": 240, "foodCategory": "Continental", "description": "Penne in creamy alfredo sauce" },
+      { "name": "Red Sauce Pasta", "emoji": "🍅", "price": 220, "foodCategory": "Continental", "description": "Fusilli in spicy arrabiata sauce" },
+      { "name": "Mix Sauce Pasta", "emoji": "💗", "price": 250, "foodCategory": "Continental", "description": "Pasta in pink creamy tomato sauce" },
+      { "name": "Margherita Pizza", "emoji": "🍕", "price": 280, "foodCategory": "Continental", "description": "Classic cheese and basil pizza" },
+      { "name": "Veggie Pizza", "emoji": "🌈", "price": 320, "foodCategory": "Continental", "description": "Pizza topped with mixed vegetables" },
+      { "name": "Garlic Bread with Cheese", "emoji": "🧄", "price": 160, "foodCategory": "Continental", "description": "Toasted baguette with garlic butter" },
+      { "name": "Veg Burger", "emoji": "🍔", "price": 140, "foodCategory": "Continental", "description": "Crispy patty with mayo and lettuce" },
+      { "name": "Paneer Burger", "emoji": "🧀", "price": 170, "foodCategory": "Continental", "description": "Grilled paneer steak burger" },
+      { "name": "French Fries", "emoji": "🍟", "price": 100, "foodCategory": "Continental", "description": "Salted golden potato fries" },
+      { "name": "Cheese Nachos", "emoji": "🧀", "price": 180, "foodCategory": "Continental", "description": "Loaded with salsa and cheese sauce" },
+
+      { "name": "Butter Naan", "emoji": "🧈", "price": 50, "foodCategory": "Tandoor & Breads", "description": "Soft refined flour bread" },
+      { "name": "Garlic Naan", "emoji": "🧄", "price": 70, "foodCategory": "Tandoor & Breads", "description": "Naan topped with chopped garlic" },
+      { "name": "Laccha Paratha", "emoji": "🌀", "price": 60, "foodCategory": "Tandoor & Breads", "description": "Multi layered wheat bread" },
+      { "name": "Tandoori Roti", "emoji": "🌾", "price": 20, "foodCategory": "Tandoor & Breads", "description": "Whole wheat tandoori bread" },
+      { "name": "Missi Roti", "emoji": "💛", "price": 40, "foodCategory": "Tandoor & Breads", "description": "Gram flour mixed masala roti" },
+      { "name": "Paneer Kulcha", "emoji": "🧀", "price": 90, "foodCategory": "Tandoor & Breads", "description": "Bread stuffed with spiced paneer" },
+      { "name": "Stuffed Paratha", "emoji": "🥔", "price": 80, "foodCategory": "Tandoor & Breads", "description": "Choice of Aloo, Gobi or Onion" },
+      { "name": "Butter Roti", "emoji": "🧈", "price": 25, "foodCategory": "Tandoor & Breads", "description": "Wheat roti with butter" },
+      { "name": "Roomali Roti", "emoji": "🤍", "price": 40, "foodCategory": "Tandoor & Breads", "description": "Paper thin large soft bread" },
+      { "name": "Cheese Garlic Naan", "emoji": "🧀", "price": 100, "foodCategory": "Tandoor & Breads", "description": "Naan stuffed with cheese and garlic" },
+
+      { "name": "Veg Dum Biryani", "emoji": "🌿", "price": 260, "foodCategory": "Biryani & Rice", "description": "Slow cooked aromatic rice with veggies" },
+      { "name": "Paneer Biryani", "emoji": "🧀", "price": 290, "foodCategory": "Biryani & Rice", "description": "Biryani with marinated paneer cubes" },
+      { "name": "Jeera Rice", "emoji": "🌿", "price": 140, "foodCategory": "Biryani & Rice", "description": "Basmati rice tempered with cumin" },
+      { "name": "Veg Pulao", "emoji": "🥕", "price": 180, "foodCategory": "Biryani & Rice", "description": "Mildly spiced vegetable rice" },
+      { "name": "Steamed Rice", "emoji": "🍚", "price": 110, "foodCategory": "Biryani & Rice", "description": "Plain long grain basmati rice" },
+      { "name": "Kashmiri Pulao", "emoji": "🍎", "price": 220, "foodCategory": "Biryani & Rice", "description": "Sweet rice with fruits and nuts" },
+      { "name": "Dal Khichdi Tadka", "emoji": "🤍", "price": 200, "foodCategory": "Biryani & Rice", "description": "Comforting lentil and rice mix" },
+      { "name": "Mushroom Pulao", "emoji": "🍄", "price": 210, "foodCategory": "Biryani & Rice", "description": "Rice cooked with fresh mushrooms" },
+      { "name": "Hyderabadi Veg Biryani", "emoji": "🌶️", "price": 270, "foodCategory": "Biryani & Rice", "description": "Spicy biryani with fried onions" },
+      { "name": "Matar Pulao", "emoji": "💚", "price": 160, "foodCategory": "Biryani & Rice", "description": "Rice with green peas and spices" },
+
+      { "name": "Dal Makhani", "emoji": "🖤", "price": 210, "foodCategory": "Dal & Curry", "description": "Black lentils cooked overnight with cream" },
+      { "name": "Dal Tadka", "emoji": "💛", "price": 170, "foodCategory": "Dal & Curry", "description": "Yellow lentils with garlic tempering" },
+      { "name": "Dal Fry", "emoji": "🧅", "price": 160, "foodCategory": "Dal & Curry", "description": "Lentils cooked with onion and tomato" },
+      { "name": "Rajma Masala", "emoji": "❤️", "price": 190, "foodCategory": "Dal & Curry", "description": "Red kidney beans in thick gravy" },
+      { "name": "Chole Masala", "emoji": "🫘", "price": 180, "foodCategory": "Dal & Curry", "description": "Spicy kabuli chana curry" },
+      { "name": "Kadhi Pakora", "emoji": "💛", "price": 170, "foodCategory": "Dal & Curry", "description": "Gram flour dumplings in yogurt curry" },
+      { "name": "Panchmel Dal", "emoji": "🌈", "price": 200, "foodCategory": "Dal & Curry", "description": "Mix of 5 different lentils" },
+      { "name": "Gujarati Dal", "emoji": "🍬", "price": 150, "foodCategory": "Dal & Curry", "description": "Sweet and sour lentil soup" },
+      { "name": "Dal Maharani", "emoji": "🤍", "price": 220, "foodCategory": "Dal & Curry", "description": "Rich mixed lentils with butter" },
+      { "name": "Lasooni Dal Tadka", "emoji": "🧄", "price": 180, "foodCategory": "Dal & Curry", "description": "Lentils with heavy garlic punch" },
+
+      { "name": "Tomato Soup", "emoji": "🍅", "price": 100, "foodCategory": "Soups", "description": "Classic roasted tomato soup" },
+      { "name": "Veg Manchow Soup", "emoji": "🌶️", "price": 110, "foodCategory": "Soups", "description": "Spicy soup with crispy noodles" },
+      { "name": "Sweet Corn Soup", "emoji": "🌽", "price": 110, "foodCategory": "Soups", "description": "Creamy soup with corn kernels" },
+      { "name": "Hot & Sour Soup", "emoji": "🌶️", "price": 110, "foodCategory": "Soups", "description": "Spicy tangy vegetable soup" },
+      { "name": "Lemon Coriander Soup", "emoji": "🍋", "price": 110, "foodCategory": "Soups", "description": "Light clear vegetable soup" },
+      { "name": "Cream of Mushroom", "emoji": "🍄", "price": 130, "foodCategory": "Soups", "description": "Rich and creamy mushroom soup" },
+      { "name": "Spinach Soup", "emoji": "💚", "price": 120, "foodCategory": "Soups", "description": "Fresh pureed spinach soup" },
+      { "name": "Broccoli Almond Soup", "emoji": "🥦", "price": 140, "foodCategory": "Soups", "description": "Healthy broccoli and almond soup" },
+      { "name": "Veg Clear Soup", "emoji": "🌿", "price": 90, "foodCategory": "Soups", "description": "Light broth with fine veggies" },
+      { "name": "Minestrone Soup", "emoji": "🍅", "price": 140, "foodCategory": "Soups", "description": "Italian tomato and pasta soup" },
+
+      { "name": "Green Salad", "emoji": "🥬", "price": 70, "foodCategory": "Salads", "description": "Fresh sliced garden vegetables" },
+      { "name": "Kachumber Salad", "emoji": "🍅", "price": 60, "foodCategory": "Salads", "description": "Diced onion, tomato and cucumber" },
+      { "name": "Russian Salad", "emoji": "🤍", "price": 130, "foodCategory": "Salads", "description": "Boiled veggies in creamy mayo" },
+      { "name": "Corn & Sprout Salad", "emoji": "🌽", "price": 110, "foodCategory": "Salads", "description": "Healthy mix of sprouts and corn" },
+      { "name": "Macaroni Salad", "emoji": "🍝", "price": 140, "foodCategory": "Salads", "description": "Pasta salad with bell peppers" },
+      { "name": "Pineapple Raita", "emoji": "🍍", "price": 120, "foodCategory": "Salads", "description": "Sweet yogurt with pineapple chunks" },
+      { "name": "Greek Salad", "emoji": "🫒", "price": 160, "foodCategory": "Salads", "description": "Olives, feta and cucumber salad" },
+      { "name": "Caesar Salad", "emoji": "🥬", "price": 170, "foodCategory": "Salads", "description": "Classic lettuce and crouton salad" },
+      { "name": "Chickpea Salad", "emoji": "🫘", "price": 130, "foodCategory": "Salads", "description": "Boiled chana with tangy dressing" },
+      { "name": "Watermelon Feta Salad", "emoji": "🍉", "price": 140, "foodCategory": "Salads", "description": "Refreshing melon and feta mix" },
+
+      { "name": "Gulab Jamun", "emoji": "🟤", "price": 80, "foodCategory": "Desserts", "description": "Hot milk dumplings (2 pcs)" },
+      { "name": "Rasmalai", "emoji": "🤍", "price": 100, "foodCategory": "Desserts", "description": "Paneer discs in saffron milk" },
+      { "name": "Gajar Halwa", "emoji": "🧡", "price": 120, "foodCategory": "Desserts", "description": "Winter special carrot pudding" },
+      { "name": "Moong Dal Halwa", "emoji": "💛", "price": 140, "foodCategory": "Desserts", "description": "Rich lentil halwa with ghee" },
+      { "name": "Jalebi with Rabri", "emoji": "🟡", "price": 150, "foodCategory": "Desserts", "description": "Crispy jalebis with thick milk" },
+      { "name": "Kheer", "emoji": "🤍", "price": 90, "foodCategory": "Desserts", "description": "Traditional rice pudding" },
+      { "name": "Kaju Katli", "emoji": "🤍", "price": 180, "foodCategory": "Desserts", "description": "Cashew fudge (100g)" },
+      { "name": "Rasgulla", "emoji": "⚪", "price": 80, "foodCategory": "Desserts", "description": "Soft syrupy cheese balls" },
+      { "name": "Chocolate Brownie", "emoji": "🍫", "price": 150, "foodCategory": "Desserts", "description": "Warm eggless brownie" },
+      { "name": "Malpua", "emoji": "🥞", "price": 110, "foodCategory": "Desserts", "description": "Sweet pancakes in syrup" },
+
+      { "name": "Vanilla Ice Cream", "emoji": "🤍", "price": 70, "foodCategory": "Ice Cream", "description": "Classic vanilla scoop" },
+      { "name": "Chocolate Ice Cream", "emoji": "🍫", "price": 80, "foodCategory": "Ice Cream", "description": "Rich chocolate cocoa scoop" },
+      { "name": "Butterscotch", "emoji": "🦋", "price": 90, "foodCategory": "Ice Cream", "description": "Crunchy nut ice cream" },
+      { "name": "Mango Ice Cream", "emoji": "🥭", "price": 90, "foodCategory": "Ice Cream", "description": "Alphonso mango flavor" },
+      { "name": "Kesar Pista Kulfi", "emoji": "🌼", "price": 100, "foodCategory": "Ice Cream", "description": "Traditional stick kulfi" },
+      { "name": "Paan Ice Cream", "emoji": "🌿", "price": 110, "foodCategory": "Ice Cream", "description": "Refreshing betel leaf flavor" },
+      { "name": "Strawberry Ice Cream", "emoji": "🍓", "price": 80, "foodCategory": "Ice Cream", "description": "Fresh berry flavor" },
+      { "name": "Dry Fruit Mastani", "emoji": "🥛", "price": 180, "foodCategory": "Ice Cream", "description": "Thick shake with ice cream" },
+      { "name": "Ice Cream Sandwich", "emoji": "🍪", "price": 120, "foodCategory": "Ice Cream", "description": "Biscuit with vanilla filling" },
+      { "name": "Cassata Slice", "emoji": "🌈", "price": 150, "foodCategory": "Ice Cream", "description": "Multi layered ice cream cake" },
+
+      { "name": "Mango Lassi", "emoji": "🥭", "price": 100, "foodCategory": "Beverages", "description": "Thick yogurt mango drink" },
+      { "name": "Sweet Lassi", "emoji": "🤍", "price": 80, "foodCategory": "Beverages", "description": "Creamy punjabi lassi" },
+      { "name": "Masala Chaas", "emoji": "🌿", "price": 50, "foodCategory": "Beverages", "description": "Spiced butter milk" },
+      { "name": "Fresh Lime Soda", "emoji": "🍋", "price": 70, "foodCategory": "Beverages", "description": "Salted or sweet soda" },
+      { "name": "Cold Coffee", "emoji": "☕", "price": 120, "foodCategory": "Beverages", "description": "Blended with vanilla ice cream" },
+      { "name": "Virgin Mojito", "emoji": "🍃", "price": 130, "foodCategory": "Beverages", "description": "Mint and lemon cooler" },
+      { "name": "Blue Lagoon", "emoji": "💙", "price": 140, "foodCategory": "Beverages", "description": "Refreshing blue mocktail" },
+      { "name": "Masala Chai", "emoji": "☕", "price": 40, "foodCategory": "Beverages", "description": "Indian spiced milk tea" },
+      { "name": "Filter Coffee", "emoji": "☕", "price": 50, "foodCategory": "Beverages", "description": "Authentic south indian coffee" },
+      { "name": "Thandai Special", "emoji": "🌼", "price": 110, "foodCategory": "Beverages", "description": "Dry fruit and saffron milk" },
+
+      { "name": "Pani Puri", "emoji": "💧", "price": 60, "foodCategory": "Chaat", "description": "8 crispy puris with spiced water" },
+      { "name": "Bhel Puri", "emoji": "🌾", "price": 70, "foodCategory": "Chaat", "description": "Puffed rice mix with chutneys" },
+      { "name": "Sev Puri", "emoji": "🍽️", "price": 80, "foodCategory": "Chaat", "description": "Flat puris topped with potato" },
+      { "name": "Dahi Puri", "emoji": "🤍", "price": 90, "foodCategory": "Chaat", "description": "Puris filled with sweet yogurt" },
+      { "name": "Aloo Tikki Chaat", "emoji": "🥔", "price": 100, "foodCategory": "Chaat", "description": "Potato patty with curd & chutneys" },
+      { "name": "Samosa Chaat", "emoji": "🥐", "price": 90, "foodCategory": "Chaat", "description": "Crushed samosa with chickpeas" },
+      { "name": "Papdi Chaat", "emoji": "🥮", "price": 80, "foodCategory": "Chaat", "description": "Crunchy papdis with masala" },
+      { "name": "Raj Kachori", "emoji": "👑", "price": 140, "foodCategory": "Chaat", "description": "Giant kachori with all toppings" },
+      { "name": "Ragda Pattice", "emoji": "🤍", "price": 100, "foodCategory": "Chaat", "description": "Potato pattice with peas curry" },
+      { "name": "Pav Bhaji", "emoji": "🧈", "price": 120, "foodCategory": "Chaat", "description": "Buttery pav with spicy mash" },
+
+      { "name": "Live Dosa Counter", "emoji": "🫙", "price": 500, "foodCategory": "Live Counters", "description": "Fresh dosas made live for guests" },
+      { "name": "Live Pasta Station", "emoji": "🍝", "price": 600, "foodCategory": "Live Counters", "description": "Penne/Fusilli cooked on spot" },
+      { "name": "Live Mocktail Bar", "emoji": "🍹", "price": 700, "foodCategory": "Live Counters", "description": "Bartender making fresh drinks" },
+      { "name": "Live Jalebi Counter", "emoji": "🟡", "price": 400, "foodCategory": "Live Counters", "description": "Hot jalebis fried live" },
+      { "name": "Live Chaat Counter", "emoji": "🌶️", "price": 450, "foodCategory": "Live Counters", "description": "Assorted chaat station" },
+      { "name": "Live Stir Fry", "emoji": "🥢", "price": 550, "foodCategory": "Live Counters", "description": "Exotic veggies tossed in wok" },
+      { "name": "Live Pizza Oven", "emoji": "🍕", "price": 800, "foodCategory": "Live Counters", "description": "Thin crust pizzas in wood oven" },
+      { "name": "Live Pav Bhaji", "emoji": "🧈", "price": 400, "foodCategory": "Live Counters", "description": "Hot pav bhaji from big tawa" },
+      { "name": "Live Ice Cream Rolls", "emoji": "🍦", "price": 450, "foodCategory": "Live Counters", "description": "Hand rolled milk ice cream" },
+      { "name": "Live Momos Counter", "emoji": "🥟", "price": 500, "foodCategory": "Live Counters", "description": "Steamed and fried momos station" }
+    ]
+  },
+
+
+  {
+    "subcategoryId": "a_cake",
+    "services": [
+      {
+        "id": "ack_001",
+        "name": "Heart Shape Chocolate",
+        "description": "Classic heart-shaped anniversary cake with dark truffle and roses.",
+        "price": 1500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkBb5DQ-t_5YrZ5EGXc1avqDDmTOXbYy_W7A&s",
+        "features": ["1 Kg", "Chocolate", "Custom Message"]
+      },
+      {
+        "id": "ack_002",
+        "name": "Couple Photo Cake",
+        "description": "Capture your journey with a high-definition edible photo print.",
+        "price": 2200,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXhNr_rSXO0AeNzgwsYtmTAQOfBmjMayik7w&s",
+        "features": ["Edible Print", "Vanilla Base", "2 Kg"]
+      },
+      {
+        "id": "ack_003",
+        "name": "Luxury 2-Tier Floral",
+        "description": "Grand white fondant cake decorated with fresh sugar flowers.",
+        "price": 6500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRGYAoUbRjIRgc-zrn7byVnYNT7x_hTmQJbA&s",
+        "features": ["3 Kg", "Designer Work", "Premium Look"]
+      },
+      {
+        "id": "ack_004",
+        "name": "Red Velvet Romance",
+        "description": "Classic red velvet layers with smooth cream cheese frosting.",
+        "price": 1800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigYLJXThFcAzgDSRgFxdMvWaZ7XZw5ONWOQ&s",
+        "features": ["1.5 Kg", "Cream Cheese", "Anniversary Topper"]
+      },
+      {
+        "id": "ack_005",
+        "name": "Gold Leaf Minimalist",
+        "description": "Modern elegant design with 24k edible gold leaf accents.",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg9qB6Uf8acTj0ezbxruCNVboC9utNoIoZhA&s",
+        "features": ["2 Kg", "Gold Detailing", "Classy"]
+      },
+      {
+        "id": "ack_006",
+        "name": "Bento Mini Couple Cake",
+        "description": "Cute pocket-sized cake for private, intimate celebrations.",
+        "price": 900,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBq8wpPN_h_Wb10UtzHqFGJsZjjnC5r95Dwg&s",
+        "features": ["300g", "Intimate", "Quick Delivery"]
+      },
+      {
+        "id": "ack_007",
+        "name": "Ferrero Rocher Tower",
+        "description": "Nutty chocolate cake topped with a grand tower of Ferrero Rocher.",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF_oZ9vQR8RF2FUww7J0Kx7q6g3Ayo6S5arw&s",
+        "features": ["2 Kg", "Hazelnut", "Chocolate overload"]
+      },
+      {
+        "id": "ack_008",
+        "name": "Milestone Number Cake",
+        "description": "Cake shaped like your anniversary year (e.g., 10, 25, 50).",
+        "price": 3200,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGwTCfc0okGnPo0f6l3QFQsa5R27mlr00cpQ&s",
+        "features": ["Custom Numbers", "Fruit Topped", "2.5 Kg"]
+      },
+      {
+        "id": "ack_009",
+        "name": "Fresh Strawberry Dream",
+        "description": "Light sponge filled with seasonal farm-fresh strawberries.",
+        "price": 1600,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu0yTgapStfyPMYvFwdgNpib7mA9LjkoKn5w&s",
+        "features": ["Healthy-ish", "Fresh Fruit", "1.5 Kg"]
+      },
+      {
+        "id": "ack_010",
+        "name": "Pinata Surprise Heart",
+        "description": "Break the heart with a hammer to find your gift and cake inside.",
+        "price": 2500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO6i5U-br1YEzImc8gxOKHCouTHsb1r1u-Vw&s",
+        "features": ["Interactive", "Hammer incl.", "Fun Element"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "a_decor",
+    "services": [
+      {
+        "id": "adec_001",
+        "name": "Romantic Room Surprise",
+        "description": "Complete bedroom makeover with rose petals, heart balloons, and candles.",
+        "price": 8000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/romantic-room-decoration-heart-pillows-rose-petals-lit-candles-decorative-lights-valentine-s-day-heart-shaped-fairy-354678121.jpg",
+        "features": ["500 Petals", "Heart Balloons", "Scented Candles"]
+      },
+      {
+        "id": "adec_002",
+        "name": "Private Terrace Cabana",
+        "description": "Elegant wooden cabana setup with fairy lights and private dining decor.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiAsJukA0918kTw9BnMucCm3hoeVwBCCohrA&s",
+        "features": ["White Drapes", "Fairy Lights", "Floor Cushions"]
+      },
+      {
+        "id": "adec_003",
+        "name": "Luxury Hotel Suite Decor",
+        "description": "Premium decoration for a hotel suite including a rose heart on bed.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkUFU99R-mSe2FM9aByPa2-6wO1hX87-kKow&s",
+        "features": ["Professional Setup", "Balloon Bouquet", "Rose Heart"]
+      },
+      {
+        "id": "adec_004",
+        "name": "Outdoor Cinema Setup",
+        "description": "Romantic open-air movie screening setup with cozy seating and decor.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQprQ4Lypi38BoSzQ9VEPAxVA0B_EmgXy-v_Q&s",
+        "features": ["Projector & Screen", "Speaker System", "Cozy Seating"]
+      },
+      {
+        "id": "adec_005",
+        "name": "Golden Jubilee Theme",
+        "description": "Classic gold and white theme perfect for 25th or 50th anniversaries.",
+        "price": 25000,
+        "imageUrl": "https://m.media-amazon.com/images/I/81IuO6oa1TL.jpg",
+        "features": ["Custom Numbers", "Golden Arch", "Champagne Wall"]
+      },
+      {
+        "id": "adec_006",
+        "name": "Bohemian Love Nest",
+        "description": "Trendy boho-style setup with pampas grass and macramé hangings.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-y9LdhgjJm3ZAWYYS_BLRp-9V3N1JuoblTQ&s",
+        "features": ["Pampas Grass", "Macramé Backdrop", "Dreamcatchers"]
+      },
+      {
+        "id": "adec_007",
+        "name": "LED Memory Photo Wall",
+        "description": "A beautiful string light display featuring your best moments over the years.",
+        "price": 6000,
+        "imageUrl": "https://i.etsystatic.com/23513616/r/il/12921f/4010574433/il_1080xN.4010574433_e8xy.jpg",
+        "features": ["50 Photos", "Clips & Lights", "Gift Box incl."]
+      },
+      {
+        "id": "adec_008",
+        "name": "Candlelight Dinner Setup",
+        "description": "Elegant table styling with fine cutlery, flowers, and floating candles.",
+        "price": 5000,
+        "imageUrl": "https://generalwax.com/cdn/shop/articles/Wedding-table-decorations-1.jpg?v=1719834589&width=1100",
+        "features": ["Table Runner", "Flower Vases", "Floating Diyas"]
+      },
+      {
+        "id": "adec_009",
+        "name": "Garden Floral Arch",
+        "description": "Magnificent entrance archway decorated with real fresh roses and lilies.",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbYA6MMjX1rzqSaZ5c90uEIwzAuGZEfOtKVw&s",
+        "features": ["Real Flowers", "Fragrance Tech", "Red Carpet"]
+      },
+      {
+        "id": "adec_010",
+        "name": "Floating Balloon Pool Decor",
+        "description": "Romantic pool-side setup with floating flowers and balloons.",
+        "price": 11000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj40dBC2OKZY3E9chj-nYWWQ05fS2Br9Q7VA&s",
+        "features": ["Waterproof LEDs", "Flower Ropes", "Side Decor"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "a_music",
+    "services": [
+      {
+        "id": "amuz_001",
+        "name": "Acoustic Guitarist",
+        "description": "Romantic acoustic guitar performance for a private dinner setup.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf8Ewo8DGgjJ2y_DLBMkWgCc9lTCF4t_tfYQ&s",
+        "features": ["1 Hour", "Custom Playlist", "Background Music"]
+      },
+      {
+        "id": "amuz_002",
+        "name": "Solo Violinist",
+        "description": "Beautiful, emotional violin melodies during the ring or cake ceremony.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkwZjOjaP2uBVIYVrYHOpHJ0I_0S3kYWvW6w&s",
+        "features": ["1.5 Hours", "Classical Hits", "Grand Entry"]
+      },
+      {
+        "id": "amuz_003",
+        "name": "Live Jazz/Sufi Band",
+        "description": "A complete 5-piece band playing romantic classics for your guests.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuGxsEKNPZt8FFGKmdKsCV1QXZgbvAFz4GTw&s",
+        "features": ["2 Hours", "Full Setup", "Sufi & Retro"]
+      },
+      {
+        "id": "amuz_004",
+        "name": "Private Party DJ",
+        "description": "Professional DJ with a customized dance floor for a grand anniversary party.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvlaQnGva9m5XqFkZVabwh0HlR724jCCp4w&s",
+        "features": ["4 Hours", "LED Setup", "Party Mix"]
+      },
+      {
+        "id": "amuz_005",
+        "name": "Live Romantic Singer",
+        "description": "A dedicated vocalist singing your favorite love songs to your partner.",
+        "price": 20000,
+        "imageUrl": "https://miro.medium.com/v2/resize:fit:1400/0*hotL0AElvkgbgAZf",
+        "features": ["2 Hours", "Couple Dedication", "Sound Sys. incl."]
+      },
+      {
+        "id": "amuz_006",
+        "name": "Smooth Saxophone",
+        "description": "Classy and smooth saxophone tunes perfect for an evening gala.",
+        "price": 16000,
+        "imageUrl": "https://i.ytimg.com/vi/Jwxu7Ie5UF8/maxresdefault.jpg",
+        "features": ["Instrumental", "Classy Vibe", "1.5 Hours"]
+      },
+      {
+        "id": "amuz_007",
+        "name": "Karaoke Night Setup",
+        "description": "Complete karaoke system with a massive screen and 2 mics for family fun.",
+        "price": 12000,
+        "imageUrl": "https://m.media-amazon.com/images/I/7193NDP-zCL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Interactive", "All Languages", "Tech Support"]
+      },
+      {
+        "id": "amuz_008",
+        "name": "String Quartet",
+        "description": "A 4-piece string ensemble for an ultra-luxury, high-end anniversary dinner.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtFy0PsDzZrE2qfKJCOC40T8V6wyBYgQVc3A&s",
+        "features": ["Cello & Violin", "Bridgerton Vibe", "2 Hours"]
+      },
+      {
+        "id": "amuz_009",
+        "name": "Piano Player",
+        "description": "Elegant piano melodies providing the perfect backdrop for conversation.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsp0p74Z82vtHzUqao1j-vlgGNc6yC1dOKTw&s",
+        "features": ["Grand Piano", "Lounge Music", "Classy"]
+      },
+      {
+        "id": "amuz_010",
+        "name": "Celebrity Guest Artist",
+        "description": "Make it a night to remember with a famous playback singer performing live.",
+        "price": 150000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ04Jf_DiRmuEeMNfvBbYQpO9EpfXk8qKphA&s",
+        "features": ["Live Concert", "Meet & Greet", "1 Hour Set"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "a_photo",
+    "services": [
+      {
+        "id": "aph_001",
+        "name": "Couple Portrait Session",
+        "description": "A romantic, directed photoshoot highlighting your bond and love.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwmKQIhZYcP6eVQjcWEXzlAw1wHIxKyoAfCw&s",
+        "features": ["2 Hours", "50+ Edits", "Location of Choice"]
+      },
+      {
+        "id": "aph_002",
+        "name": "Candid Event Coverage",
+        "description": "Capturing natural, unposed moments of you and your guests during the party.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5mvpdHbd18EOidHUWv7MTQOk5XovPWTD5Dw&s",
+        "features": ["4 Hours", "150+ Edits", "Online Gallery"]
+      },
+      {
+        "id": "aph_003",
+        "name": "Cinematic Anniversary Film",
+        "description": "A beautiful 3-5 minute highlight video of your celebration with music.",
+        "price": 25000,
+        "imageUrl": "https://i.ytimg.com/vi/FrZ3rdca9Tg/hqdefault.jpg",
+        "features": ["4K Video", "Drone Shots", "Color Graded"]
+      },
+      {
+        "id": "aph_004",
+        "name": "Pre-Anniversary Getaway Shoot",
+        "description": "An outdoor romantic photoshoot done a few days before the main event.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-U4nXVlychyYDMAmEL6i_Ne1TiKZdI1E4Gw&s",
+        "features": ["3 Hours", "Outfit Changes", "80+ Edits"]
+      },
+      {
+        "id": "aph_005",
+        "name": "Luxury Photobook Package",
+        "description": "Complete event coverage plus a premium leather-bound printed album.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX2LOiyQ-OLx3G3JPPkO1YITMOXXRRcu51Pw&s",
+        "features": ["40-Page Album", "200+ Photos", "Matte Finish"]
+      },
+      {
+        "id": "aph_006",
+        "name": "Aerial Drone Coverage",
+        "description": "Stunning bird's-eye view shots of your grand outdoor anniversary venue.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFOloU6b2PMJ2MnyPgfzFlmzatzkfrsXkgw&s",
+        "features": ["Licensed Pilot", "Cinematic Angles", "HD Output"]
+      },
+      {
+        "id": "aph_007",
+        "name": "Instagram Reels Creator",
+        "description": "A dedicated shooter making trendy vertical videos for your social media.",
+        "price": 7000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbRlytGA-gtv88whdksHrpuajp6xTp-J8ptw&s",
+        "features": ["3 Viral Reels", "Trending Audio", "24Hr Delivery"]
+      },
+      {
+        "id": "aph_008",
+        "name": "The Ultimate Full Day",
+        "description": "Complete photo and video coverage of your entire anniversary day from start to finish.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAQOvzFgdqZL_sja8p5RJs72OFf8QbDSZCLw&s",
+        "features": ["8 Hours", "Photo + Video", "Drone + Album"]
+      },
+      {
+        "id": "aph_009",
+        "name": "Vintage Polaroid Station",
+        "description": "A fun setup where guests get instant printed polaroids to keep as memories.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKEjxIAyKwgPdsn1Cq6qqbnJMpO-2_HhYCJw&s",
+        "features": ["Unlimited Prints", "Fun Props", "Attendant incl."]
+      },
+      {
+        "id": "aph_010",
+        "name": "Vow Renewal / Surprise Shoot",
+        "description": "Hidden camera setup to capture a surprise gift or vow renewal moment perfectly.",
+        "price": 14000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmlZMA7Fr0idQB-2BQqneDxrdmQdzufieq1g&s",
+        "features": ["Secret Setup", "Raw Emotion", "Tear-jerker Video"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "a_gifts",
+    "services": [
+      {
+        "id": "ag_001",
+        "name": "100 Red Roses Bouquet",
+        "description": "A massive, luxurious bouquet of fresh red roses to surprise your partner.",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVQfZbYSN3LUr9Ee-adcOC1dRLk7V3Pvj8kQ&s",
+        "features": ["100 Roses", "Premium Wrap", "Message Card"]
+      },
+      {
+        "id": "ag_002",
+        "name": "Luxury Spa Hamper",
+        "description": "Premium collection of essential oils, bath bombs, and luxury perfumes.",
+        "price": 5500,
+        "imageUrl": "https://m.media-amazon.com/images/I/71Q3Z-e0tJL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Essential Oils", "Bath Salts", "Wooden Box"]
+      },
+      {
+        "id": "ag_003",
+        "name": "Gourmet Chocolate Box",
+        "description": "Handcrafted artisan chocolates from Belgium in an elegant velvet box.",
+        "price": 2800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbm9FX85rYT3DZ288Jmw27_W7Ed1NYDcxMpg&s",
+        "features": ["Imported Cocoa", "24 Pcs", "Velvet Finish"]
+      },
+      {
+        "id": "ag_004",
+        "name": "Couple Watches Set",
+        "description": "Elegant matching His & Hers watches delivered during the event.",
+        "price": 15000,
+        "imageUrl": "https://m.media-amazon.com/images/I/61w+vYzvbJL._AC_UY1000_.jpg",
+        "features": ["Matching Set", "Premium Brand", "Gift Boxed"]
+      },
+      {
+        "id": "ag_005",
+        "name": "Custom Engraved Wine Glasses",
+        "description": "A pair of crystal glasses engraved with your wedding date and names.",
+        "price": 3000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoRB--gOczaP7rjFdFmE90VxQpJzEskc2diw&s",
+        "features": ["Crystal Glass", "Laser Engraved", "Satin Box"]
+      },
+      {
+        "id": "ag_006",
+        "name": "Helicopter Ride Experience",
+        "description": "A surprise 15-minute romantic helicopter joyride over the city.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSE3GJkUXFFydrzaUGlu70DgTjRp0FstwcRA&s",
+        "features": ["15 Min Ride", "Champagne Toast", "City View"]
+      },
+      {
+        "id": "ag_007",
+        "name": "Memory Scrapbook",
+        "description": "Beautifully handcrafted vintage scrapbook filled with your couple photos.",
+        "price": 4500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGUfbK8zFrG4IdPD1AUCtUN6OYLREXbn3UtA&s",
+        "features": ["Handcrafted", "50 Photos", "Leather Bound"]
+      },
+      {
+        "id": "ag_008",
+        "name": "Silver Coin Return Gifts (50 pcs)",
+        "description": "Pure silver 10g coins customized for guests as a premium return gift.",
+        "price": 60000,
+        "imageUrl": "https://m.media-amazon.com/images/I/513de2c+cEL._AC_UY1100_.jpg",
+        "features": ["10g Pure Silver", "50 Pieces", "Velvet Pouches"]
+      },
+      {
+        "id": "ag_009",
+        "name": "Private Yacht Dinner",
+        "description": "A luxury 2-hour private yacht experience with a dedicated chef.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsHgg2CvEhn_-tiLX2O2QesqeKpe1wb8AvcQ&s",
+        "features": ["2 Hours", "Private Chef", "Sunset View"]
+      },
+      {
+        "id": "ag_010",
+        "name": "Assorted Macaron Tower",
+        "description": "A beautiful and delicious 4-tier tower of authentic French macarons.",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdlaKsjaBY9vq-1qn4lRllxvNzlqDZ-TmcjA&s",
+        "features": ["4 Tiers", "Mixed Flavors", "French Recipe"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "bs_cake",
+    "services": [
+      {
+        "id": "bsc_001",
+        "name": "Pastel Baby Footprints",
+        "description": "Cute buttercream cake decorated with little baby footprints.",
+        "price": 1500,
+        "imageUrl": "https://i.pinimg.com/736x/e0/6e/46/e06e46718d67d148bfb94c4209bccb02.jpg",
+        "features": ["1 Kg", "Custom Flavor", "Eggless available"]
+      },
+      {
+        "id": "bsc_002",
+        "name": "Gender Reveal Pinata",
+        "description": "Break the chocolate shell to reveal pink or blue candies inside.",
+        "price": 2500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHvQzfSH_6sdJanNyBBi0asqP9mftoTiiLag&s",
+        "features": ["Hammer Included", "Color Reveal", "1.5 Kg"]
+      },
+      {
+        "id": "bsc_003",
+        "name": "Oh Baby! Two-Tier",
+        "description": "Elegant two-tier cake with an acrylic \"Oh Baby\" golden topper.",
+        "price": 4500,
+        "imageUrl": "https://m.media-amazon.com/images/I/618mI359d4L.jpg",
+        "features": ["3 Kg", "Designer Look", "Floral Accents"]
+      },
+      {
+        "id": "bsc_004",
+        "name": "Teddy Bear Fondant Cake",
+        "description": "Adorable cake featuring a handcrafted edible fondant teddy bear.",
+        "price": 3200,
+        "imageUrl": "https://alittlecake.com/wp-content/uploads/2024/03/Teddy-Bear-First-Birthday-Cake-With-Fondant-Ruffle-1.png",
+        "features": ["2 Kg", "Fondant Art", "Pastel Colors"]
+      },
+      {
+        "id": "bsc_005",
+        "name": "Royal Prince/Princess",
+        "description": "Luxury design featuring a golden edible crown and quilted pattern.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk_G3V-_GfMvjH0iCHk1IwccmFSsZFa9qvOg&s",
+        "features": ["Crown Topper", "Gold Detailing", "2.5 Kg"]
+      },
+      {
+        "id": "bsc_006",
+        "name": "Safari Jungle Theme",
+        "description": "Fun cake topped with cute, edible sugar animals (Lion, Elephant).",
+        "price": 3800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsX6227w0JNZJwCAqAskRsD_2rI98_5OagFg&s",
+        "features": ["Animal Props", "2 Kg", "Kids Favorite"]
+      },
+      {
+        "id": "bsc_007",
+        "name": "Stork & Baby Delivery",
+        "description": "Classic theme cake with a stork carrying a baby bundle topper.",
+        "price": 2800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXTAfmB2L915Z0Dwcvw8Ty9tzGJGV_Pfvesg&s",
+        "features": ["Story Theme", "Vanilla Base", "1.5 Kg"]
+      },
+      {
+        "id": "bsc_008",
+        "name": "Macaron & Floral Delight",
+        "description": "Sophisticated cake decorated with fresh flowers and French macarons.",
+        "price": 4200,
+        "imageUrl": "https://bakeoffcakes.in/wp-content/uploads/2024/07/Baby-Shower-Cake-with-Macroon.jpg",
+        "features": ["Real Flowers", "Premium Macarons", "2 Kg"]
+      },
+      {
+        "id": "bsc_009",
+        "name": "Mini Bento Maternity Cake",
+        "description": "Cute, trendy, small-sized cake perfect for an intimate family reveal.",
+        "price": 1200,
+        "imageUrl": "https://yummycake.in/wp-content/uploads/2020/09/order-online-baby-shower-cake.png",
+        "features": ["500g", "Trendy Design", "Custom Text"]
+      },
+      {
+        "id": "bsc_010",
+        "name": "Twinkle Twinkle Little Star",
+        "description": "Night sky themed cake with moon and stars for your little one.",
+        "price": 3500,
+        "imageUrl": "https://i.pinimg.com/564x/ee/7b/15/ee7b153a4eb8bface8a5bac0d9c3f239.jpg",
+        "features": ["Star Props", "Blue/Pink Galaxy", "2 Kg"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "bs_decor",
+    "services": [
+      {
+        "id": "bsd_001",
+        "name": "Pastel Gender Neutral Theme",
+        "description": "Elegant setup with mint, yellow, and peach balloons and florals.",
+        "price": 8500,
+        "imageUrl": "https://m.media-amazon.com/images/I/71vK2KC2TLL._AC_UF894,1000_QL80_.jpg",
+        "features": ["Pastel Balloons", "Oh Baby Neon", "Cake Table"]
+      },
+      {
+        "id": "bsd_002",
+        "name": "It's a Boy! Blue Theme",
+        "description": "Classic blue and white decor with silver accents and baby props.",
+        "price": 8000,
+        "imageUrl": "https://m.media-amazon.com/images/I/61rx7NG8IaL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Blue Garland", "Welcome Board", "Boy Props"]
+      },
+      {
+        "id": "bsd_003",
+        "name": "It's a Girl! Pink Theme",
+        "description": "Beautiful pink and rose gold setup with floral arrangements.",
+        "price": 8000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71RqxsISBnL.jpg",
+        "features": ["Pink Balloons", "Floral Decor", "Girl Props"]
+      },
+      {
+        "id": "bsd_004",
+        "name": "Jungle Safari Adventure",
+        "description": "Fun and wild theme featuring animal cutouts, vines, and green balloons.",
+        "price": 12000,
+        "imageUrl": "https://m.media-amazon.com/images/I/81oR27-AYzL.jpg",
+        "features": ["Animal Cutouts", "Greenery", "Photo Booth"]
+      },
+      {
+        "id": "bsd_005",
+        "name": "Teddy Bear Picnic",
+        "description": "Adorable setup with giant teddy bears, floor seating, and pampas grass.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Iiw7bq0f1dDeTs3WB7ruRqlN2DPQVqDKoA&s",
+        "features": ["Giant Teddies", "Boho Seating", "Warm Lights"]
+      },
+      {
+        "id": "bsd_006",
+        "name": "Royal Prince/Princess",
+        "description": "Luxurious gold and white setup with crown motifs and velvet drapes.",
+        "price": 25000,
+        "imageUrl": "https://m.media-amazon.com/images/I/81ucns4b1HL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Golden Arch", "Velvet Drapes", "Throne Chair"]
+      },
+      {
+        "id": "bsd_007",
+        "name": "Twinkle Little Star",
+        "description": "Dreamy night sky theme with moon props, fairy lights, and silver stars.",
+        "price": 10000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71ehX8rOK3L._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Star Foils", "Moon Cutout", "Fairy Lights"]
+      },
+      {
+        "id": "bsd_008",
+        "name": "Boho Chic Maternity",
+        "description": "Trendy bohemian style with macramé, dried florals, and wicker chairs.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmtFvUawfqNXnlGIeuB6a9QmHGZbLZSUgUQ&s",
+        "features": ["Macramé", "Pampas Grass", "Wicker Furniture"]
+      },
+      {
+        "id": "bsd_009",
+        "name": "Classic Floral Elegance",
+        "description": "Sophisticated fresh flower wall with subtle balloon accents.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSdUW3CBJYWsmJDcq4Isn4uLvhJRPIsQvv7A&s",
+        "features": ["Flower Wall", "Real Blooms", "Classy Vibe"]
+      },
+      {
+        "id": "bsd_010",
+        "name": "At-Home Mini Setup",
+        "description": "Compact yet beautiful ring decoration perfect for living room corners.",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA1chZwmhBCQyNR9zSnH9O0AJL7Fvui1AraQ&s",
+        "features": ["Ring Frame", "Balloon Garland", "No-Mess Setup"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "bs_games",
+    "services": [
+      {
+        "id": "bsg_001",
+        "name": "Professional Game Host",
+        "description": "Energetic anchor to conduct 10+ interactive baby shower games for all guests.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrebVn9BqbV0kTeQkH6YKCK7lH1YnOpOZW7Q&s",
+        "features": ["2 Hours", "Mic Included", "High Energy"]
+      },
+      {
+        "id": "bsg_002",
+        "name": "Baby Bingo Set",
+        "description": "Custom designed Bingo cards matching your theme. A fun sit-down game.",
+        "price": 2500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShX3_ItjfnCpztqlljbVgXGk1g3YcvexoP6w&s",
+        "features": ["50 Cards", "Custom Theme", "Pens Included"]
+      },
+      {
+        "id": "bsg_003",
+        "name": "Blindfold Diaper Challenge",
+        "description": "Hilarious activity for the dad-to-be and guests using plush dolls and blindfolds.",
+        "price": 3000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCtoNY1pBOzph0yCIEzbxEJuUAEWhZDkaP2w&s",
+        "features": ["Plush Dolls", "Diapers incl.", "Blindfolds"]
+      },
+      {
+        "id": "bsg_004",
+        "name": "Mom & Dad Trivia Quiz",
+        "description": "Customized quiz about the couple’s childhood to see who knows them best.",
+        "price": 2000,
+        "imageUrl": "https://m.media-amazon.com/images/I/7150HGy8TEL.jpg",
+        "features": ["Printed Sheets", "Custom Q&A", "Pencils incl."]
+      },
+      {
+        "id": "bsg_005",
+        "name": "Baby Food Tasting Contest",
+        "description": "Guests taste blindfolded and guess the baby food flavors. Super fun!",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS56W66QxT7wb5w-_jlWbOPp6qWJgWUhMZWNg&s",
+        "features": ["10 Flavors", "Safe Setup", "Spoons incl."]
+      },
+      {
+        "id": "bsg_006",
+        "name": "Onesie Painting Station",
+        "description": "Creative corner where guests paint custom onesies for the upcoming baby.",
+        "price": 6500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBaiP21TIZWaXZy-YZ7zSjsFLqmPk8yFn50w&s",
+        "features": ["15 White Onesies", "Fabric Paint", "Stencils"]
+      },
+      {
+        "id": "bsg_007",
+        "name": "Advice & Wishes Tree",
+        "description": "A beautiful wooden tree where guests hang their advice cards for the parents.",
+        "price": 4500,
+        "imageUrl": "https://m.media-amazon.com/images/I/71dkoDd7+9L._AC_UF894,1000_QL80_.jpg",
+        "features": ["Wooden Tree", "50 Cards", "Keepsake"]
+      },
+      {
+        "id": "bsg_008",
+        "name": "Don't Say \"Baby\" Game",
+        "description": "Clothespin necklace game. Whoever says \"Baby\" loses their pin!",
+        "price": 1500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfCwhUaYbuxPqmgTEjGvLfWndb_TJKfeS8zA&s",
+        "features": ["Custom Pins", "Instruction Board", "Ice Breaker"]
+      },
+      {
+        "id": "bsg_009",
+        "name": "Prize Hamper Bundle",
+        "description": "A set of 5 beautifully wrapped premium gifts to give to the game winners.",
+        "price": 5000,
+        "imageUrl": "https://5.imimg.com/data5/SELLER/Default/2022/6/FE/CS/KD/25530434/baby-shower-hamper.jpg",
+        "features": ["5 Hampers", "Bath & Body", "Chocolates"]
+      },
+      {
+        "id": "bsg_010",
+        "name": "The Ultimate Games Package",
+        "description": "Includes a Host, Sound System, 5 Games, Props, and 5 Winner Prizes.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHqDhtY_cSdpi6D5zYiWLSAo804Cogt77CxA&s",
+        "features": ["All-in-One", "Host + Sound", "Prizes incl."]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "bs_photo",
+    "services": [
+      {
+        "id": "bspho_001",
+        "name": "Event Photography",
+        "description": "Complete coverage of the baby shower rituals, games, and guests.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJNckWyo_hPe5Gult1NebGe6HpF7q5U-GLgg&s",
+        "features": ["3 Hours", "150+ Edits", "Online Gallery"]
+      },
+      {
+        "id": "bspho_002",
+        "name": "Outdoor Maternity Shoot",
+        "description": "Beautiful pre-shower maternity photoshoot session at a scenic location.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwRW2dOHLQ8B8rA76vnDaC6SWMiOAGy9Keig&s",
+        "features": ["2 Hour Session", "1 Location", "50+ Edits"]
+      },
+      {
+        "id": "bspho_003",
+        "name": "Indoor Studio Maternity",
+        "description": "Premium studio shoot with lighting setups and maternity props.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwLY0XgEdExM-c3eI4E68nAH2a5iqvG0Ze0Q&s",
+        "features": ["Studio Rent incl.", "2 Outfits", "Vogue Style"]
+      },
+      {
+        "id": "bspho_004",
+        "name": "Candid Baby Shower Coverage",
+        "description": "Focusing entirely on natural smiles, tears of joy, and unposed moments.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnEG0NDPxJVFQ0t8UXwdr-XRY9BGQ3VMcnmA&s",
+        "features": ["Pro Artist", "Emotional Shots", "Creative Edits"]
+      },
+      {
+        "id": "bspho_005",
+        "name": "Cinematic Event Video",
+        "description": "High-definition cinematic highlight reel of your baby shower celebration.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVB1T6ikO0DA9gatrIdSazU3MbavOzk9h5tw&s",
+        "features": ["3-5 Min Video", "4K Quality", "Licensed Music"]
+      },
+      {
+        "id": "bspho_006",
+        "name": "The Combo Package",
+        "description": "Combines the Maternity Shoot and full Event Photography at a discount.",
+        "price": 22000,
+        "imageUrl": "https://images-pw.pixieset.com/site/BAxvyK/4PYJEo/Genderrevealconfettipoppersburstingvibrantpinkconfettiexcitedlymid-celebration.genderrevealconfetti.impresiostudio-818fc5bb-1500.jpg",
+        "features": ["Both Shoots", "200+ Photos", "Value Deal"]
+      },
+      {
+        "id": "bspho_007",
+        "name": "Gender Reveal Drone Video",
+        "description": "Capture the big reveal moment (smoke/confetti) from stunning aerial angles.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-K2JvOIAKjm9xCe2qemHx-SiGGU5euWwrFQ&s",
+        "features": ["Drone Pilot", "Reveal Focus", "Outdoor Only"]
+      },
+      {
+        "id": "bspho_008",
+        "name": "Instant Polaroid Memories",
+        "description": "A dedicated photographer printing instant polaroids for guests to take home.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2D4-_pRNCMN-OfZnDlzXoiGeITmbKeajOiA&s",
+        "features": ["Unlimited Prints", "Fun Props", "Retro Vibe"]
+      },
+      {
+        "id": "bspho_009",
+        "name": "Instagram Reels Creator",
+        "description": "A trendy creator capturing and editing vertical videos specifically for social media.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlymfRPc5YhSCegDYUYfEnlIbI9oL6DsgBVA&s",
+        "features": ["3 Viral Reels", "Same Day", "Trending Audio"]
+      },
+      {
+        "id": "bspho_010",
+        "name": "Luxury Photobook Package",
+        "description": "Full day coverage with a beautifully printed 40-page hardcover maternity album.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgGd_gW3ptwmyDMv77QHYnr3fW7FxlXI6w7w&s",
+        "features": ["Hardcover Album", "300+ Photos", "Premium Finish"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "bs_gifts",
+    "services": [
+      {
+        "id": "bsgf_001",
+        "name": "Essential Baby Hamper",
+        "description": "A beautiful basket filled with baby clothes, soft toys, and organic lotions.",
+        "price": 3000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD-hpinZ4_p_bmAfv1pvqCr7ehy5rtI9IjKw&s",
+        "features": ["Organic Cotton", "Bath Essentials", "Gift Wrapped"]
+      },
+      {
+        "id": "bsgf_002",
+        "name": "Luxury Mom-to-Be Spa Kit",
+        "description": "Premium self-care hamper for the expecting mother to relax and unwind.",
+        "price": 4500,
+        "imageUrl": "https://i.etsystatic.com/27134679/r/il/835725/6180137096/il_fullxfull.6180137096_punl.jpg",
+        "features": ["Bath Bombs", "Stretch Mark Oil", "Scented Candles"]
+      },
+      {
+        "id": "bsgf_003",
+        "name": "Newborn Clothing Set",
+        "description": "A 10-piece adorable, unisex, pure cotton clothing set for the newborn.",
+        "price": 5000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71VAfQdpUVL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["10 Pieces", "Pure Cotton", "Unisex Colors"]
+      },
+      {
+        "id": "bsgf_004",
+        "name": "Giant Teddy Surprise",
+        "description": "A massive 4-foot soft teddy bear holding a congratulations balloon.",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-WUoXR1S6oSDm8xwMHdLqmTCUPB33Ggaljg&s",
+        "features": ["4ft Tall", "Washable", "Super Soft"]
+      },
+      {
+        "id": "bsgf_005",
+        "name": "Custom Wooden Memory Box",
+        "description": "Personalized engraved wooden box to keep the baby’s first memories safe.",
+        "price": 6500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIN1WjrWFYrhhpgNpEWsTlTJU3c1QrYKYxuw&s",
+        "features": ["Name Engraved", "Keepsake Box", "Premium Wood"]
+      },
+      {
+        "id": "bsgf_006",
+        "name": "Silver Blessing Coin & Bowl",
+        "description": "Traditional pure silver feeding bowl and spoon set for the baby.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpI1JwcIsz2JaXqD1Gw8UusW0wev51J8NtDg&s",
+        "features": ["Pure Silver", "Hallmarked", "Velvet Case"]
+      },
+      {
+        "id": "bsgf_007",
+        "name": "Return Gifts (Pack of 20)",
+        "description": "Cute, themed return gift bags for guests filled with chocolates and a small plant.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTded6wToCUKES-MHJKSKWnSGmH6neUxJYJ_A&s",
+        "features": ["20 Bags", "Chocolates incl.", "Custom Tags"]
+      },
+      {
+        "id": "bsgf_008",
+        "name": "Baby Play Gym & Mat",
+        "description": "High-quality, colorful musical play mat to keep the baby engaged.",
+        "price": 4000,
+        "imageUrl": "https://m.media-amazon.com/images/I/612WamXC+qL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Musical Toys", "Soft Mat", "Washable"]
+      },
+      {
+        "id": "bsgf_009",
+        "name": "Gourmet Pregnancy Cravings Box",
+        "description": "A huge jar filled with premium chocolates, nuts, and exotic snacks for the mom.",
+        "price": 2800,
+        "imageUrl": "https://m.media-amazon.com/images/I/81GtZWLoTOL._AC_UF350,350_QL80_.jpg",
+        "features": ["Healthy Snacks", "Imported Chocolates", "Large Jar"]
+      },
+      {
+        "id": "bsgf_010",
+        "name": "First Year Photo Frame Set",
+        "description": "A beautiful 12-month photo frame board to document the baby’s first year.",
+        "price": 1800,
+        "imageUrl": "https://m.media-amazon.com/images/I/71aD3znzdGL._AC_UF894,1000_QL80_.jpg",
+        "features": ["12 Slots", "Wall Mount", "Elegant Design"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "b_cake",
+    "services": [
+      {
+        "id": "ck_001",
+        "name": "Chocolate Truffle",
+        "description": "Layers of dark chocolate sponge with silky Belgian ganache.",
+        "price": 1800,
+        "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=500&auto=format&fit=crop",
+        "features": ["Eggless", "Fresh Cream", "1.5 kg"]
+      },
+      {
+        "id": "ck_002",
+        "name": "Custom Theme Cake",
+        "description": "Handcrafted fondant cakes based on your choice of characters.",
+        "price": 3500,
+        "imageUrl": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=500&auto=format&fit=crop",
+        "features": ["Fondant Art", "Thematic", "3 kg"]
+      },
+      {
+        "id": "ck_003",
+        "name": "Personalized Photo Cake",
+        "description": "Delicious vanilla cream cake featuring your favorite memory.",
+        "price": 2200,
+        "imageUrl": "https://i.pinimg.com/474x/c3/bd/3e/c3bd3e1632a68b25bcfba9c3145fadee.jpg",
+        "features": ["Edible Print", "Any Image", "2 kg"]
+      },
+      {
+        "id": "ck_004",
+        "name": "Surprise Pinata Cake",
+        "description": "Hard chocolate shell filled with treats and a hammer to break.",
+        "price": 2000,
+        "imageUrl": "https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=500&auto=format&fit=crop",
+        "features": ["Interactive", "Filled with Candies", "Hammer incl."]
+      },
+      {
+        "id": "ck_005",
+        "name": "Classic Red Velvet",
+        "description": "Vibrant red layers with smooth cream cheese frosting.",
+        "price": 2400,
+        "imageUrl": "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?q=80&w=500&auto=format&fit=crop",
+        "features": ["Cream Cheese", "Premium", "1.5 kg"]
+      },
+      {
+        "id": "ck_006",
+        "name": "Two-Tier Designer Cake",
+        "description": "Grand multi-level cake for milestone birthday celebrations.",
+        "price": 8000,
+        "imageUrl": "https://images.unsplash.com/photo-1535254973040-607b474cb50d?q=80&w=500&auto=format&fit=crop",
+        "features": ["2 Tier", "Luxury Decor", "5 kg"]
+      },
+      {
+        "id": "ck_007",
+        "name": "Fresh Fruit Exotic",
+        "description": "Light sponge loaded with seasonal fresh fruits and cream.",
+        "price": 1500,
+        "imageUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=500&auto=format&fit=crop",
+        "features": ["Healthy", "Low Sugar", "1.5 kg"]
+      },
+      {
+        "id": "ck_008",
+        "name": "Rainbow Fun Cake",
+        "description": "Colorful six-layer cake with fun sprinkles for kids.",
+        "price": 2800,
+        "imageUrl": "https://www.kabhi-b.com/cdn/shop/files/RainbowThemeCreamCake.jpg?v=1741158626&width=1946",
+        "features": ["Kids Special", "6 Colors", "3 kg"]
+      },
+      {
+        "id": "ck_009",
+        "name": "Belgian Lotus Biscoff",
+        "description": "Trendy biscoff spread cake with caramelized crunch.",
+        "price": 2600,
+        "imageUrl": "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=500&auto=format&fit=crop",
+        "features": ["Biscoff Crunch", "Matte Finish", "1.5 kg"]
+      },
+      {
+        "id": "ck_010",
+        "name": "KitKat & Gems Loaded",
+        "description": "Surrounded by KitKat bars and topped with colorful gems.",
+        "price": 1900,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR26aZTtq_hNaSvDEmQs-tfobPQT6MA_NAd5A&s",
+        "features": ["Chocolate overload", "Kids Favorite", "2 kg"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "b_decor",
+    "services": [
+      {
+        "id": "bd_001",
+        "name": "Classic Balloon Arch",
+        "description": "Colorful double-layered balloon arch with name foil balloons.",
+        "price": 5000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71GSWq8rYRL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Arch Design", "Name Foils", "Setup incl."]
+      },
+      {
+        "id": "bd_002",
+        "name": "Jungle Safari Theme",
+        "description": "Greenery backdrop with animal cutouts and organic balloon vines.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4BSsSFhydxF1WM4OqXwGibNcV4hmX_IuZMQ&s",
+        "features": ["Animal Props", "Leafy Decor", "Photo Booth"]
+      },
+      {
+        "id": "bd_003",
+        "name": "Princess Castle Theme",
+        "description": "Pink and gold royal castle backdrop with star fairy lights.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG4QBGB9-owzSXpl-h6BfWg0910GbWAxv36A&s",
+        "features": ["Castle Cutout", "Fairy Lights", "Carpet incl."]
+      },
+      {
+        "id": "bd_004",
+        "name": "Superhero Universe",
+        "description": "Action-packed comic style backdrop with city silhouette.",
+        "price": 14000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-RYZw2gtDXA1NQ5-xWPk7E734m0DXq72qQg&s",
+        "features": ["Comic Props", "Bold Colors", "Action Poses"]
+      },
+      {
+        "id": "bd_005",
+        "name": "Minimalist Pastel Decor",
+        "description": "Elegant macaron-colored balloons with a simple circular ring.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhI28Mz1OzHOncqwWYtSmSMcs9TpTQFNj-BA&s",
+        "features": ["Pastel Theme", "Gold Ring", "Modern Style"]
+      },
+      {
+        "id": "bd_006",
+        "name": "Outer Space Theme",
+        "description": "Dark blue chrome balloons with astronaut and rocket foils.",
+        "price": 11000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvY_3gP_C0l9tUEtt6uMpCiRLJ3Zyy1IkX8A&s",
+        "features": ["Chrome Effect", "Rocket Props", "LED Stars"]
+      },
+      {
+        "id": "bd_007",
+        "name": "Under the Sea Theme",
+        "description": "Aquatic blue drapes with mermaid and fish balloon art.",
+        "price": 13000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI3PRJYC3BCBwMxwd7XTqzt52HKHyMQP9W9Q&s",
+        "features": ["Mermaid Tails", "Ocean Props", "Bubble Balloons"]
+      },
+      {
+        "id": "bd_008",
+        "name": "Boho Picnic Style",
+        "description": "Teepee tents, floor cushions, and pampas grass decoration.",
+        "price": 18000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71glHrpY+BL.jpg",
+        "features": ["Teepee Tents", "Floor Seating", "Macramé"]
+      },
+      {
+        "id": "bd_009",
+        "name": "Glow in the Dark",
+        "description": "Neon balloons and fluorescent streamers with UV lighting.",
+        "price": 10000,
+        "imageUrl": "https://m.media-amazon.com/images/I/81JAn5LhQjL._AC_UF894,1000_QL80_.jpg",
+        "features": ["Neon Props", "UV Lights", "Party Vibe"]
+      },
+      {
+        "id": "bd_010",
+        "name": "Candy Land Fantasy",
+        "description": "Giant lollipop cutouts and doughnut-shaped balloon pillars.",
+        "price": 16000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71uRoaCM5kL.jpg",
+        "features": ["Sweet Theme", "Giant Props", "Colorful"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "b_ent",
+    "services": [
+      {
+        "id": "ent_001",
+        "name": "Professional Magician",
+        "description": "Interactive 45-minute stage show with mind-blowing tricks for kids and adults.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSosQ5FBTdJTtWacRDQKVjm9VAz3-VbBuQfMQ&s",
+        "features": ["45 min Show", "Interactive", "Props incl."]
+      },
+      {
+        "id": "ent_002",
+        "name": "Funny Clown / Joker",
+        "description": "Entertaining clown with balloon twisting, magic tricks, and fun games.",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDvOEKV_Sl_Uj8kYXhxKYvxgFWDuTerIRuUA&s",
+        "features": ["2 Hours", "Balloon Art", "Games Hosting"]
+      },
+      {
+        "id": "ent_003",
+        "name": "Professional Game Host",
+        "description": "Energetic anchor to host party games, music dance, and cake cutting.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEJGNQ3-dr94gfAl0MaaNn9oxBA3ylFrZuEw&s",
+        "features": ["Energy Booster", "Game Props", "3 Hours"]
+      },
+      {
+        "id": "ent_004",
+        "name": "Creative Tattoo Artist",
+        "description": "Safe, temporary skin-friendly tattoos with 100+ design choices.",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJwIp8UA7ZDasPuGFAuE1AWXD27sm2N8s0HQ&s",
+        "features": ["Organic Colors", "50+ Kids Designs", "2 Hours"]
+      },
+      {
+        "id": "ent_005",
+        "name": "DJ for Kids Party",
+        "description": "High-energy DJ with lights, smoke machine, and the latest dance hits.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXh8scSF9BXJcsqm6pNMSeR5HjZVUg0tt0mA&s",
+        "features": ["Sound System", "Disco Lights", "Kids Playlist"]
+      },
+      {
+        "id": "ent_006",
+        "name": "Giant Bouncy Castle",
+        "description": "Inflatable large jumping castle with safety nets and supervisor.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm51oNkoXMEmoWluhMyJUkG1LzBNK8zLk7ww&s",
+        "features": ["Safety Net", "4 Hours", "Blower incl."]
+      },
+      {
+        "id": "ent_007",
+        "name": "Puppet Story Show",
+        "description": "Traditional puppet show telling educational and funny stories.",
+        "price": 7000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUPiBnfeLqQTGJKTke659bsO1reJs_FV5AFQ&s",
+        "features": ["30 min show", "Fairy Tales", "Portable Stage"]
+      },
+      {
+        "id": "ent_008",
+        "name": "Cartoon Mascot (Mickey)",
+        "description": "Professional mascot character for photo sessions and dancing.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpCMZWjB-ubeRQZEc-AmVnsiG894hSQh44w&s",
+        "features": ["Photo Op", "Entry Dance", "Cake Cutting"]
+      },
+      {
+        "id": "ent_009",
+        "name": "Face Painting Artist",
+        "description": "Artistic face and hand painting using premium non-toxic colors.",
+        "price": 4500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOrTA4NjQjYRyXS9AeTDp3ubzpeHu4HLoWeQ&s",
+        "features": ["Cosmetic Grade", "Speed Art", "2 Hours"]
+      },
+      {
+        "id": "ent_010",
+        "name": "Bubbles & Fog Show",
+        "description": "Magic bubble show with giant bubbles and smoke rings.",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-LjYRtudE_VTb240jxu-CWZBZoeCnO8rJA&s",
+        "features": ["Giant Bubbles", "Kids Activity", "Visual Treat"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "b_photo",
+    "services": [
+      {
+        "id": "bpho_001",
+        "name": "Basic Event Coverage",
+        "description": "Capture beautiful birthday memories, cake cutting, and group photos.",
+        "price": 6000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/middle-aged-black-women-cutting-cake-three-generation-family-birthday-celebration-close-up-middle-aged-african-american-144594318.jpg",
+        "features": ["2 Hours", "100+ Photos", "Online Gallery"]
+      },
+      {
+        "id": "bpho_002",
+        "name": "Candid Party Photography",
+        "description": "Focuses on natural, fun, and unposed moments of the birthday star and guests.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQktWyJBwXNAGssBXhRU0lsIinFxjBchQNjeQ&s",
+        "features": ["4 Hours", "250+ Photos", "Premium Edits"]
+      },
+      {
+        "id": "bpho_003",
+        "name": "Photo + Cinematic Video",
+        "description": "Complete coverage including a beautifully edited highlight video.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7WeU9lFpj9-8CQDh0UNWIhSX2KVoyX71RbA&s",
+        "features": ["Full Event", "Highlight Reel", "Edited Album"]
+      },
+      {
+        "id": "bpho_004",
+        "name": "Cake Smash Baby Shoot",
+        "description": "A messy, fun, and adorable pre-birthday photoshoot for toddlers.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEIRDnCu95FukhZVLyclxnJkQVloSnKidOGA&s",
+        "features": ["Studio Setup", "Props Incl.", "Outfit Change"]
+      },
+      {
+        "id": "bpho_005",
+        "name": "Outdoor Drone Coverage",
+        "description": "Aerial video and photography for grand outdoor garden parties.",
+        "price": 15000,
+        "imageUrl": "https://www.shutterstock.com/shutterstock/videos/3879401659/thumb/1.jpg?ip=x480",
+        "features": ["4K Drone", "Licensed Pilot", "Cinematic Shots"]
+      },
+      {
+        "id": "bpho_006",
+        "name": "360° Video Booth",
+        "description": "Trendy rotating camera booth providing slow-motion videos for guests.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUQMKu8QRzvsLra_WbTMeYSj0JbAHFG77oVg&s",
+        "features": ["360 Platform", "Slow Motion", "Instant Share"]
+      },
+      {
+        "id": "bpho_007",
+        "name": "Polaroid Instant Station",
+        "description": "A dedicated photographer printing instant retro photos for guests to keep.",
+        "price": 8000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71RAIq7ih-L.jpg",
+        "features": ["Unlimited Prints", "Fun Props", "Retro Vibe"]
+      },
+      {
+        "id": "bpho_008",
+        "name": "Instagram Reels Creator",
+        "description": "A dedicated content creator shooting and editing viral-style vertical videos.",
+        "price": 7000,
+        "imageUrl": "https://lwks.com/hubfs/Video%20Portrait%20Blog-min%20(1).webp",
+        "features": ["3 Reels", "Trending Audio", "24Hr Delivery"]
+      },
+      {
+        "id": "bpho_009",
+        "name": "Themed Portrait Session",
+        "description": "A stylish portrait session matching your specific birthday theme.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFY8kcy84lL6kKiSXO0AFkr9Ht8WhwtX9vg&s",
+        "features": ["Theme Setup", "Studio Lights", "Retouched Pics"]
+      },
+      {
+        "id": "bpho_010",
+        "name": "Luxury Printed Album",
+        "description": "Add a premium 40-page hardcover photobook to keep your memories safe.",
+        "price": 12000,
+        "imageUrl": "https://m.media-amazon.com/images/I/61rgzXnTI5L._AC_UF1000,1000_QL80_.jpg",
+        "features": ["40 Pages", "Matte Finish", "Custom Cover"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "b_gifts",
+    "services": [
+      {
+        "id": "gift_001",
+        "name": "Artistic Stationery Set",
+        "description": "Themed bag with colorful notebooks, markers, and premium stickers.",
+        "price": 250,
+        "imageUrl": "https://m.media-amazon.com/images/I/81ilCSJrMNL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Creative Kit", "Themed Bag", "Kids Favorite"]
+      },
+      {
+        "id": "gift_002",
+        "name": "Premium Chocolate Box",
+        "description": "Assorted handcrafted chocolates in a luxury velvet-finish box.",
+        "price": 350,
+        "imageUrl": "https://m.media-amazon.com/images/I/71oDmoEWyOL._AC_UF350,350_QL50_.jpg",
+        "features": ["Imported Cocoa", "Luxury Box", "Sweet Treat"]
+      },
+      {
+        "id": "gift_003",
+        "name": "Eco-Friendly Plant Kit",
+        "description": "Small easy-to-grow succulent in a customized ceramic pot.",
+        "price": 200,
+        "imageUrl": "https://nurserylive.com/cdn/shop/products/nurserylive-bulk-gifts-golden-money-plant-in-eco-friendly-pot-gift-pack-16968906244236_512x512.jpg?v=1634220554",
+        "features": ["Sustainable", "Live Plant", "Ceramic Pot"]
+      },
+      {
+        "id": "gift_004",
+        "name": "Interactive Puzzle Box",
+        "description": "Educational 3D wooden puzzle set to engage young minds.",
+        "price": 450,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlQtkdJX8ExhHByPdvHYVuNJMTIQpwcNLAg&s",
+        "features": ["Educational", "Wooden Build", "Skill Booster"]
+      },
+      {
+        "id": "gift_005",
+        "name": "Custom Photo Frame",
+        "description": "Personalized wooden frame with a \"Thank You\" note from the host.",
+        "price": 300,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNQaG3B0qxv2TV6eCoUP_6zijTSM3vsdgw2g&s",
+        "features": ["Personalized", "Real Wood", "Keepsake"]
+      },
+      {
+        "id": "gift_006",
+        "name": "Gourmet Snack Hamper",
+        "description": "Jar of premium cookies, flavored popcorn, and fruit juice.",
+        "price": 280,
+        "imageUrl": "https://m.media-amazon.com/images/I/71uu36X8iZL._AC_UF350,350_QL80_.jpg",
+        "features": ["Fresh Baked", "Jar Packing", "Mixed Treats"]
+      },
+      {
+        "id": "gift_007",
+        "name": "Soft Toy Surprise",
+        "description": "Cute high-quality plush mascot based on the party theme.",
+        "price": 400,
+        "imageUrl": "https://image.made-in-china.com/2f0j00CNkWaTshHyYQ/Pink-Panda-Inflatable-Costume-for-Adults-Cute-Panda-Mascot-Costume-for-Birthday-Parties-Carnivals-Festivals-Interactive-Stage-Performances-and-Props.webp",
+        "features": ["Super Soft", "Washable", "Safe for Kids"]
+      },
+      {
+        "id": "gift_008",
+        "name": "Magical Slime Kit",
+        "description": "DIY slime making kit with glitter, colors, and mixing tools.",
+        "price": 220,
+        "imageUrl": "https://m.media-amazon.com/images/I/81Zr8qk7xtL.jpg",
+        "features": ["Activity Based", "Non-toxic", "Fun Colors"]
+      },
+      {
+        "id": "gift_009",
+        "name": "Board Game Classic",
+        "description": "Travel-sized traditional board games for family entertainment.",
+        "price": 320,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShyKlwmOobuwvyQRD-tfn2cyOB92k1mMJM8g&s",
+        "features": ["Family Fun", "Compact", "Durable"]
+      },
+      {
+        "id": "gift_010",
+        "name": "Scented Candle Set",
+        "description": "Pair of aromatic hand-poured candles in decorative tins.",
+        "price": 500,
+        "imageUrl": "https://m.media-amazon.com/images/I/61MA5IhsFGL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Organic Soy", "Home Decor", "Long Lasting"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_av",
+    "services": [
+      {
+        "id": "cav_001",
+        "name": "Basic Boardroom AV",
+        "description": "Standard projector and audio setup for small meetings.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShcXCeKxojsI4YOLDoNIsLvb0_gIIcDAFM9w&s",
+        "features": ["HD Projector", "2 Speakers", "Clicker incl."]
+      },
+      {
+        "id": "cav_002",
+        "name": "Conference Audio Setup",
+        "description": "Complete multi-mic audio system for large conferences.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa_jVL4GzppXbp-LrBY8WfaxJ2nrLsMBULdw&s",
+        "features": ["4 Wireless Mics", "Podium Mic", "Sound Tech"]
+      },
+      {
+        "id": "cav_003",
+        "name": "Live Streaming Rig",
+        "description": "Professional multi-camera setup for hybrid events.",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pt3iCINgUkSQEsc8xgxzDCi8_J60vJxAiA&s",
+        "features": ["2 HD Cameras", "Live Switcher", "Web Setup"]
+      },
+      {
+        "id": "cav_004",
+        "name": "Indoor LED Wall",
+        "description": "High-resolution P3 LED screen for crisp presentations.",
+        "price": 50000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuavQWQ2-UhEXOZwPKx7mKqKGdpSCgEeAYVw&s",
+        "features": ["12x8 ft Size", "Laptop Switch", "Tech Support"]
+      },
+      {
+        "id": "cav_005",
+        "name": "Townhall Sound System",
+        "description": "High-quality Line Array sound system for 500+ attendees.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMK7KDlP91m-HnUyZgnqYqZz00B0sAVenXtQ&s",
+        "features": ["Line Array", "Digital Mixer", "Sound Engineer"]
+      },
+      {
+        "id": "cav_006",
+        "name": "Corporate Video Coverage",
+        "description": "Cinematic recording of the event with highlights reel.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5G8ItCFdhQB8B52uqEP9ztm0FZ2YbPnjVQQ&s",
+        "features": ["4K Camera", "Highlight Edit", "Raw Footage"]
+      },
+      {
+        "id": "cav_007",
+        "name": "Webinar & Zoom Setup",
+        "description": "Specialized setup for smooth Zoom/Teams townhall broadcasting.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5CDELbm6UbmFMM1nswvujkSG-VXWFuaN1A&s",
+        "features": ["Capture Card", "HD Webcams", "Audio Route"]
+      },
+      {
+        "id": "cav_008",
+        "name": "Interactive Touch Panel",
+        "description": "Large 75-inch smart touch display for interactive workshops.",
+        "price": 20000,
+        "imageUrl": "https://image.made-in-china.com/2f0j00HclhLDognAYJ/75-Inch-All-in-One-Interactive-Touch-Screen-Flat-Panel-School-Teaching-Interactive-Smart-Screen.jpg",
+        "features": ["75\" Touch Screen", "Stylus Pen", "Screen Cast"]
+      },
+      {
+        "id": "cav_009",
+        "name": "Stage Lighting Package",
+        "description": "Professional stage wash and profile lighting for keynotes.",
+        "price": 28000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDoA9VDZXmeRuZSKzHkz2Vv0wC0f_cI3bHwQ&s",
+        "features": ["Stage Wash", "Moving Heads", "Light Jockey"]
+      },
+      {
+        "id": "cav_010",
+        "name": "The CEO Package",
+        "description": "The ultimate combo: LED Wall, Live Stream, Pro Audio, and Lighting.",
+        "price": 90000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDAE-mV4-nsBi3cD4e3w9wVD7l5c9akKjUvw&s",
+        "features": ["LED Screen", "Multi-Cam", "Full AV Team"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_decor",
+    "services": [
+      {
+        "id": "cdec_001",
+        "name": "Professional Stage Setup",
+        "description": "Elegant stage with customized flex backdrop and soft lighting.",
+        "price": 20000,
+        "imageUrl": "https://cdn.prod.website-files.com/656931bf63931ea93ef3d6da/67a211040763d72591276cde_corporate%20Stage%20Design%20(1).jpg",
+        "features": ["Flex Backdrop", "Podium", "Soft Lighting"]
+      },
+      {
+        "id": "cdec_002",
+        "name": "Grand Entrance Decor",
+        "description": "Welcome your guests with a branded archway and red carpet.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCccLAZvUtVNqaNRTy85pGSXz1EK0naXzYvg&s",
+        "features": ["Branded Arch", "Red Carpet", "Welcome Board"]
+      },
+      {
+        "id": "cdec_003",
+        "name": "Conference Table Setup",
+        "description": "Professional table styling with neat covers and centerpieces.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt9WUIe-PYft0J0lUXERxKn1KMAdfl7oiSrg&s",
+        "features": ["Table Covers", "Centerpieces", "Nameplates"]
+      },
+      {
+        "id": "cdec_004",
+        "name": "Complete Branding Kit",
+        "description": "Venue-wide corporate branding including standees and banners.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAk0NlxCymIseO07wvRZVDo3TFFiA6R77x0w&s",
+        "features": ["6 Standees", "Logo Display", "Venue Banners"]
+      },
+      {
+        "id": "cdec_005",
+        "name": "LED Screen Backdrop",
+        "description": "Dynamic digital backdrop for high-end corporate presentations.",
+        "price": 30000,
+        "imageUrl": "https://www.shutterstock.com/image-illustration/blue-futuristic-technology-tunnel-background-600nw-2732217927.jpg",
+        "features": ["10x8 LED Wall", "Tech Operator", "Stage Skirting"]
+      },
+      {
+        "id": "cdec_006",
+        "name": "Branded Photo Booth",
+        "description": "Custom photo zone with corporate props for social engagement.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv2dgUMWTpXAzsOVGavVx8hufuwlSL4UNu3Q&s",
+        "features": ["Custom Backdrop", "Fun Props", "Ring Light"]
+      },
+      {
+        "id": "cdec_007",
+        "name": "Premium Floral Decor",
+        "description": "Sophisticated flower arrangements for stage and VIP tables.",
+        "price": 18000,
+        "imageUrl": "https://www.brides.com/thmb/m5bxybFOwGO7okn4qHZ9l-g5HX8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/wedding-floral-centerpiece-ideas-recirc-move-mountains-co-35b74293827c41cb94367a7a515eb633.jpg",
+        "features": ["Fresh Lilies", "Podium Bouquet", "Vase Setup"]
+      },
+      {
+        "id": "cdec_008",
+        "name": "Gala Dinner Lighting",
+        "description": "Ambient venue lighting to transition from day meeting to night party.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTugrpKxGCkBnzEwkjeCTJS7sFasNhh0Le4Uw&s",
+        "features": ["Ambient Wash", "Spotlights", "Color Mix"]
+      },
+      {
+        "id": "cdec_009",
+        "name": "Award Ceremony Stage",
+        "description": "Grand setup specialized for corporate R&R and award nights.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDUYRiLDiCMfyjWl7TVdu2loIhgHP8yuQA0A&s",
+        "features": ["Grand Steps", "Trophy Display", "Sparklers"]
+      },
+      {
+        "id": "cdec_010",
+        "name": "The CEO Package",
+        "description": "Ultimate luxury decor with LED wall, florals, and full branding.",
+        "price": 75000,
+        "imageUrl": "https://m.media-amazon.com/images/I/81ehMPzcDsL._AC_UF894,1000_QL80_.jpg",
+        "features": ["Full Venue", "LED + Stage", "VIP Lounge"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_gifts",
+    "services": [
+      {
+        "id": "cg_001",
+        "name": "Essential Employee Welcome Kit",
+        "description": "Standard onboarding kit containing a branded notebook, metal pen, and keychain.",
+        "price": 800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe4_513bSItgD3gfc6-PUwo_3NfrHTt3_tqA&s",
+        "features": ["Notebook", "Metal Pen", "Branded Box"]
+      },
+      {
+        "id": "cg_002",
+        "name": "Premium Leather Gift Set",
+        "description": "High-quality leather diary, matching card holder, and an executive pen.",
+        "price": 1500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcxm83rdQzP63Rsg-ACNKz64EOFsP8dJtHDQ&s",
+        "features": ["Leather Diary", "Card Holder", "Premium Feel"]
+      },
+      {
+        "id": "cg_003",
+        "name": "Executive Tech Package",
+        "description": "Modern gifting setup including a 10,000mAh Power Bank and a Smart Temp Bottle.",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd9_rMTp8CaiIDi3rHa0tNYAmVWYsvOdlx6w&s",
+        "features": ["Power Bank", "Smart Flask", "Custom Logo"]
+      },
+      {
+        "id": "cg_004",
+        "name": "The VIP Luxury Hamper",
+        "description": "Top-tier luxury hamper for VIP clients featuring imported coffee, chocolates, and wine glasses.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKZRWKZDAS9yrb_axuWFxGhK5Mh9qQ_-wnFA&s",
+        "features": ["Imported Treats", "Luxury Box", "VIP Standard"]
+      },
+      {
+        "id": "cg_005",
+        "name": "Custom Crystal Trophies",
+        "description": "Elegant crystal trophies for R&R events. Price is per unit, including custom engraving.",
+        "price": 2000,
+        "imageUrl": "https://tapwell.in/wp-content/uploads/2022/07/Customized-Crystal-Trophy-For-Corporate-rewards-.png",
+        "features": ["Laser Engraved", "Crystal Clear", "Satin Lined Box"]
+      },
+      {
+        "id": "cg_006",
+        "name": "Festive Sweet Hamper",
+        "description": "Traditional yet premium corporate boxes filled with assorted dry fruits and sweets.",
+        "price": 1200,
+        "imageUrl": "https://royceindia.com/cdn/shop/files/Untitled_design_9_e5f5058e-8b86-4c22-b922-9984b69a7b51_768x.png?v=1701325811",
+        "features": ["Dry Fruits", "Rich Sweets", "Festive Ribbon"]
+      },
+      {
+        "id": "cg_007",
+        "name": "Eco-Friendly Plant Kit",
+        "description": "A sustainable gift option featuring an indoor succulent with a branded ceramic pot.",
+        "price": 600,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcinATU1wolQGb-v4inF0skcKHbcMLxcnk4A&s",
+        "features": ["Indoor Plant", "Branded Pot", "Eco-Friendly"]
+      },
+      {
+        "id": "cg_008",
+        "name": "Bluetooth Speaker Set",
+        "description": "High-quality portable Bluetooth speaker with company branding on the grill.",
+        "price": 2500,
+        "imageUrl": "https://shop.zebronics.com/cdn/shop/files/Zeb-Party-Fyre-700-ipic1.jpg?v=1772286027&width=2000",
+        "features": ["High Bass", "Custom Grill", "1 Yr Warranty"]
+      },
+      {
+        "id": "cg_009",
+        "name": "Apparel & Merch Combo",
+        "description": "Includes a high-quality Polo T-shirt, a cap, and a tote bag—all bearing the corporate logo.",
+        "price": 1800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVom5ukFt2YMwWndRgjWGCKyK-X61WoCsWFQ&s",
+        "features": ["Polo T-shirt", "Tote Bag", "Embroidery"]
+      },
+      {
+        "id": "cg_010",
+        "name": "Gourmet Coffee & Mug Kit",
+        "description": "A premium ceramic mug paired with artisanal roasted coffee beans and a French press.",
+        "price": 3200,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoTewgYY-EUzzkbVdk1NSHjzoReFfAOqWnvQ&s",
+        "features": ["Artisan Coffee", "French Press", "Ceramic Mug"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_photo",
+    "services": [
+      {
+        "id": "cph_001",
+        "name": "Event Coverage (Half Day)",
+        "description": "Professional photography coverage for seminars, workshops, or brief meetings.",
+        "price": 15000,
+        "imageUrl": "https://marcinkrokowski.com/wp-content/uploads/2025/03/marcin-krokowski-fotograf-eventowy-backstage-00002-900x600.jpg.webp",
+        "features": ["4 Hours", "150+ Edited Photos", "Quick Delivery"]
+      },
+      {
+        "id": "cph_002",
+        "name": "Event Coverage (Full Day)",
+        "description": "Comprehensive photography capturing every moment of your major corporate event.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitzBVvMmlr0ev36b6qQhzn0KQr-PZINC4TA&s",
+        "features": ["8 Hours", "300+ Edited Photos", "Cloud Gallery"]
+      },
+      {
+        "id": "cph_003",
+        "name": "Executive Headshots",
+        "description": "Premium studio-style headshots for leadership teams and employee ID profiles.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDV4Xq6wpyyWrN4bILZ2eMp5p_XKwBK3YViA&s",
+        "features": ["Mobile Studio", "Retouching", "Up to 20 Pax"]
+      },
+      {
+        "id": "cph_004",
+        "name": "Cinematic Event Film",
+        "description": "High-quality video coverage producing a professional corporate highlight reel.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnP9orHC1JeuCr2CxXg2p20vQunHtnmmK8bA&s",
+        "features": ["4K Video", "3-5 Min Highlight", "Licensed Music"]
+      },
+      {
+        "id": "cph_005",
+        "name": "Live Stream Setup",
+        "description": "Professional multi-camera live streaming for virtual or hybrid townhalls.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7fsD-S_61ZuI-wnx3SXyM59FJJhCDwV3UqA&s",
+        "features": ["2 HD Cameras", "Live Switcher", "Tech Operator"]
+      },
+      {
+        "id": "cph_006",
+        "name": "Team & Branding Shoot",
+        "description": "Creative lifestyle photography showcasing office culture and team collaboration.",
+        "price": 20000,
+        "imageUrl": "https://media.istockphoto.com/id/1333943998/photo/group-of-smiling-businesspeople-in-a-casual-meeting-at-their-company.jpg?s=612x612&w=0&k=20&c=JTD9DxAQGOhH_2CTpfba3E8XAxYBcxvQ3-UAJf_jMNA=",
+        "features": ["Office Shoot", "Marketing Use", "High Resolution"]
+      },
+      {
+        "id": "cph_007",
+        "name": "CEO / Founder Profile Film",
+        "description": "A polished, documentary-style interview video for leadership profiling.",
+        "price": 45000,
+        "imageUrl": "https://i.ytimg.com/vi/S6CeaAM76w4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD_CFGeGtDME3JbH04WsbeLS40E7A",
+        "features": ["Multi-cam Interview", "B-Roll Shots", "Pro Audio"]
+      },
+      {
+        "id": "cph_008",
+        "name": "Product Photography",
+        "description": "Clean, crisp studio photography for new corporate merchandise or products.",
+        "price": 18000,
+        "imageUrl": "https://www.adobe.com/in/creativecloud/photography/discover/media_1713acadcfcee279eb4d5a34f99c1763f2d9130c9.png?width=750&format=png&optimize=medium",
+        "features": ["White Background", "Color Correction", "E-com Ready"]
+      },
+      {
+        "id": "cph_009",
+        "name": "Drone Aerial Coverage",
+        "description": "Stunning bird's-eye view shots of your outdoor corporate retreat or venue.",
+        "price": 22000,
+        "imageUrl": "https://media.istockphoto.com/id/1598894658/photo/aerial-view-of-man-mowing-the-lawn-in-his-back-garden.jpg?s=612x612&w=0&k=20&c=JGpXWoJnELjdnz18wq1N3bNGaDQb5QW5gqtIvU-gG98=",
+        "features": ["4K Drone", "Licensed Pilot", "Cinematic Angles"]
+      },
+      {
+        "id": "cph_010",
+        "name": "The Mega Media Package",
+        "description": "Ultimate media coverage: Photo, Video, Drone, and same-day express edits.",
+        "price": 85000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWiQQM7-uFLn-iGCOlnrAKYUhYnT6D-R5cGA&s",
+        "features": ["Full Team", "Express Edits", "All-Inclusive"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_team",
+    "services": [
+      {
+        "id": "ctm_001",
+        "name": "Indoor Strategy Games",
+        "description": "Engaging problem-solving and puzzle games designed for conference rooms.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxmtkK1kIgnnBrPZn7xt0K1C3n0hRQpHG6Q&s",
+        "features": ["3 Hours", "Pro Facilitator", "Brain Games"]
+      },
+      {
+        "id": "ctm_002",
+        "name": "Outdoor Adventure Day",
+        "description": "High-energy physical activities including relay races and obstacle courses.",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg7u--rrphHbYEzs7kajijRbd9cA7_f-Qusw&s",
+        "features": ["Full Day", "Obstacle Course", "Safety Gear"]
+      },
+      {
+        "id": "ctm_003",
+        "name": "Corporate Escape Room",
+        "description": "Custom-built pop-up escape room challenging teams to work together.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUuk7dfU6VooedrJjf913SCSY2nEi4AuUOhQ&s",
+        "features": ["Mobile Setup", "Logic Puzzles", "Team bonding"]
+      },
+      {
+        "id": "ctm_004",
+        "name": "Leadership Workshop",
+        "description": "Professional development seminar led by industry-expert speakers.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsg_qHDoF5pHqRzpHZQ36hMb2ZC-F6vxMZMg&s",
+        "features": ["Expert Speaker", "Workbooks", "4 Hours"]
+      },
+      {
+        "id": "ctm_005",
+        "name": "Masterchef Culinary Challenge",
+        "description": "A fun cooking competition where teams compete to make the best dish.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToBOwOBYCmzJ4hsNu9DXzQa9MQsMUxEvWQtg&s",
+        "features": ["Ingredients incl.", "Chef Judge", "Tasting Session"]
+      },
+      {
+        "id": "ctm_006",
+        "name": "Corporate Sports Day",
+        "description": "Full tournament setup with cricket, football, and track events.",
+        "price": 60000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQna0tnEhKv2wrJG-3dbUfqGf-GxH-n2Lrs7A&s",
+        "features": ["Ground Booking", "Referees", "Trophies"]
+      },
+      {
+        "id": "ctm_007",
+        "name": "Virtual Team Bonding",
+        "description": "Interactive online games and trivia hosted for remote employees.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjBqlzk2z-XqjaJiQHCANmx9yVdydEYgT4dA&s",
+        "features": ["Zoom Hosted", "Live Trivia", "Digital Prizes"]
+      },
+      {
+        "id": "ctm_008",
+        "name": "CSR & Community Activity",
+        "description": "Teams build bicycles or plant trees for local charities together.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVpa6dfGRdXeW_L6p3JIr458Yk8UVJ4pch0w&s",
+        "features": ["NGO Tie-up", "Materials incl.", "Certificates"]
+      },
+      {
+        "id": "ctm_009",
+        "name": "Art & Paint Workshop",
+        "description": "Relaxing guided painting session to boost team creativity and mental health.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpeAf_c25UoRfm9FEL3a8-WffBVCvfTdBGlg&s",
+        "features": ["Canvases incl.", "Art Instructor", "Take-home art"]
+      },
+      {
+        "id": "ctm_010",
+        "name": "Luxury Weekend Retreat",
+        "description": "Comprehensive 2-day team bonding trip at a premium resort.",
+        "price": 150000,
+        "imageUrl": "https://www.outlife.in/uploads/6/1/9/7/6197204/yurt-cirlce-team-building_1.jpg",
+        "features": ["2 Days/1 Night", "All Meals", "Campfire"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "c_venue",
+    "services": [
+      {
+        "id": "cven_001",
+        "name": "Executive Boardroom",
+        "description": "Premium boardroom setup for high-level meetings and investor pitches.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_2YutGPHwxiazLVn9w5XJDz03Ut4raqLcA&s",
+        "features": ["20 Pax Capacity", "Smart Screen", "Luxury Seating"]
+      },
+      {
+        "id": "cven_002",
+        "name": "Mid-Sized Conference Hall",
+        "description": "Fully equipped hall perfect for department townhalls and training sessions.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4sm6VlLATEj-hLWL8BWsdIYJvJryBxw7gPA&s",
+        "features": ["100 Pax", "Projector Setup", "Stage Podium"]
+      },
+      {
+        "id": "cven_003",
+        "name": "Grand Auditorium",
+        "description": "Massive tiered seating auditorium for product launches and annual days.",
+        "price": 85000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlrU9YMbUU1cdMBoucTDRSMDVTW7_92nxPwA&s",
+        "features": ["500+ Pax", "Theater Style", "Backstage Area"]
+      },
+      {
+        "id": "cven_004",
+        "name": "Rooftop Corporate Lounge",
+        "description": "Modern open-air venue ideal for corporate networking and evening parties.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt6N7xrdyAcGotYB-tLA3Gf3ID3QP-GtPsnA&s",
+        "features": ["150 Pax", "City Skyline View", "Bar Setup"]
+      },
+      {
+        "id": "cven_005",
+        "name": "Creative Co-Working Space",
+        "description": "Trendy, flexible breakout zones for brainstorming and team-building.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLBLATxar1SpOAcC7tuWhiQ0UX8vuk0j_hrA&s",
+        "features": ["50 Pax", "Whiteboards", "Casual Seating"]
+      },
+      {
+        "id": "cven_006",
+        "name": "5-Star Banquet Hall",
+        "description": "Luxurious hotel banquet space with premium carpet and chandeliers.",
+        "price": 120000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOTZxb556XUl1cOu-PN_T0j3MhVv5vQLIQvQ&s",
+        "features": ["300 Pax", "Valet Parking", "Luxury Dining"]
+      },
+      {
+        "id": "cven_007",
+        "name": "Outdoor Retreat Lawn",
+        "description": "Spacious green lawns for sports days and massive company retreats.",
+        "price": 60000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfNtjSXKEWm6AyMWTcbBrCp71DA_BILrFE_Q&s",
+        "features": ["1000+ Pax", "Open Space", "Catering Tents"]
+      },
+      {
+        "id": "cven_008",
+        "name": "Industrial Warehouse Studio",
+        "description": "Raw, aesthetic industrial space for fashion or modern product launches.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk3bJOaItWOYJkPQUf4AZXdJIDH3M6Na-_7w&s",
+        "features": ["200 Pax", "High Ceilings", "Custom Lighting"]
+      },
+      {
+        "id": "cven_009",
+        "name": "Private Dining Room (PDR)",
+        "description": "Exclusive enclosed restaurant space for intimate C-level executive dinners.",
+        "price": 18000,
+        "imageUrl": "https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/2022-02/Dine-at-Dome-1-%28European-Themed%29%2C-Level-19%2C-Shangri-La-Bengaluru.jpg",
+        "features": ["15 Pax", "Dedicated Butler", "Gourmet Menu"]
+      },
+      {
+        "id": "cven_010",
+        "name": "Tech Seminar Center",
+        "description": "Dedicated tech hub with high-speed fiber internet and multiple breakout rooms.",
+        "price": 55000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5aw5i9Lt2qmTA4ktXKrquw8eWkhKaFKkWg&s",
+        "features": ["250 Pax", "Fiber Internet", "3 Breakout Rooms"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_decor",
+    "services": [
+      {
+        "id": "ed_001",
+        "name": "Floral Ring Backdrop",
+        "description": "Signature circular floral backdrop perfect for the ring exchange ceremony.",
+        "price": 18000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71uEJ9i-wmL.jpg",
+        "features": ["Fresh Flowers", "Ring Structure", "LED Focus Lights"]
+      },
+      {
+        "id": "ed_002",
+        "name": "Golden Glamour Stage",
+        "description": "Luxurious gold and white theme with chandeliers and premium draping.",
+        "price": 35000,
+        "imageUrl": "https://antonovich-design.com/uploads/gallery/2023/2/2023HBMDYRxMPXjn.jpeg",
+        "features": ["Golden Props", "Crystal Chandeliers", "Sofa Set"]
+      },
+      {
+        "id": "ed_003",
+        "name": "Boho Chic Setup",
+        "description": "Trendy bohemian style decor with pampas grass and macrame accents.",
+        "price": 22000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/boho-living-room-interior-macrame-decor-pampas-grass-modern-fireplace-minimalist-home-decor-scandinavian-style-cozy-vibes-382451379.jpg",
+        "features": ["Pampas Grass", "Macrame Hangings", "Rustic Furniture"]
+      },
+      {
+        "id": "ed_004",
+        "name": "Enchanted Garden",
+        "description": "Open-air lush green setup with hanging florals and fairy lights.",
+        "price": 28000,
+        "imageUrl": "https://www.brides.com/thmb/vFPyGiB8RYJspLvVaIVJdGiQzyY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/greenery-installation-recirc-jaimee-morse-7-29-fbab325d35dc443c868c068e39d0aafb.jpg",
+        "features": ["Artificial Turf", "Hanging Wisteria", "Wooden Bench"]
+      },
+      {
+        "id": "ed_005",
+        "name": "Grand Entrance Arch",
+        "description": "Beautiful floral archway with a red carpet to welcome your guests.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1WlobU5VBUS-_B8T1F9oeEg3ea5Kd5VQnuw&s",
+        "features": ["Floral Arch", "Welcome Board", "Red Carpet"]
+      },
+      {
+        "id": "ed_006",
+        "name": "Couple Photo Booth",
+        "description": "Fun photo zone with customized hashtags, neon signs, and props.",
+        "price": 5000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71f0bs2HSML.jpg",
+        "features": ["Custom Hashtag", "Neon Sign", "Fun Props"]
+      },
+      {
+        "id": "ed_007",
+        "name": "Elegant Table Settings",
+        "description": "Premium centerpieces and table runners for the guest dining area.",
+        "price": 6000,
+        "imageUrl": "https://www.urquidlinen.com/cdn/shop/articles/pexels-thallen-merlin-1580622.jpg?v=1647061417&width=1280",
+        "features": ["Centerpieces", "Table Runners", "10 Tables included"]
+      },
+      {
+        "id": "ed_008",
+        "name": "Candlelight Pathway",
+        "description": "Romantic walkway lit by hundreds of glass candles and rose petals.",
+        "price": 12000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/romantic-candlelit-pathway-rose-petals-beautifully-illuminated-lined-glowing-candles-scattered-red-creating-ambiance-355282240.jpg",
+        "features": ["Glass Candles", "Rose Petals", "Floor Decor"]
+      },
+      {
+        "id": "ed_009",
+        "name": "Pastel Dream Stage",
+        "description": "Soft pastel-colored drapes with matching floral arrangements.",
+        "price": 26000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQpG6dJaz9MBPKTqK1S3dM_9U1yk2fs99bsA&s",
+        "features": ["Pastel Drapes", "Matching Sofa", "Soft Lighting"]
+      },
+      {
+        "id": "ed_010",
+        "name": "LED Name Initials",
+        "description": "Giant marquee light-up letters of the couple’s initials for the stage.",
+        "price": 7000,
+        "imageUrl": "https://www.circlemakerstudio.com/cdn/shop/products/IMG_8622_2048x2048.jpg?v=1664579889",
+        "features": ["4ft Tall", "Warm LED", "Standalone"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_makeup",
+    "services": [
+      {
+        "id": "emakeup_001",
+        "name": "Bridal HD Engagement Look",
+        "description": "Flawless High-Definition makeup perfect for ring ceremony photography.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcGa6qMYoPDiXruBKc73I_FuLs7rvPhf9cg&s",
+        "features": ["HD Products", "Hairstyling", "Draping"]
+      },
+      {
+        "id": "emakeup_002",
+        "name": "Airbrush Engagement Makeup",
+        "description": "Long-lasting, waterproof airbrush finish for a natural, glowing look.",
+        "price": 25000,
+        "imageUrl": "https://swissbeauty.in/cdn/shop/products/4_03551690-fc99-4853-8ddb-416caa93cb43.png?v=1748633775&width=620",
+        "features": ["Waterproof", "Matte Finish", "Premium Lashes"]
+      },
+      {
+        "id": "emakeup_003",
+        "name": "Groom Styling & Grooming",
+        "description": "Complete hair styling, beard grooming, and subtle touch-ups for the groom.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI-KSVaONfIQM1kx70j_0W4e8nMHYm1MIHKQ&s",
+        "features": ["Hair Styling", "Beard Grooming", "Skin Prep"]
+      },
+      {
+        "id": "emakeup_004",
+        "name": "Premium Couple Package",
+        "description": "Complete makeup and styling solution for both the bride and groom.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQca1Csa0hkBDTpEVw42YYzsRaaShlluNywvA&s",
+        "features": ["Bride + Groom", "Touch-ups", "Package Discount"]
+      },
+      {
+        "id": "emakeup_005",
+        "name": "Celebrity Makeup Artist",
+        "description": "Get styled by an industry-leading celebrity makeup artist.",
+        "price": 50000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBhw4sAkkphtp8QFL95AisPkSxo4x-5jMhg&s",
+        "features": ["Celeb Artist", "Designer Look", "All Day Support"]
+      },
+      {
+        "id": "emakeup_006",
+        "name": "Family Makeup (Pack of 3)",
+        "description": "Standard makeup and hairstyling for three close family members.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9gLFSzh3waxAU_NHXvDXWtXtPedNm_C39wg&s",
+        "features": ["3 Persons", "Basic Styling", "On-Location"]
+      },
+      {
+        "id": "emakeup_007",
+        "name": "Minimalist Roka Look",
+        "description": "Fresh, dewy, and natural makeup for daytime engagement functions.",
+        "price": 10000,
+        "imageUrl": "https://i.pinimg.com/736x/ab/8d/10/ab8d1055d2fe503a9909ebdd1684116f.jpg",
+        "features": ["Dewy Finish", "Lightweight", "Pastel Tones"]
+      },
+      {
+        "id": "emakeup_008",
+        "name": "Saree & Lehenga Draping",
+        "description": "Professional draping service to ensure your attire looks perfect.",
+        "price": 2500,
+        "imageUrl": "https://hometriangle.com/imagecache/media/418358/image.webp",
+        "features": ["Safety Pins incl.", "Pleat Setting", "All Styles"]
+      },
+      {
+        "id": "emakeup_009",
+        "name": "Premium Hair Extensions & Styling",
+        "description": "Adding volume and length with natural-looking hair extensions.",
+        "price": 6000,
+        "imageUrl": "https://m.media-amazon.com/images/I/912KLSjFyiL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Real Hair Feel", "Volume Boost", "Styling incl."]
+      },
+      {
+        "id": "emakeup_010",
+        "name": "Pre-Engagement Skin Glow",
+        "description": "Relaxing facial and skin prep session 2 days before the event.",
+        "price": 8500,
+        "imageUrl": "https://theskinstory.in/cdn/shop/articles/relax-rejuvenate-with-a-step-by-step-facial-at-home-7812423.png?v=1770394702",
+        "features": ["Hydrating", "Detox", "Natural Glow"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_mehendi",
+    "services": [
+      {
+        "id": "emeh_001",
+        "name": "Bridal HD Mehendi",
+        "description": "Intricate traditional designs up to elbows for the bride-to-be.",
+        "price": 8000,
+        "imageUrl": "https://i.pinimg.com/736x/6f/b8/4f/6fb84f8341393ebecfe06319b5678c13.jpg",
+        "features": ["Both Hands", "Dark Stain", "Organic Henna"]
+      },
+      {
+        "id": "emeh_002",
+        "name": "Portrait Ring Style",
+        "description": "Customized mehendi featuring a ring exchange portrait.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAft3VYCHPDnzjiFjSuk4meao6NNKpikUyQ&s",
+        "features": ["Portrait Art", "Designer", "4 Hours"]
+      },
+      {
+        "id": "emeh_003",
+        "name": "Modern Arabic Designs",
+        "description": "Bold and stylish flowy patterns with thick beautiful outlines.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCA6QKnSw9FNqfrKF0lnP4R3eLxQPbjazf7Q&s",
+        "features": ["Bold Patterns", "Fast application", "Trendy"]
+      },
+      {
+        "id": "emeh_004",
+        "name": "Family Sider Package",
+        "description": "Elegant mehendi designs for 5 close family members or friends.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLw_N9lmOGaS2b3FtOKsp25ZG9RdP08mqoaQ&s",
+        "features": ["Up to wrists", "Group package", "Pro artists"]
+      },
+      {
+        "id": "emeh_005",
+        "name": "Moroccan Geometric",
+        "description": "Clean lines and geometric patterns for a chic modern bride.",
+        "price": 7500,
+        "imageUrl": "https://www.fabfunda.com/blog/wp-content/uploads/2023/10/Moroccan-geometric-mehendi-designs-For-wedding-630x840.jpg",
+        "features": ["Geometric", "No florals", "Crisp Finish"]
+      },
+      {
+        "id": "emeh_006",
+        "name": "Classic Mandala Design",
+        "description": "Traditional heavy circular mandalas on palms and back of hands.",
+        "price": 4500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlXq8Ax_EWu-z38GxnW2Mn-343wG9XqiERYw&s",
+        "features": ["Classic Circles", "Traditional", "Quick Apply"]
+      },
+      {
+        "id": "emeh_007",
+        "name": "Lotus Motif Traditional",
+        "description": "Beautiful lotus and peacock patterns symbolizing purity.",
+        "price": 6500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF2Q8OPlJnwG3QPAYZfvUiS6kvGzakQU1SGA&s",
+        "features": ["Lotus Patterns", "Heavy Shading", "Traditional"]
+      },
+      {
+        "id": "emeh_008",
+        "name": "Groom’s Minimal Mehendi",
+        "description": "Small mandalas or initials for the groom on palms.",
+        "price": 2000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3D1Iez38mZ6oRKfZsIh_tGAslcobsqk3iZg&s",
+        "features": ["Initials only", "Small Mandala", "Symbolic"]
+      },
+      {
+        "id": "emeh_009",
+        "name": "Indo-Arabic Fusion",
+        "description": "Mix of traditional Indian patterns with Arabic negative spacing.",
+        "price": 7000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKasMyUe7O7zQMzF0A_FDaKYNcaTkXJXwyxw&s",
+        "features": ["Fusion style", "Floral & Bold", "Both hands"]
+      },
+      {
+        "id": "emeh_010",
+        "name": "Full Artist Team (8 hrs)",
+        "description": "Team of 2 junior artists to cover all guests during the function.",
+        "price": 18000,
+        "imageUrl": "https://ecsiondevstorage.blob.core.windows.net/wedding-storage/17547E52-D597-4597-B54E-7348159D05D6.png",
+        "features": ["Guest Coverage", "2 Artists", "Unlimited designs"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_music",
+    "services": [
+      {
+        "id": "emuz_001",
+        "name": "Basic Ceremony Audio",
+        "description": "Clear and crisp audio setup perfect for background music and ring exchange announcements.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkfU91vmeONGSfFy3xmSYlj5JRsA9wVgZBvg&s",
+        "features": ["2 JBL Speakers", "Wireless Mics", "Audio Tech"]
+      },
+      {
+        "id": "emuz_002",
+        "name": "Professional Party DJ",
+        "description": "Experienced DJ to keep the dance floor packed with the latest Bollywood and Punjabi tracks.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Xfn3dKQFcAYdDXkpWqBNXEUalzGNlQh9Tw&s",
+        "features": ["Pro DJ Console", "4 Top Speakers", "LED Booth"]
+      },
+      {
+        "id": "emuz_003",
+        "name": "Live Sufi Band",
+        "description": "Soulful live musical performance for an elegant, sit-down engagement evening.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBMbVEVew9OBbj4WIvnAQgYDOI6uiZj9YVmQ&s",
+        "features": ["5 Band Members", "2 Hours", "Acoustic Setup"]
+      },
+      {
+        "id": "emuz_004",
+        "name": "Acoustic Guitarist & Singer",
+        "description": "A solo artist playing romantic Bollywood covers during guest arrival and dinner.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFcHZdsFWyD-TkA2cDfrahqko2aGA92ukvQ&s",
+        "features": ["Solo Artist", "Romantic Hits", "Dinner Ambience"]
+      },
+      {
+        "id": "emuz_005",
+        "name": "Club Lighting Package",
+        "description": "Transform your venue into a nightclub with intelligent moving heads and lasers.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1_emVwSy0YnqKmmVOAEtlbLKb_vt3k9ecuQ&s",
+        "features": ["4 Moving Heads", "Lasers", "Smoke Machine"]
+      },
+      {
+        "id": "emuz_006",
+        "name": "LED Dance Floor",
+        "description": "Interactive pixel-mapped LED dance floor that changes colors with the music.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR36hYx7Sbis7EP_AzME9d_pNQZ4lUQVz8K5Q&s",
+        "features": ["16x16 ft Size", "Sound Reactive", "Slip Resistant"]
+      },
+      {
+        "id": "emuz_007",
+        "name": "Percussionist / Dhol Mix",
+        "description": "Live percussion player jamming alongside the DJ to pump up the crowd energy.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrGA4gexfHEH6sNwsvpfW88xLTzLBAWOc_jQ&s",
+        "features": ["Electronic Drums", "Live Dhol", "High Energy"]
+      },
+      {
+        "id": "emuz_008",
+        "name": "Violinist for Ring Entry",
+        "description": "A professional violinist walking the couple to the stage with a romantic tune.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdKZ4tjqpzn4DXpbJn9LXDDtDi9mgu3xsDGQ&s",
+        "features": ["Grand Entry", "Classical", "Custom Song"]
+      },
+      {
+        "id": "emuz_009",
+        "name": "Celebrity Anchor",
+        "description": "Renowned host to entertain guests, manage the itinerary, and conduct fun games.",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFtD-z1Q9ULDAcyMe0CUwZlHl7v5xG6ciUng&s",
+        "features": ["Pro Host", "Game Conductor", "Crowd Interaction"]
+      },
+      {
+        "id": "emuz_010",
+        "name": "Mega Concert Setup",
+        "description": "Massive line array sound system and truss lighting for an outdoor mega event.",
+        "price": 80000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwpQ6a0lQVTzl5uhEXPWZu5bl796Lidvhr2g&s",
+        "features": ["Line Array Audio", "Box Truss", "500+ Guests"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_photo",
+    "services": [
+      {
+        "id": "epho_001",
+        "name": "Candid Engagement Shoot",
+        "description": "Focuses on capturing raw, unposed emotions and beautiful ring exchange moments.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjj_yZYt6UqngdS4Cv7QsoXvJ-j6t_uerSFg&s",
+        "features": ["1 Pro Photographer", "Color Graded", "Digital Delivery"]
+      },
+      {
+        "id": "epho_002",
+        "name": "Traditional Photography",
+        "description": "Classic stage photography covering all guests, family portraits, and rituals.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-AHFwP8lt07EoHGCWPSsIUm7eWRshfjrPow&s",
+        "features": ["Unlimited Clicks", "Family Portraits", "Basic Editing"]
+      },
+      {
+        "id": "epho_003",
+        "name": "Cinematic Engagement Film",
+        "description": "A 5-8 minute cinematic highlight film capturing the best moments with music.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcDi_FFHGw7Y43JXYa0wt11Gb-t-d-kc4Q3w&s",
+        "features": ["2 Cinematographers", "4K Video", "1 Min Teaser"]
+      },
+      {
+        "id": "epho_004",
+        "name": "Pre-Engagement Photoshoot",
+        "description": "A romantic outdoor photoshoot in casual/formal wear before the big day.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkMOw7j6h5YzQGfuYI32_1dBTFOTD-hXF_lQ&s",
+        "features": ["1 Location", "2 Outfit Changes", "30 Edited Pics"]
+      },
+      {
+        "id": "epho_005",
+        "name": "Aerial Drone Coverage",
+        "description": "Capture your grand entrance and venue setup from stunning aerial views.",
+        "price": 18000,
+        "imageUrl": "https://www.shutterstock.com/shutterstock/videos/3978451299/thumb/1.jpg?ip=x480",
+        "features": ["4K Drone", "Licensed Pilot", "Outdoor Venues"]
+      },
+      {
+        "id": "epho_006",
+        "name": "Instant Polaroid Station",
+        "description": "A fun corner where guests get instant printed polaroid photos as souvenirs.",
+        "price": 12000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71shbpzuuhL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Unlimited Prints", "Custom Frame", "Fun Props"]
+      },
+      {
+        "id": "epho_007",
+        "name": "Premium Photo Album",
+        "description": "High-quality 40-page flush mount album with a custom leather cover.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW0u29tIXkYbvhfc0bgJMHErpiOiEO2Dd3Cw&s",
+        "features": ["Matte Finish", "Tear Resistant", "Custom Design"]
+      },
+      {
+        "id": "epho_008",
+        "name": "Reels & Shorts Creator",
+        "description": "A dedicated creator to shoot and edit viral-style vertical videos for social media.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9vEAIcHnC7EweO2sW9Zb83zMvbyw7QuA9A&s",
+        "features": ["3 Edited Reels", "Trending Audio", "24Hr Delivery"]
+      },
+      {
+        "id": "epho_009",
+        "name": "Live Streaming Setup",
+        "description": "Professional multi-camera live stream for relatives who cannot attend.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQs854fn0KCp7Doaa0B7L7nrX1c0epcexF4g&s",
+        "features": ["Private Link", "2 HD Cameras", "Live Switcher"]
+      },
+      {
+        "id": "epho_010",
+        "name": "Luxury Mega Package",
+        "description": "The ultimate combo: Candid, Traditional, Cinematic, Drone, and Album.",
+        "price": 95000,
+        "imageUrl": "https://weddingpur.com/wp-content/uploads/2026/02/Lovely-Kiss-Moment-Between-Bride-and-Groom-Filled-with-Love-scaled-e1771221258589.jpg",
+        "features": ["Complete Team", "Full Day", "Everything Included"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "e_ring",
+    "services": [
+      {
+        "id": "er_001",
+        "name": "Floral Ring Backdrop",
+        "description": "Signature circular floral backdrop perfect for ring exchange ceremonies.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5XfQzy6ocJZgKfrcHLpuDQfWcYjN1icg9wQ&s",
+        "features": ["Fresh Flowers", "Ring Structure", "LED Focus Lights"]
+      },
+      {
+        "id": "er_002",
+        "name": "Golden Glamour Stage",
+        "description": "Luxurious gold and white theme with chandeliers and premium draping.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIFWG3zVxYxxuCFqzy-u6tZdN0iHBHsGInpA&s",
+        "features": ["Golden Props", "Crystal Chandeliers", "Sofa Set"]
+      },
+      {
+        "id": "er_003",
+        "name": "Dry Ice Smoke Entry",
+        "description": "Magical low-lying fog effect during the couple’s entrance and ring exchange.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSK1NV2O_IudvO-aPZ2KCKwC86l8AuUAn3CA&s",
+        "features": ["Heavy Smoke", "Safe Indoors", "Operator incl."]
+      },
+      {
+        "id": "er_004",
+        "name": "Designer Ring Platter",
+        "description": "Customized crystal or floral platter to present the engagement rings.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVmVhpTGimnnxS3wbkJezarfMuMQ2QLlrRpA&s",
+        "features": ["Crystal Base", "Fresh Orchids", "Name Tags"]
+      },
+      {
+        "id": "er_005",
+        "name": "Cold Pyro Fountains",
+        "description": "Indoor-safe sparklers to go off exactly when the rings are exchanged.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWf9giPj6pyYACzzAZYODwLNS7Jj7r1PYBhg&s",
+        "features": ["4 Pyro Machines", "Remote Trigger", "Perfect Photos"]
+      },
+      {
+        "id": "er_006",
+        "name": "Acoustic Love Songs",
+        "description": "Live guitarist singing romantic ballads during the ring ceremony.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBM-yv7zSNf1jXKi7moOjzaRWhNRhzbbl-Ig&s",
+        "features": ["Solo Guitarist", "Custom Playlist", "2 Hours"]
+      },
+      {
+        "id": "er_007",
+        "name": "Enchanted Garden Theme",
+        "description": "Open-air lush green setup with hanging florals and fairy lights.",
+        "price": 28000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6BvF67m8dv5-hUdXmE3aNuA4Ka87L0FKnuw&s",
+        "features": ["Artificial Turf", "Hanging Wisteria", "Wooden Bench"]
+      },
+      {
+        "id": "er_008",
+        "name": "Champagne Tower Setup",
+        "description": "A beautiful glass tower for a celebratory toast after the ring exchange.",
+        "price": 14000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz09inTw4Se1ipDtCklIzaE-a0rmUzF3zVOw&s",
+        "features": ["5-Tier Glasses", "Table Decor", "Sparkling Cider"]
+      },
+      {
+        "id": "er_009",
+        "name": "LED Name Initials",
+        "description": "Giant 4ft tall light-up letters of the couple’s initials near the stage.",
+        "price": 7000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Cb3YctH8ooL4NEdIsaWt-LGEMwpbCkZhXg&s",
+        "features": ["4ft Tall", "Warm LED", "Photo Backdrop"]
+      },
+      {
+        "id": "er_010",
+        "name": "Confetti Blast",
+        "description": "Giant confetti cannons showered over the couple post-ring exchange.",
+        "price": 4500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7CLOX1mP4H21H2wgE2v6DCA8tkKe_6_dIKg&s",
+        "features": ["Metallic Confetti", "2 Big Shoots", "Cleanup incl."]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "g_cake",
+    "services": [
+      {
+        "id": "gc_001",
+        "name": "Classic Graduation Cap Cake",
+        "description": "Elegant chocolate cake shaped and styled as a traditional graduation cap.",
+        "price": 1800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJhb1BsyuExKGFiOTpJRDcaAo--kszQvNWqA&s",
+        "features": ["1 Kg", "Fondant Cap", "Custom Tassel Color"]
+      },
+      {
+        "id": "gc_002",
+        "name": "Degree Book Cake",
+        "description": "A beautiful open-book design with edible text congratulating the graduate.",
+        "price": 2500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsNWU5tdc-XxaKki_COMNqp-QtFY6vgbdYgw&s",
+        "features": ["1.5 Kg", "Edible Print", "Vanilla Sponge"]
+      },
+      {
+        "id": "gc_003",
+        "name": "2-Tier Celebration Cake",
+        "description": "Grand two-tier cake featuring a diploma scroll and cap topper.",
+        "price": 4500,
+        "imageUrl": "https://static.wixstatic.com/media/a2fe96_c2fd23a23d474f07b43cfc88e6e4e1cc~mv2.webp/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a2fe96_c2fd23a23d474f07b43cfc88e6e4e1cc~mv2.webp",
+        "features": ["3 Kg", "Designer Decor", "Party Size"]
+      },
+      {
+        "id": "gc_004",
+        "name": "Medical / Law Theme Cake",
+        "description": "Customized cake with stethoscopes or law gavels for specific degrees.",
+        "price": 3200,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6t_AwSRXSaVlO9ggGf3kVkDk1SgX8h3yoSg&s",
+        "features": ["2 Kg", "Custom Props", "Fondant Finish"]
+      },
+      {
+        "id": "gc_005",
+        "name": "Class of 2024 Cupcake Tower",
+        "description": "A stunning tower of 24 themed cupcakes topped with mini grad caps.",
+        "price": 2800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUaoIkBONKMSJzUeF5HWol6cFieGWW8RVMQ&s",
+        "features": ["24 Pcs", "Easy Serving", "Tower Included"]
+      },
+      {
+        "id": "gc_006",
+        "name": "Future is Bright Pinata",
+        "description": "A hammer-smash chocolate shell revealing candies and a hidden cake.",
+        "price": 2200,
+        "imageUrl": "https://m.media-amazon.com/images/I/51wldG5bIhL.jpg",
+        "features": ["Interactive", "Hammer Incl.", "Chocolate Shell"]
+      },
+      {
+        "id": "gc_007",
+        "name": "University Logo Cake",
+        "description": "Premium cake featuring an exact edible replica of the University logo.",
+        "price": 2600,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTycgc3A5vKiD37IYLLD5E85Mr5q2uyyRuHCw&s",
+        "features": ["1.5 Kg", "HD Edible Print", "Red Velvet"]
+      },
+      {
+        "id": "gc_008",
+        "name": "Golden Star Achievement Cake",
+        "description": "Elegant white and gold cake with starry decorations to celebrate success.",
+        "price": 3000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSBMzuZ6tIlByOqZw1Jp9sjbPIYAkgxGKo7g&s",
+        "features": ["2 Kg", "Gold Leaf", "Classy Design"]
+      },
+      {
+        "id": "gc_009",
+        "name": "Bento Grad Cake",
+        "description": "Trendy, minimalist mini cake for an intimate family celebration.",
+        "price": 900,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4ozLSbPUCOyUlNWl-WBrxEOI4R8Q0uam1Q&s",
+        "features": ["300g", "Minimalist", "Korean Style"]
+      },
+      {
+        "id": "gc_010",
+        "name": "Macaron & Floral Delight",
+        "description": "Sophisticated graduation cake decorated with fresh flowers and French macarons.",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwJJRKO2uljp8sRW72g-XkZ8nd1kzY3WXgfQ&s",
+        "features": ["2 Kg", "Real Flowers", "Premium Taste"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "g_decor",
+    "services": [
+      {
+        "id": "gdec_001",
+        "name": "Classic Black & Gold",
+        "description": "Elegant black and gold balloon arches with a customized graduation banner.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc7uw-MQYsVFkH9zgv6Wc445SVTkI3c9qUeA&s",
+        "features": ["Gold Balloons", "Foil Stars", "Custom Banner"]
+      },
+      {
+        "id": "gdec_002",
+        "name": "LED \"Class of\" Marquee",
+        "description": "Giant 4ft tall light-up numbers for the graduating year (e.g., 2024).",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuErq6_TtW3PH1YzOiBcTa_hJUHCEz-077QA&s",
+        "features": ["4ft LED Numbers", "Warm White", "Photo Backdrop"]
+      },
+      {
+        "id": "gdec_003",
+        "name": "The Memory Lane Wall",
+        "description": "A beautiful fairy-lit string wall displaying photos from freshman to senior year.",
+        "price": 8000,
+        "imageUrl": "https://m.media-amazon.com/images/I/71PHk2L17yS.jpg",
+        "features": ["Fairy Lights", "50 Photo Clips", "Wooden Frame"]
+      },
+      {
+        "id": "gdec_004",
+        "name": "Future is Bright Neon",
+        "description": "Trendy neon sign backdrop with a modern silver sequin wall.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GeBvKcrq5_HHeNYVPPtR0mb1Cq-ztNVCGw&sp",
+        "features": ["Neon Signage", "Sequin Wall", "Modern Vibe"]
+      },
+      {
+        "id": "gdec_005",
+        "name": "Outdoor Garden Party",
+        "description": "Boho-chic outdoor setup with teepee tents, cushions, and pampas grass.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG8UqUE5Hr1TfvxZoisxHrIAyTZznZn-ijQQ&s",
+        "features": ["Teepee Tents", "Floor Cushions", "Rustic Decor"]
+      },
+      {
+        "id": "gdec_006",
+        "name": "University Colors Theme",
+        "description": "Complete balloon and drapery setup matching your specific university colors.",
+        "price": 14000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDu5XUQnJYDGuJ6BqJedm61wGag-5gRPIX0A&s",
+        "features": ["College Colors", "Mascot Props", "Table Decor"]
+      },
+      {
+        "id": "gdec_007",
+        "name": "Champagne & Cheers Wall",
+        "description": "A stylish wooden wall holding champagne glasses for a celebratory toast.",
+        "price": 16000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2lr26ulH623p9qtZiTMKpzGL8CGRk41IabQ&s",
+        "features": ["Glass Holder Wall", "Sparkling Cider", "Classy"]
+      },
+      {
+        "id": "gdec_008",
+        "name": "Stage & Podium Setup",
+        "description": "Professional stage setup for graduation speeches and certificate distribution.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFIAc3r0YnVRTlV2TKj_hy9z2ULF_KmaWUw&s",
+        "features": ["Wooden Stage", "Acrylic Podium", "Spotlights"]
+      },
+      {
+        "id": "gdec_009",
+        "name": "Polaroid Photo Booth",
+        "description": "Graduation themed photo booth with oversized polaroid frames and props.",
+        "price": 9000,
+        "imageUrl": "https://m.media-amazon.com/images/I/818YegDKolL._AC_UF350,350_QL80_.jpg",
+        "features": ["Giant Frame", "Degree Props", "Ring Light"]
+      },
+      {
+        "id": "gdec_010",
+        "name": "Luxury Banquet Setup",
+        "description": "Complete luxury venue makeover including chair bows, centerpieces, and drapes.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAjMjgf7gq59jDO17dD6u0V3Q7cnthzOvVqQ&s",
+        "features": ["Full Venue", "Floral Centerpieces", "Elegant"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "g_gifts",
+    "services": [
+      {
+        "id": "gg_001",
+        "name": "Custom Engraved Frame",
+        "description": "Elegant wood and glass frame to showcase their hard-earned degree.",
+        "price": 1500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2cDZ7yo0M_KBozQ-yIT7LF4YNP_COxzpC4w&s",
+        "features": ["Real Wood", "Laser Engraved", "Gift Wrapped"]
+      },
+      {
+        "id": "gg_002",
+        "name": "Executive Watch & Pen",
+        "description": "A classic premium watch paired with a personalized metal rollerball pen.",
+        "price": 3500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Cg_BCB2OVEKkd6OzxQ2wg5HWRl4f8evbZg&s",
+        "features": ["Branded Watch", "Metal Pen", "Luxury Box"]
+      },
+      {
+        "id": "gg_003",
+        "name": "Future Leader Tech Kit",
+        "description": "A useful bundle including noise-canceling earbuds and a 10,000mAh power bank.",
+        "price": 5000,
+        "imageUrl": "https://m.media-amazon.com/images/I/51Jpv8QA4QL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Wireless Earbuds", "Fast Charger", "Tech Pouch"]
+      },
+      {
+        "id": "gg_004",
+        "name": "Celebration Hamper",
+        "description": "Gourmet chocolates, a premium leather diary, and an insulated smart flask.",
+        "price": 4500,
+        "imageUrl": "https://m.media-amazon.com/images/I/615GUPGXmlL._AC_UF894,1000_QL80_.jpg",
+        "features": ["Smart Flask", "Leather Diary", "Chocolates"]
+      },
+      {
+        "id": "gg_005",
+        "name": "Graduation Star Trophy",
+        "description": "A heavy crystal star trophy customized with the graduate's name and year.",
+        "price": 2000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1xiQoHSuphJQzUjUPq-vag6yZNzWlBs1YnQ&s",
+        "features": ["Crystal Build", "Gold Lettering", "Satin Box"]
+      },
+      {
+        "id": "gg_006",
+        "name": "Achievement Plaque",
+        "description": "A beautiful wooden wall plaque honoring their specific degree and university.",
+        "price": 1800,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXZMzV2mdujgp9qlWoWunXZHuMSF-v2MNGg&s",
+        "features": ["Mahogany Wood", "Brass Plate", "Wall Mount"]
+      },
+      {
+        "id": "gg_007",
+        "name": "Personalized Leather Journal",
+        "description": "Handcrafted leather journal for the graduate to plan their next big steps.",
+        "price": 1200,
+        "imageUrl": "https://m.media-amazon.com/images/I/71rMlDdlStL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Genuine Leather", "Name Embossed", "Thick Paper"]
+      },
+      {
+        "id": "gg_008",
+        "name": "Silver Milestone Bracelet",
+        "description": "A delicate 925 silver bracelet engraved with the graduation year.",
+        "price": 3200,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi3brwZRUKqktgmiz8ktroKmx36qaiO5YGdw&s",
+        "features": ["925 Silver", "Custom Year", "Velvet Pouch"]
+      },
+      {
+        "id": "gg_009",
+        "name": "Memory Keepsake Box",
+        "description": "A beautifully crafted wooden box to store the tassel, photos, and letters.",
+        "price": 2500,
+        "imageUrl": "https://m.media-amazon.com/images/I/71SIGbqPVHL._AC_UF1000,1000_QL80_.jpg",
+        "features": ["Walnut Finish", "Photo Slot", "Lockable"]
+      },
+      {
+        "id": "gg_010",
+        "name": "Professional Portfolio Bag",
+        "description": "A sleek, premium faux-leather laptop bag for their new career.",
+        "price": 4000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpRTSwFOj8xgGriT2R55EPXQkCsOvbeLOH4A&s",
+        "features": ["Water Resistant", "Laptop Sleeve", "Office Ready"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "g_gown",
+    "services": [
+      {
+        "id": "ggwn_001",
+        "name": "Basic Rental Gown Set",
+        "description": "Standard black graduation gown with a matching cap and year tassel.",
+        "price": 500,
+        "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=500&auto=format&fit=crop",
+        "features": ["1 Day Rental", "Cap & Tassel", "Standard Fit"]
+      },
+      {
+        "id": "ggwn_002",
+        "name": "Premium Silk Gown Set",
+        "description": "High-quality, breathable silk-blend gown that looks flawless in photos.",
+        "price": 1200,
+        "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=500&auto=format&fit=crop",
+        "features": ["Silk Blend", "2 Day Rental", "Wrinkle Free"]
+      },
+      {
+        "id": "ggwn_003",
+        "name": "Purchase Your Gown",
+        "description": "Keep your graduation gown forever as a lifelong memory of your achievement.",
+        "price": 2500,
+        "imageUrl": "https://images.unsplash.com/photo-1525926477800-7a3b10316ac6?q=80&w=500&auto=format&fit=crop",
+        "features": ["Own Forever", "Premium Fabric", "Brand New"]
+      },
+      {
+        "id": "ggwn_004",
+        "name": "Master’s / PhD Velvet Gown",
+        "description": "Luxury velvet-trimmed gown with distinctive bell sleeves for higher degrees.",
+        "price": 2000,
+        "imageUrl": "https://images.unsplash.com/photo-1565022536102-f7645c84354a?q=80&w=500&auto=format&fit=crop",
+        "features": ["Velvet Trim", "Hood Included", "2 Day Rental"]
+      },
+      {
+        "id": "ggwn_005",
+        "name": "Group Rental (Pack of 5)",
+        "description": "Special discounted package for you and your best friends to match perfectly.",
+        "price": 2000,
+        "imageUrl": "https://images.unsplash.com/photo-1589330694653-efa6de1289de?q=80&w=500&auto=format&fit=crop",
+        "features": ["5 Gown Sets", "Group Discount", "Color Match"]
+      },
+      {
+        "id": "ggwn_006",
+        "name": "Kids Kindergarten Gown",
+        "description": "Adorable mini graduation gowns for kindergarten or primary school grads.",
+        "price": 400,
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop",
+        "features": ["Lightweight", "Safe Fabric", "Mini Cap"]
+      },
+      {
+        "id": "ggwn_007",
+        "name": "Custom Gold Embroidery",
+        "description": "Personalize your rented or purchased gown with your name embroidered in gold.",
+        "price": 600,
+        "imageUrl": "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=500&auto=format&fit=crop",
+        "features": ["Custom Name", "Gold Thread", "Add-on Service"]
+      },
+      {
+        "id": "ggwn_008",
+        "name": "Customized Honor Stole",
+        "description": "A beautiful satin sash worn over the shoulders, customized with your major.",
+        "price": 800,
+        "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5ce25c59a?q=80&w=500&auto=format&fit=crop",
+        "features": ["Satin Fabric", "Custom Text", "Keep Forever"]
+      },
+      {
+        "id": "ggwn_009",
+        "name": "Alumni Memory Cap & Charm",
+        "description": "A brand new cap featuring a customized year charm to keep as a souvenir.",
+        "price": 500,
+        "imageUrl": "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=500&auto=format&fit=crop",
+        "features": ["Year Charm", "Hard Board", "Memory Item"]
+      },
+      {
+        "id": "ggwn_010",
+        "name": "The Ultimate Grad Wardrobe",
+        "description": "Premium Gown, Cap, Honor Stole, Custom Embroidery, and 3-day extended rental.",
+        "price": 3500,
+        "imageUrl": "https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=500&auto=format&fit=crop",
+        "features": ["All Inclusive", "3 Day Rental", "VIP Support"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "g_photo",
+    "services": [
+      {
+        "id": "gpho_001",
+        "name": "Solo Graduate Portraits",
+        "description": "Professional outdoor portraits featuring you in your gown and cap.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1LBajbCRucGQG2KTW-SJzJnn0mTkICWfLmg&s",
+        "features": ["2 Hours", "50+ Edits", "Campus Location"]
+      },
+      {
+        "id": "gpho_002",
+        "name": "Friends Group Photoshoot",
+        "description": "A fun and candid session capturing the bond between your best friends.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSspazFnzN55ofrzW-3U0cYwgJjnQtz8zIN2g&s",
+        "features": ["Up to 5 Pax", "Candid Poses", "Fun Props"]
+      },
+      {
+        "id": "gpho_003",
+        "name": "Full Event Coverage",
+        "description": "Complete photography coverage of your graduation party with family and guests.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXIPCzNtrpzacWNkIATvJFoZL79tu_pkFywA&s",
+        "features": ["4 Hours", "200+ Photos", "Online Gallery"]
+      },
+      {
+        "id": "gpho_004",
+        "name": "Cinematic Grad Film",
+        "description": "A beautifully shot and edited cinematic video celebrating your achievement.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYlZB14MCre9aYTkX77VrO7jJmyG6XaIcHBg&s",
+        "features": ["4K Video", "Highlight Reel", "Voiceovers incl."]
+      },
+      {
+        "id": "gpho_005",
+        "name": "Aerial Drone Shots",
+        "description": "Stunning bird's-eye view captures of the cap-toss and campus grounds.",
+        "price": 12000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/bird-s-eye-view-school-grounds-239634586.jpg",
+        "features": ["Licensed Pilot", "Cinematic Angles", "Outdoor Only"]
+      },
+      {
+        "id": "gpho_006",
+        "name": "Instagram Reels Creator",
+        "description": "A dedicated creator to shoot trendy transition videos and reels in your gown.",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXSWQLM9QfvEksJnmakU20TaVn7tvIkYddxg&s",
+        "features": ["3 Edited Reels", "Trending Audio", "24Hr Delivery"]
+      },
+      {
+        "id": "gpho_007",
+        "name": "Premium Leather Album",
+        "description": "A handcrafted, personalized photo book to preserve your graduation memories.",
+        "price": 10000,
+        "imageUrl": "https://www.picsy.in/images/contentimages/images/Blog_60_Banner_1.jpg",
+        "features": ["40 Pages", "Matte Finish", "Custom Cover"]
+      },
+      {
+        "id": "gpho_008",
+        "name": "Studio Lighting Setup",
+        "description": "Professional indoor studio lighting brought to your venue for flawless portraits.",
+        "price": 7000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/empty-photo-studio-lighting-equipment-modern-photography-studio-interior-professional-lighting-setup-ready-418625860.jpg",
+        "features": ["Softboxes", "Backdrops", "Magazine Style"]
+      },
+      {
+        "id": "gpho_009",
+        "name": "Instant Polaroid Station",
+        "description": "A dedicated photographer printing instant polaroids for guests at your grad party.",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvH7-p0m7vDIJUYamI1yCd7OrHszgt-Vyolw&s",
+        "features": ["Unlimited Prints", "Fun Props", "Retro Vibe"]
+      },
+      {
+        "id": "gpho_010",
+        "name": "The Ultimate Grad Package",
+        "description": "Photo, Video, Reels, and a Drone for complete coverage of your success party.",
+        "price": 45000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSEvDtUKu9qSJwUaQIeH-g-XetNyIZufqulQ&s",
+        "features": ["Full Team", "All-Inclusive", "Priority Delivery"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_decoration",
+    "services": [
+      {
+        "id": "mar_decor_001",
+        "name": "Royal Floral Mandap",
+        "description": "Traditional 4-pillar mandap with fresh exotic flowers and ritual seating.",
+        "price": 85000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB-IVpzVc_AoZ8v2S9UMiwvE2Ljikf4udVGA&s",
+        "features": ["Fresh Flowers", "Traditional Seating", "Havan Setup"]
+      },
+      {
+        "id": "mar_decor_002",
+        "name": "Grand Reception Stage",
+        "description": "Luxury stage backdrop with themed LED lighting and plush couple seating.",
+        "price": 125000,
+        "imageUrl": "https://media.weddingz.in/images/09909f5de0dc38961cee6f533cb96fbf/Wedding-Reception-Stage-Decoration-Ideas29.jpg",
+        "features": ["Crystal Decor", "LED Wall", "Plush Sofa"]
+      },
+      {
+        "id": "mar_decor_003",
+        "name": "Vibrant Haldi Setup",
+        "description": "Lively yellow-themed decor with marigold hangings and ethnic props.",
+        "price": 45000,
+        "imageUrl": "https://www.marriagecolours.com/wp-content/uploads/2025/07/Hency-Kingsley-Haldi-royal-palms-3.jpg",
+        "features": ["Marigold Theme", "Photo Booth", "Swing Setup"]
+      },
+      {
+        "id": "mar_decor_004",
+        "name": "Royal Entrance Gate",
+        "description": "Magnificent entry with floral archways and candle-lit pathways.",
+        "price": 35000,
+        "imageUrl": "https://rankatentsuppliers.in/public/images/showcase/1707080756royal-wedding-gate.jpg",
+        "features": ["Floral Arch", "Pathway Lights", "Red Carpet"]
+      },
+      {
+        "id": "mar_decor_005",
+        "name": "Elegant Pathway",
+        "description": "Beautifully decorated aisle leading to the mandap with flower vases.",
+        "price": 25000,
+        "imageUrl": "https://static.vecteezy.com/system/resources/previews/060/999/564/large_2x/enchanted-garden-wedding-venue-with-sequential-light-tunnel-archways-elegant-floral-entrance-decoration-and-illuminated-pathway-with-scattered-rose-petals-photo.jpeg",
+        "features": ["Flower Vases", "Petal Sprinkles", "Side Lighting"]
+      },
+      {
+        "id": "mar_decor_006",
+        "name": "Mehendi Lounge",
+        "description": "Relaxed and colorful seating with bolsters and bohemian umbrellas.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7p-_wzvFVcUWYCgzvBiqWKy3XRF4JiwmFeQ&s",
+        "features": ["Boho Theme", "Floor Seating", "Props"]
+      },
+      {
+        "id": "mar_decor_007",
+        "name": "Dinner Area Styling",
+        "description": "Theme-based dining setup with elegant table runners and centerpieces.",
+        "price": 60000,
+        "imageUrl": "https://i.pinimg.com/736x/db/a9/6d/dba96d4b9ea3d9326500d698cd4090d8.jpg",
+        "features": ["Table Styling", "Chair Decor", "Buffet Lighting"]
+      },
+      {
+        "id": "mar_decor_008",
+        "name": "Ceiling Chandelier",
+        "description": "Grand ceiling drapes with crystal chandeliers and fairy light canopies.",
+        "price": 70000,
+        "imageUrl": "https://www.brides.com/thmb/kYYBr9hqe6iMCPgyHb9r-xNfyM8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/elise-luke_43-3fad2173fa01443fbf8f6911ba36a2ca.jpg",
+        "features": ["Silk Drapes", "Crystal Lamps", "Mood Lighting"]
+      },
+      {
+        "id": "mar_decor_009",
+        "name": "Sangeet Light Show",
+        "description": "Professional stage lighting setup with sharpy, pars, and smoke effects.",
+        "price": 55000,
+        "imageUrl": "https://www.marriagecolours.com/wp-content/uploads/2025/06/Anjana-Dhruv-Sangeet-Temple-Bay-9.jpg",
+        "features": ["Sharpy Lights", "Smoke Machine", "DJ Backdrop"]
+      },
+      {
+        "id": "mar_decor_010",
+        "name": "Vidaai Car Decor",
+        "description": "Elegant fresh flower decoration for the departure car.",
+        "price": 10000,
+        "imageUrl": "https://cdn0.weddingwire.in/article/0539/original/1280/jpg/129350-car-flowers-decoration-3.jpeg",
+        "features": ["Rose Net", "Ribbon Work", "Wedding Tag"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_makeup",
+    "services": [
+      {
+        "id": "mu_001",
+        "name": "Bridal HD Makeup",
+        "description": "Traditional heavy bridal look using High Definition products for camera-ready finish.",
+        "price": 25000,
+        "imageUrl": "https://i.pinimg.com/originals/4a/eb/3b/4aeb3b1690a6e0c375a4febf9de12f27.jpg",
+        "features": ["HD Products", "Lashes included", "6-hour stay"]
+      },
+      {
+        "id": "mu_002",
+        "name": "Bridal Airbrush Makeup",
+        "description": "Premium lightweight airbrush finish for a flawless, waterproof, and matte look.",
+        "price": 45000,
+        "imageUrl": "https://media6.ppl-media.com/mediafiles/blogs/shutterstock_1925473556_2d9c057935.jpg",
+        "features": ["Waterproof", "Celebrity Stylist", "Flawless Base"]
+      },
+      {
+        "id": "mu_003",
+        "name": "Groom Royal Styling",
+        "description": "Professional grooming, hair styling, and basic touch-up for the groom.",
+        "price": 12000,
+        "imageUrl": "https://img.perniaspopupshop.com/catalog/product/z/o/ZOOP102448_1.jpg?impolicy=detailimageprod",
+        "features": ["Beard Styling", "Skin Prep", "Hair Set"]
+      },
+      {
+        "id": "mu_004",
+        "name": "Sangeet Glam Look",
+        "description": "Shimmery and vibrant makeup perfect for evening dance performances.",
+        "price": 18000,
+        "imageUrl": "https://i.pinimg.com/736x/93/63/88/93638818b4fa7b64dd8d1e465ae60081.jpg",
+        "features": ["Glitter Eyes", "Heavy Contour", "Fancy Bun"]
+      },
+      {
+        "id": "mu_006",
+        "name": "Reception High-Glam",
+        "description": "Modern sophisticated look with bold lips and sleek hairstyle.",
+        "price": 22000,
+        "imageUrl": "https://img.weddingbazaar.com/photos/pictures/000/722/501/new_medium/through_the_barrel.jpg?1550659283",
+        "features": ["Bold Style", "Sleek Hair", "False Lashes"]
+      },
+      {
+        "id": "mu_008",
+        "name": "Saree & Dupatta Draping",
+        "description": "Professional draping service to ensure your attire looks perfect all day.",
+        "price": 3000,
+        "imageUrl": "https://i.pinimg.com/736x/1a/e3/b1/1ae3b1101145eae92de065074bdd6d25.jpg",
+        "features": ["Safety Pins incl.", "Pleat Setting", "All Styles"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_mehendi",
+    "services": [
+      {
+        "id": "meh_001",
+        "name": "Full Bridal Mehendi",
+        "description": "Intricate traditional designs up to elbows and feet for the bride.",
+        "price": 15000,
+        "imageUrl": "https://i.pinimg.com/736x/d3/93/4d/d3934dc7eb09533e24ae828f9fa4785f.jpg",
+        "features": ["Full Hand", "Legs included", "Organic Henna"]
+      },
+      {
+        "id": "meh_002",
+        "name": "Portrait Bridal Style",
+        "description": "Customized mehendi featuring portraits of bride and groom.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBec9K-DKhsLHtkh0FjAqGAC5ztLvZNMHPIg&s",
+        "features": ["Portrait Art", "Designer touch", "4-6 hours"]
+      },
+      {
+        "id": "meh_003",
+        "name": "Arabian Style Designs",
+        "description": "Bold and stylish flowy patterns with thick outlines.",
+        "price": 8000,
+        "imageUrl": "https://zerogravity.photography/wp-content/uploads/2025/08/mehendi_webp-1.webp",
+        "features": ["Bold Patterns", "Fast application", "Modern look"]
+      },
+      {
+        "id": "meh_005",
+        "name": "Moroccan Style Art",
+        "description": "Geometric patterns and unique clean lines for a modern bride.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6eJTQujdgdiyUlXsu09-iyJvz-oBraLTDw&s",
+        "features": ["Geometric", "No florals", "Crisp Finish"]
+      },
+      {
+        "id": "meh_007",
+        "name": "Lotus Motif Traditional",
+        "description": "Beautiful lotus and peacock patterns symbolizing purity.",
+        "price": 9500,
+        "imageUrl": "https://i.pinimg.com/736x/f9/04/e2/f904e27b498ae5fe13a83a2c9b526496.jpg",
+        "features": ["Lotus Patterns", "Heavy Shading", "Traditional"]
+      },
+      {
+        "id": "meh_009",
+        "name": "Indo-Arabic Fusion",
+        "description": "Mix of traditional Indian patterns with Arabic negative spacing.",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmJPO2As9b9k5BSYOkRVrZlrAhUT8ctYdeQw&s",
+        "features": ["Fusion style", "Floral & Bold", "Both hands"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_photo",
+    "services": [
+      {
+        "id": "ph_001",
+        "name": "Traditional Photography",
+        "description": "Standard high-resolution coverage of all rituals and guests.",
+        "price": 45000,
+        "imageUrl": "https://www.wedium.com/wp-content/uploads/2019/10/4-8.jpg",
+        "features": ["2 Photographers", "Unlimited Edits", "High-Res Digital"]
+      },
+      {
+        "id": "ph_002",
+        "name": "Candid Photography",
+        "description": "Capturing natural emotions and unposed moments of the couple.",
+        "price": 65000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFi1Mqe1Q5c2LwqCmfg-IN1jkKUU5G6j8sOQ&s",
+        "features": ["Pro Artist", "Emotional Shots", "Creative Edits"]
+      },
+      {
+        "id": "ph_003",
+        "name": "Cinematic Wedding Film",
+        "description": "Full HD cinematic film with highlights and 2-min teaser.",
+        "price": 95000,
+        "imageUrl": "https://cdn0.weddingwire.in/vendor/2447/3_2/960/jpg/25498262-753788941498776-9061627986412701981-n_15_52447.jpeg",
+        "features": ["4K Quality", "Teaser included", "2 Videographers"]
+      },
+      {
+        "id": "ph_004",
+        "name": "Pre-Wedding Shoot",
+        "description": "Thematic outdoor session at a premium location of your choice.",
+        "price": 35000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS00jEpmqm_0SSvSNrO3m8lEAVHBFme34H6vw&s",
+        "features": ["2 Locations", "Makeup Artist", "Drone Support"]
+      },
+      {
+        "id": "ph_005",
+        "name": "Royal Drone Coverage",
+        "description": "Aerial 4K coverage for grand entry and venue visuals.",
+        "price": 25000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/hovering-drone-taking-pictures-wedding-couple-nature-summer-80974910.jpg",
+        "features": ["Licensed Pilot", "4K Aerial View", "All Events"]
+      },
+      {
+        "id": "ph_006",
+        "name": "Premium Leather Album",
+        "description": "Handcrafted 40-page luxury photobook with premium finish.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnk1VhPGu84IafyaxAlyeEHUzrVtUu4GSq8w&s",
+        "features": ["Waterproof", "Lustre Finish", "Custom Box"]
+      },
+      {
+        "id": "ph_007",
+        "name": "Traditional Videography",
+        "description": "Standard long-format video coverage of the entire function.",
+        "price": 35000,
+        "imageUrl": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=500&auto=format&fit=crop",
+        "features": ["Full ceremony", "DVD/USB output", "LED Mix"]
+      },
+      {
+        "id": "ph_008",
+        "name": "Instant Photo Station",
+        "description": "Live photo printing station for guests to take memories home.",
+        "price": 18000,
+        "imageUrl": "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=500&auto=format&fit=crop",
+        "features": ["Unlimited Prints", "Fun Props", "Booth Setup"]
+      },
+      {
+        "id": "ph_010",
+        "name": "Crane/Jib Live Feed",
+        "description": "Live mixing and crane shots for a celebrity-style grand event.",
+        "price": 40000,
+        "imageUrl": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=500&auto=format&fit=crop",
+        "features": ["Live LED Mix", "24ft Crane", "Cinematic Move"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_sangeet",
+    "services": [
+      {
+        "id": "sg_001",
+        "name": "Professional Wedding DJ",
+        "description": "Top-tier DJ with high-end sound system and Bollywood playlist.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjEnO7g5Ar7hQry6vO82H_BuRnZM4mrPByvQ&s",
+        "features": ["JBL Sound", "LED Console", "Fog Machine"]
+      },
+      {
+        "id": "sg_002",
+        "name": "LED Dance Floor",
+        "description": "Glass-top interactive LED floor (20x20 ft) for heavy dancing.",
+        "price": 35000,
+        "imageUrl": "https://cpimg.tistatic.com/10902103/b/4/dance-floor-lights.jpeg",
+        "features": ["Pressure Sensitive", "RGB Colors", "Non-slip"]
+      },
+      {
+        "id": "sg_003",
+        "name": "Celebrity Anchor / MC",
+        "description": "Professional host to manage performances and engage the audience.",
+        "price": 15000,
+        "imageUrl": "https://weddingsutra.com/images/emcee-pic13.jpg",
+        "features": ["Scripting", "Game Hosting", "Energy Booster"]
+      },
+      {
+        "id": "sg_004",
+        "name": "Family Choreographer",
+        "description": "Expert choreographer for 10 sessions to train family and friends.",
+        "price": 20000,
+        "imageUrl": "https://i.ytimg.com/vi/bdoqUbWbrpA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDoi5wrpZ51qhdhDDBY_ZkK3p5g",
+        "features": ["Song Mixing", "Basic Props", "10 Sessions"]
+      },
+      {
+        "id": "sg_005",
+        "name": "LED Wall (12x8 ft)",
+        "description": "High-definition backdrop to display pre-wedding films and visuals.",
+        "price": 30000,
+        "imageUrl": "https://jingyled.com/wp-content/uploads/2025/07/LED-Wall-Wedding-Backdrop-Manufacturer-in-China-2.jpg",
+        "features": ["P3 Resolution", "Visual Operator", "Live Feed"]
+      },
+      {
+        "id": "sg_006",
+        "name": "Cold Pyro & Fog Show",
+        "description": "Special entry effects with cold fire and heavy smoke machines.",
+        "price": 12000,
+        "imageUrl": "https://static.wixstatic.com/media/b1f310_498859c2e0904a238c896d55ed467632~mv2.jpeg/v1/fit/w_500,h_500,q_90/file.jpg",
+        "features": ["8 Pyro Shots", "Terminator Fog", "Safe Indoor"]
+      },
+      {
+        "id": "sg_007",
+        "name": "Percussionist / Dhol",
+        "description": "Live percussion team to play along with the DJ for high energy.",
+        "price": 8000,
+        "imageUrl": "https://www.shivmohanband.com/blog/wp-content/uploads/2022/06/Delhi-Wedding-Bands_-How-to-Find-the-Best-One.jpg",
+        "features": ["2 Players", "Electronic Pads", "Entry Dhol"]
+      },
+      {
+        "id": "sg_008",
+        "name": "Live Sufi Band",
+        "description": "Soulful live musical performance for an elegant Sangeet evening.",
+        "price": 50000,
+        "imageUrl": "https://theliveshow.in/_next/image/?url=https%3A%2F%2Fd1cnyts71k4y55.cloudfront.net%2Fassets%2Fbanner-wedding.webp&w=3840&q=75",
+        "features": ["5 Members", "Full Setup", "Sufi & Bollywood"]
+      },
+      {
+        "id": "sg_009",
+        "name": "Intelligent Lighting",
+        "description": "Concert style lighting with sharpy, pars and smoke effects.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR85MW0C309B-WMV2pOatE32550d6KJH8c8kQ&s",
+        "features": ["Lighting Tech", "Sharpy Move", "DMX Control"]
+      },
+      {
+        "id": "sg_010",
+        "name": "Digital Guestbook",
+        "description": "A touch screen kiosk where guests can record video wishes.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE_sUOwhCl7KUNoaroXenEf0yuid6v_2-wdg&s",
+        "features": ["Video Record", "Instant Link", "Kiosk Setup"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "wed_vidhi",
+    "services": [
+      {
+        "id": "v_001",
+        "name": "Ganesh Sthapana",
+        "description": "The inaugural ritual to remove obstacles. Includes idol, pandit, and complete puja setup.",
+        "price": 5500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi7ZZTWw6DJKmyemnqvvuZLhzrTwWxP_sumg&s",
+        "features": ["Idol Included", "Pandit Fees", "Prasad"]
+      },
+      {
+        "id": "v_002",
+        "name": "Mandap Mahurat",
+        "description": "Spiritual foundation ceremony for the wedding mandap with traditional prayers.",
+        "price": 7000,
+        "imageUrl": "https://cdn11.bigcommerce.com/s-9bdyx9g8xs/images/stencil/1280x1280/products/335/959/gujarati-marriage-wedding-ritual-kit-wedding-mandap-muhurat-haldi__34529.1655914976.jpg?c=2",
+        "features": ["Toran Decor", "Ritual Items", "1 Hour"]
+      },
+      {
+        "id": "v_003",
+        "name": "Grah Shanti Ritual",
+        "description": "Peace invocation for the nine planets. Detailed Vedic chanting for a happy married life.",
+        "price": 11000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV2WXC8PVzmnJgS3X5yr4u-y6rYTOZSc75yA&s",
+        "features": ["9 Planet Puja", "Havan Kund", "Senior Pandit"]
+      },
+      {
+        "id": "v_004",
+        "name": "Pithi / Haldi Ceremony",
+        "description": "Traditional turmeric paste application. Includes background decor and fresh haldi mix.",
+        "price": 15000,
+        "imageUrl": "https://media.istockphoto.com/id/2127645644/photo/family-and-friends-dance-with-bride-and-groom-during-their-haldi-ceremony.jpg?s=612x612&w=0&k=20&c=7ZCQpSXs-CB2LDU_0mkoafoDWUvrJS7DKcXYIPEgiUE=",
+        "features": ["Yellow Theme", "Organic Haldi", "Music"]
+      },
+      {
+        "id": "v_005",
+        "name": "Lagana Patrika",
+        "description": "The formal invitation to the groom’s family. Traditional scroll reading and gifting ritual.",
+        "price": 4500,
+        "imageUrl": "https://m.media-amazon.com/images/I/71p+yRvomDL.jpg_BO30,255,255,255_UF750,750_SR1910,1000,0,C_QL100_.jpg",
+        "features": ["Handwritten Scroll", "Sweets", "Thali"]
+      },
+      {
+        "id": "v_006",
+        "name": "Kanya Daan Ceremony",
+        "description": "The emotional giving away of the bride. Includes ritual vessel (Kalash) and spiritual setup.",
+        "price": 8500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKgBO0Cl_HfX1X4j8Uj2yundPqqFtLbw01A&s",
+        "features": ["Copper Kalash", "Milk & Honey", "Traditional"]
+      },
+      {
+        "id": "v_007",
+        "name": "Hast Melap",
+        "description": "The knot-tying ceremony symbolizing eternal union. High-quality silk dupatta used.",
+        "price": 3500,
+        "imageUrl": "https://thumbs.dreamstime.com/b/hastmelap-indian-wedding-stock-image-276197161.jpg",
+        "features": ["Silk Scarf", "Floral Knot", "Chanting"]
+      },
+      {
+        "id": "v_008",
+        "name": "Saptapadi (7 Vows)",
+        "description": "The seven steps around the holy fire. Includes fire kund maintenance and floral pathway.",
+        "price": 12500,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzhou2hrIOEscCQb8tn4ksFx7wgqx3Y6HTNQ&s",
+        "features": ["Fire Attendant", "Rose Petal Path", "Vows"]
+      },
+      {
+        "id": "v_009",
+        "name": "Vidaai Farewell",
+        "description": "The emotional farewell. Includes traditional doli or decorated car setup for the bride.",
+        "price": 18000,
+        "imageUrl": "https://cdn0.weddingwire.in/article/1896/original/1280/jpg/76981-vidaai-ceremony-mva-cover.jpeg",
+        "features": ["Doli / Car Decor", "Ritual Set", "Audio"]
+      },
+      {
+        "id": "v_010",
+        "name": "Satyanarayan Puja",
+        "description": "Post-wedding blessing for the new home. Complete puja for family prosperity.",
+        "price": 9000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWAczp04JxBrDv5GtiMiUv7B4wRT8RI52W4Q&s",
+        "features": ["Prasad for 50", "Full Puja Kit", "Morning"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "p_bar",
+    "services": [
+      {
+        "id": "pbar_001",
+        "name": "Tropical Mocktail Bar",
+        "description": "Refreshing non-alcoholic mocktails mixed fresh for all age groups.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyPw8cU6n1tp2NyZ_FNYj98DouEO7A8PhkBg&s",
+        "features": ["5 Mocktails", "Fresh Fruits", "Pro Mixologist"]
+      },
+      {
+        "id": "pbar_002",
+        "name": "Premium Cocktail Bar",
+        "description": "Classic and signature cocktail menu curated by top bartenders.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLd9SDhuZS-GqyumiwE648FJER21m6ebEJGw&s",
+        "features": ["8 Cocktails", "Premium Mixers", "Glassware incl."]
+      },
+      {
+        "id": "pbar_003",
+        "name": "Flair Bartending Show",
+        "description": "Entertainment meets drinks with an amazing juggling and fire act.",
+        "price": 35000,
+        "imageUrl": "https://static.toiimg.com/thumb/msid-62337513,width-1280,height-720,resizemode-72/62337513.jpg",
+        "features": ["Fire Acts", "Juggling Show", "2 Hour Set"]
+      },
+      {
+        "id": "pbar_004",
+        "name": "The Shot Station",
+        "description": "Dedicated shots counter with dry ice, LED trays, and flaming shots.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEVHIrzMTJ72XyiIDCOScWMf_gts7TyZk56A&s",
+        "features": ["Flaming Shots", "LED Trays", "Party Props"]
+      },
+      {
+        "id": "pbar_005",
+        "name": "Rustic Beer Boat",
+        "description": "A wooden canoe filled with crushed ice and assorted chilled beers.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQxtFGHI9D2ooPnT-LV3oIyketSzGxtgW50Q&s",
+        "features": ["Aesthetic Setup", "Self-Serve", "Ice Included"]
+      },
+      {
+        "id": "pbar_006",
+        "name": "Champagne Tower",
+        "description": "A luxurious 5-tier glass tower for a celebratory champagne toast.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJZ-mFB92l6kcQYDEygVLq7F1Td0xK_FD2Q&s",
+        "features": ["5-Tier Glasses", "Sparkling Cider", "Toast Setup"]
+      },
+      {
+        "id": "pbar_007",
+        "name": "Fresh Coconut Station",
+        "description": "Freshly cut tender coconuts branded with your party hashtag.",
+        "price": 10000,
+        "imageUrl": "https://static.wixstatic.com/media/a5b8c6_131712b180c749018de7714a47b531ba~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+        "features": ["Laser Branded", "Eco Straws", "Refreshing"]
+      },
+      {
+        "id": "pbar_008",
+        "name": "Ice Gola / Slushy Cart",
+        "description": "A fun traditional Indian crushed ice cart with multiple flavors.",
+        "price": 8000,
+        "imageUrl": "https://www.shutterstock.com/image-vector/ice-gola-cart-bicycle-colourful-600w-2599487881.jpg",
+        "features": ["6 Flavors", "Live Counter", "Kids Favorite"]
+      },
+      {
+        "id": "pbar_009",
+        "name": "Neon Theme Bar Counter",
+        "description": "Customized glowing LED bar setup tailored to your party theme.",
+        "price": 30000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqNdNXFgsiHS_fvWdHr5S5afD_LC2GN2ILHA&s",
+        "features": ["LED Counter", "Custom Sign", "Backbar Decor"]
+      },
+      {
+        "id": "pbar_010",
+        "name": "VIP Luxury Lounge Bar",
+        "description": "Exclusive enclosed bar experience for VIP guests with a dedicated server.",
+        "price": 60000,
+        "imageUrl": "https://static.wixstatic.com/media/3962bf_ea70a878e6774005b4881fa4a94d6787~mv2.png/v1/fill/w_568,h_568,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3962bf_ea70a878e6774005b4881fa4a94d6787~mv2.png",
+        "features": ["Premium Crystal", "Private Setup", "Imported Style"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "p_decor",
+    "services": [
+      {
+        "id": "pdec_001",
+        "name": "Bachelor & Bachelorette Glam",
+        "description": "Trendy \"Bride to Be\" or \"Groom Squad\" decor with foil balloons, sashes, and fun props.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRechBjgBYXiXGRlCKvaf-OEP5IIkdjjwBkxQ&s",
+        "features": ["Foil Balloons", "Photo Props", "Party Sashes"]
+      },
+      {
+        "id": "pdec_002",
+        "name": "Festival Lights & Rangoli",
+        "description": "Traditional decor for Diwali/New Year with marigold strings, diyas, and LED rangoli.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsmF65x3DeBOwNp3Vi-c7w128qXBlU3UowkA&s",
+        "features": ["LED Rangoli", "Lanterns", "Ethnic Drapes"]
+      },
+      {
+        "id": "pdec_003",
+        "name": "Griha Pravesh Floral Decor",
+        "description": "Elegant fresh flower decoration for Housewarming puja and evening dinner parties.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlqBG5yF4wO4aT1u4BHvNF0gCGZXeIEczOKQ&s",
+        "features": ["Entrance Toran", "Fresh Flowers", "Puja Setup"]
+      },
+      {
+        "id": "pdec_004",
+        "name": "Batch Reunion Nostalgia",
+        "description": "School/College reunion setup with memory walls, photo strings, and vintage props.",
+        "price": 14000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqH3KnfMe2ReH2gSu7XfpTbglmae6p1duzWg&s",
+        "features": ["Memory Wall", "Batch Year Sign", "Photo Booth"]
+      },
+      {
+        "id": "pdec_005",
+        "name": "Golden Retirement Gala",
+        "description": "Sophisticated Gold & White theme to celebrate a career milestone with elegance.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-o42VqfBxU5mSE53vCmg7GqMfM8WEKGgpA&s",
+        "features": ["Gold Balloons", "Champagne Wall", "Elegant Drapes"]
+      },
+      {
+        "id": "pdec_006",
+        "name": "High Tea & Kitty Decor",
+        "description": "Aesthetic floral centerpieces and pastel drapes for casual afternoon gatherings.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0vj8c9v2XCyHhX4SJiWDkOisHsoyJAU5AAQ&s",
+        "features": ["Floral Table", "Pastel Theme", "Cozy Seating"]
+      },
+      {
+        "id": "pdec_007",
+        "name": "Cocktail Lounge Ambience",
+        "description": "Dim ambient lighting, candles, and bar decor for a Friday night get-together.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4L4zErXDRL-KOVtiuKY2zK3DYgApO6Cl5Ag&s",
+        "features": ["Mood Lighting", "Bar Styling", "Lounge Sofa"]
+      },
+      {
+        "id": "pdec_008",
+        "name": "Tropical Poolside Vibe",
+        "description": "Hawaiian luau theme with flamingos, palm leaves, and tiki torches for pool parties.",
+        "price": 16000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkSSrjpSQeCxWOG-njMFhci6FZoTNMuXr8hQ&s",
+        "features": ["Inflatables", "Tiki Torch", "Tropical Bar"]
+      },
+      {
+        "id": "pdec_009",
+        "name": "Neon Disco Fever",
+        "description": "UV-reactive neon balloons, glow sticks, and blacklight setup for dance parties.",
+        "price": 12000,
+        "imageUrl": "https://m.media-amazon.com/images/I/61YifM6KoHL._AC_UF350,350_QL80_.jpg",
+        "features": ["UV Lights", "Glow Sticks", "Neon Props"]
+      },
+      {
+        "id": "pdec_010",
+        "name": "Elegant Dinner Setting",
+        "description": "Candlelight dinner decor with table runners and fine cutlery for intimate parties.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlCS2CtrPMKTyNWbFJPx7sW-XX-8-rSSf1Iw&s",
+        "features": ["Table Runner", "Candles", "Fine Dining"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "p_dj",
+    "services": [
+      {
+        "id": "pdj_001",
+        "name": "House Party Essentials",
+        "description": "Compact 2-speaker sound system with a Bluetooth DJ controller for home parties.",
+        "price": 15000,
+        "imageUrl": "https://image.made-in-china.com/2f0j00AZVkqPUCkgoy/Party-Speaker-Wooden-Pair-2-0-Bluetooth-Passive-DJ-Speaker.webp",
+        "features": ["2 JBL Speakers", "Digital Console", "4 Hours"]
+      },
+      {
+        "id": "pdj_002",
+        "name": "Bollywood Night Specialist",
+        "description": "Expert DJ specializing in Bollywood, Punjabi, and Retro hits to keep the floor moving.",
+        "price": 25000,
+        "imageUrl": "https://content.jdmagicbox.com/v2/comp/delhi/i8/011pxx11.xx11.231220162006.t4i8/catalogue/shyam-dj-sound-and-light-decoration-chattarpur-delhi-dj-system-on-rent-niwa0r5g6e.jpg",
+        "features": ["Pro DJ", "4 Top Speakers", "Desi Hits"]
+      },
+      {
+        "id": "pdj_003",
+        "name": "Silent Disco Experience",
+        "description": "Trendy headphone party where guests switch between 3 different DJ channels.",
+        "price": 40000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB5bTdZVYx5LfqvAGT546YlPJlGrJ1nKoVGQ&s",
+        "features": ["50 Headsets", "3 Channels", "No Noise"]
+      },
+      {
+        "id": "pdj_004",
+        "name": "EDM Festival Setup",
+        "description": "Club-level sound with heavy bass subs, lasers, and smoke machines.",
+        "price": 60000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmmEpKdZoGnYu7VnWHg-k2vJ8-wnCFYuP9PQ&s",
+        "features": ["Line Array", "Laser Show", "Smoke Machine"]
+      },
+      {
+        "id": "pdj_005",
+        "name": "Karaoke & DJ Combo",
+        "description": "Interactive karaoke setup with a host, followed by a DJ dance session.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0uxQyF0DvPq-bzXu0irINuX6lHRPc7aA7cA&s",
+        "features": ["Lyrics Screen", "2 Mics", "DJ Host"]
+      },
+      {
+        "id": "pdj_006",
+        "name": "Live Dhol Fusion",
+        "description": "High-energy live dhol players jamming alongside the DJ tracks.",
+        "price": 45000,
+        "imageUrl": "https://content.jdmagicbox.com/comp/guntur/p8/9999px863.x863.221223143046.e9p8/catalogue/kawa-punjabi-dhol-group-event-tadepalle-guntur-dhol-players-1ymowrnr1l.jpg",
+        "features": ["2 Dhol Players", "Fusion Mix", "Crowd Favorite"]
+      },
+      {
+        "id": "pdj_007",
+        "name": "Pool Party Sound Rig",
+        "description": "Water-resistant outdoor speakers with upbeat tropical and pop music.",
+        "price": 22000,
+        "imageUrl": "Water-resistant outdoor speakers with upbeat tropical and pop music.",
+        "features": ["Outdoor Sound", "Water Safe", "Daytime Vibes"]
+      },
+      {
+        "id": "pdj_008",
+        "name": "Vinyl Retro DJ",
+        "description": "Old-school DJ spinning actual vinyl records for a classic 80s/90s vibe.",
+        "price": 30000,
+        "imageUrl": "hhttps://www.shutterstock.com/image-photo/classic-turntable-spinning-blue-vinyl-260nw-2571562513.jpg",
+        "features": ["Real Vinyls", "Retro Console", "Classic Hits"]
+      },
+      {
+        "id": "pdj_009",
+        "name": "Celebrity Guest DJ",
+        "description": "Book a famous club DJ for a 90-minute exclusive performance.",
+        "price": 100000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe_iTi7aeY2Qu7QTXZB6h7ocYwjCTNoQr26w&s",
+        "features": ["Celebrity Act", "Meet & Greet", "Press Kit"]
+      },
+      {
+        "id": "pdj_010",
+        "name": "Intelligent Lighting Add-on",
+        "description": "Enhance any DJ package with moving heads, sharpies, and pixel tubes.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYdUuTyCwG-i2lO0DYAK91HKhlwUQ5sHEahg&s",
+        "features": ["4 Sharpies", "Pixel Tubes", "DMX Control"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "p_games",
+    "services": [
+      {
+        "id": "pgm_001",
+        "name": "Interactive Karaoke Setup",
+        "description": "Sing your heart out with a complete karaoke system, lyrics screen, and 2 mics.",
+        "price": 10000,
+        "imageUrl": "https://lh6.googleusercontent.com/proxy/nDBjq1iqerJ0McpO_JCw2hWs3LUzBNi5wcqBLI96Ax_ncnUYQf_3MUDAbCl8EppY17HPJFkaL6Q6J_HvP3VmLpezHjM7RN72L-_JFH0jYuqo3qOKlQLMrzvYIKVtipAz_1c",
+        "features": ["Lyrics Screen", "Song Library", "2 Mics"]
+      },
+      {
+        "id": "pgm_002",
+        "name": "Casino Royale Night",
+        "description": "Bring Vegas to your party with Blackjack, Roulette, and Poker tables (Fun money only).",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShXDOoZrkWJZsp7t2xMXWSekBYIeAxiAougA&s",
+        "features": ["3 Tables", "Professional Dealers", "Fun Chips"]
+      },
+      {
+        "id": "pgm_003",
+        "name": "Retro Arcade Zone",
+        "description": "Nostalgic arcade machines featuring Pac-Man, Street Fighter, and racing games.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9FJBZLgqRxL1T-FVB1QGTtStulEEHRm5Gg&s",
+        "features": ["2 Classic Machines", "Free Play Mode", "Attendant"]
+      },
+      {
+        "id": "pgm_004",
+        "name": "Pub Quiz Trivia Night",
+        "description": "Hosted trivia contest with buzzers, visuals, and fun categories for teams.",
+        "price": 8000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW5scW0P03l8AWnPwNuv4sh1ZolXUDL4UIdA&s",
+        "features": ["Quiz Master", "Buzzer System", "Visual Rounds"]
+      },
+      {
+        "id": "pgm_005",
+        "name": "Beer Pong Championship",
+        "description": "Official beer pong tables with red cups and ping pong balls for a competitive vibe.",
+        "price": 5000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCOo1oZV5f4TdYOHq1AgoaEaDEeJToFxIJ3w&s",
+        "features": ["2 Tables", "Cups & Balls", "Referee incl."]
+      },
+      {
+        "id": "pgm_006",
+        "name": "Mystery Scavenger Hunt",
+        "description": "An exciting treasure hunt across the venue with clues, puzzles, and hidden prizes.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToi7BeZjFCx8GT-CpMLLhwbs8TesmAIy56xw&s",
+        "features": ["Custom Clues", "Hidden Props", "Winner Prize"]
+      },
+      {
+        "id": "pgm_007",
+        "name": "Spin The Wheel of Dares",
+        "description": "A giant colorful wheel with fun dares, shots, and truth questions for guests.",
+        "price": 6000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRru3u488e361neyvWKZE8ahri5Q4DfXd5kjQ&s",
+        "features": ["Custom Dares", "Giant Wheel", "Host Managed"]
+      },
+      {
+        "id": "pgm_008",
+        "name": "Inflatable Sumo Wrestling",
+        "description": "Hilarious fun where guests wear giant padded sumo suits and wrestle in a ring.",
+        "price": 18000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkunj5pwxy79x1RiC8GW5XSAp6dbpl_13Rvg&s",
+        "features": ["2 Sumo Suits", "Padded Mat", "Safety Gear"]
+      },
+      {
+        "id": "pgm_009",
+        "name": "Close-up Magic & Mentalism",
+        "description": "A roving magician performing mind-reading and card tricks among the crowd.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDNvjc55Iis-lvXmj7wQK5T2HgldJ6OIY2g&s",
+        "features": ["Street Magic", "Card Tricks", "Interactive"]
+      },
+      {
+        "id": "pgm_010",
+        "name": "Just Dance Battle Zone",
+        "description": "Large screen setup with motion sensors for a virtual dance-off competition.",
+        "price": 10000,
+        "imageUrl": "Large screen setup with motion sensors for a virtual dance-off competition.",
+        "features": ["Large Screen", "Motion Gaming", "Sound System"]
+      }
+    ]
+  },
+  {
+    "subcategoryId": "p_photo",
+    "services": [
+      {
+        "id": "pph_001",
+        "name": "Bachelor / Bachelorette Coverage",
+        "description": "Fun, candid, and high-energy photography for your groom/bride squad night out.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNpYnDyMTJAopEhM-OdhDCkmVlEaqhoVXXQw&s",
+        "features": ["4 Hours", "Nightlife Style", "Squad Poses"]
+      },
+      {
+        "id": "pph_002",
+        "name": "Cocktail Night Candid",
+        "description": "Capturing the elegance and laughter of your cocktail evening with natural lighting.",
+        "price": 18000,
+        "imageUrl": "https://ik.imagekit.io/cvygf2xse/theglenlivet/wp-content/uploads/2025/01/FY23_TGL_FoundersReserve_Pistachio_BottleShot_16x9_-scaled-aspect-ratio-4-4-1-scaled.jpg?tr=q-80,w-2560,h-1440,fo-cover",
+        "features": ["Low Light Expert", "No Flash", "Mood Shots"]
+      },
+      {
+        "id": "pph_003",
+        "name": "Reunion Group Portraits",
+        "description": "Large group photos and candid moments for school/college batch reunions.",
+        "price": 12000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSFnej2SvGx5uehwTOYEUlF7hp3kFMvBKVCA&s",
+        "features": ["Wide Angle Lens", "Batch Photos", "Unlimited Clicks"]
+      },
+      {
+        "id": "pph_004",
+        "name": "Housewarming / Pooja Shoot",
+        "description": "Traditional coverage of Griha Pravesh rituals followed by the dinner party.",
+        "price": 10000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4uRL5l_Adn-cmNFIvHT79As9gfE6yhZS1Dg&s",
+        "features": ["Ritual Coverage", "Home Tour", "Family Portraits"]
+      },
+      {
+        "id": "pph_005",
+        "name": "Festival Party Highlights",
+        "description": "Vibrant photography for Diwali, Holi, or Christmas parties capturing colors and lights.",
+        "price": 14000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/colorful-celebration-spring-holi-festival-india-vibrant-image-captures-joyous-spirit-holi-festival-india-355861263.jpg",
+        "features": ["Festival Theme", "Action Shots", "Color Correction"]
+      },
+      {
+        "id": "pph_006",
+        "name": "Retirement Celebration Film",
+        "description": "Emotional coverage of speeches, cake cutting, and farewell moments.",
+        "price": 20000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI2LaaKy59Nriv2kk4qTr-6FMb-Qltn1JjDg&s",
+        "features": ["Video + Photo", "Speech Audio", "Memory Reel"]
+      },
+      {
+        "id": "pph_007",
+        "name": "Kitty Party / High Tea Shoot",
+        "description": "Aesthetic food and decor photography with group portraits for afternoon parties.",
+        "price": 8000,
+        "imageUrl": "https://thumbs.dreamstime.com/b/happy-people-cheers-celebration-food-dinner-table-party-event-together-above-top-view-group-friends-alcohol-442025301.jpg",
+        "features": ["Food Styling", "Decor Shots", "Group Selfies"]
+      },
+      {
+        "id": "pph_008",
+        "name": "360° Slow Motion Booth",
+        "description": "Trendy rotating camera platform for fun, shareable videos at parties.",
+        "price": 25000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5XKlHJmjTL2xmLf8LZLMvoOLFaV9rG2O8tA&s",
+        "features": ["Instant Share", "Slow-Mo", "Fun Props"]
+      },
+      {
+        "id": "pph_009",
+        "name": "Live Instant Printing",
+        "description": "Guests get hard copies of their photos instantly as party favors.",
+        "price": 22000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7g5jFsbcW6tt-xWdRYoha-dkKZaklJmvxMw&s",
+        "features": ["Unlimited Prints", "Custom Frame", "On-site Tech"]
+      },
+      {
+        "id": "pph_010",
+        "name": "Instagram Reels Package",
+        "description": "Short, trendy vertical videos edited same-day for social media stories.",
+        "price": 15000,
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBYNga5o9hngl_ETRKY8JmDWmV1pbVYxS7Uw&s",
+        "features": ["3 Viral Reels", "Trending Audio", "24Hr Delivery"]
+      }
+    ]
+  }
+]

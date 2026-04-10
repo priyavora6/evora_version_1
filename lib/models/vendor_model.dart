@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class VendorModel {
   final String id;
   final String userId;
+  final String vendorName;
   final String businessName;
   final String serviceType;
   final String description;
@@ -37,6 +38,7 @@ class VendorModel {
   VendorModel({
     required this.id,
     required this.userId,
+    required this.vendorName,
     required this.businessName,
     required this.serviceType,
     required this.description,
@@ -76,6 +78,7 @@ class VendorModel {
     return VendorModel(
       id: doc.id,
       userId: data['userId'] ?? '',
+      vendorName: data['vendorName'] ?? data['businessName'] ?? '',
       businessName: data['businessName'] ?? '',
       serviceType: data['serviceType'] ?? '',
       description: data['description'] ?? '',
@@ -110,6 +113,7 @@ class VendorModel {
   Map<String, dynamic> toFirestore() {
     return {
       'userId': userId,
+      'vendorName': vendorName,
       'businessName': businessName,
       'serviceType': serviceType,
       'description': description,
@@ -144,6 +148,7 @@ class VendorModel {
   VendorModel copyWith({
     String? id,
     String? userId,
+    String? vendorName,
     String? businessName,
     String? serviceType,
     String? description,
@@ -176,6 +181,7 @@ class VendorModel {
     return VendorModel(
       id: id ?? this.id,
       userId: userId ?? this.userId,
+      vendorName: vendorName ?? this.vendorName,
       businessName: businessName ?? this.businessName,
       serviceType: serviceType ?? this.serviceType,
       description: description ?? this.description,

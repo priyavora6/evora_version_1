@@ -20,9 +20,14 @@ class PaymentModel {
   final String type; // 'event', 'expense', 'booking', 'vendor'
 
   // ✅ NEW: Vendor payment fields
+  final String? payerType; // 'user', 'admin'
+  final String? payeeType; // 'admin', 'vendor'
   final String? vendorId;
   final String? vendorName;
   final String? serviceType;
+  final double adminProfit;
+  final String paymentStep; // 'user_to_admin', 'admin_advance', 'admin_final'
+  final bool isAdminPayment;
 
   PaymentModel({
     required this.id,
@@ -40,9 +45,14 @@ class PaymentModel {
     this.expenseName,
     this.bookingId,
     this.type = 'event',
+    this.payerType = 'user',
+    this.payeeType = 'admin',
     this.vendorId,
     this.vendorName,
     this.serviceType,
+    this.adminProfit = 0.0,
+    this.paymentStep = '',
+    this.isAdminPayment = false,
   });
 
   // ── 📤 TO MAP (For Firestore) ──────────────────────────────────────────────

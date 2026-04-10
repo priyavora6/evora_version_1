@@ -36,10 +36,13 @@ class VendorBookingModel {
   final String message;
   final BookingStatus status;
   final String adminNote;
-  final String? rejectionReason;
+final String? rejectionReason;
   final double vendorPrice;
-  final double paidAmount;
-  final PaymentStatus paymentStatus;
+  final double userPaidTotal; // User paid to admin
+  final double adminPaidToVendor; // Total admin paid vendor (advance + final)
+  final double adminProfit; // userPaidTotal - adminPaidToVendor
+  final PaymentStatus userPaymentStatus;
+  final PaymentStatus vendorPaymentStatus;
   final String? paymentMethod;
   final String? transactionId;
   final DateTime createdAt;
@@ -73,8 +76,11 @@ class VendorBookingModel {
     this.adminNote = '',
     this.rejectionReason,
     this.vendorPrice = 0.0,
-    this.paidAmount = 0.0,
-    this.paymentStatus = PaymentStatus.unpaid,
+    this.userPaidTotal = 0.0,
+    this.adminPaidToVendor = 0.0,
+    this.adminProfit = 0.0,
+    this.userPaymentStatus = PaymentStatus.unpaid,
+    this.vendorPaymentStatus = PaymentStatus.unpaid,
     this.paymentMethod,
     this.transactionId,
     required this.createdAt,
@@ -126,9 +132,12 @@ class VendorBookingModel {
 
       // Handle Price keys
       vendorPrice: (data['vendorPrice'] ?? data['price'] ?? 0).toDouble(),
-      paidAmount: (data['amountPaid'] ?? data['paidAmount'] ?? 0).toDouble(),
+      userPaidTotal: (data['userPaidTotal'] ?? data['totalPaid'] ?? 0).toDouble(),
+      adminPaidToVendor: (data['adminPaidToVendor'] ?? 0).toDouble(),
+      adminProfit: (data['adminProfit'] ?? 0).toDouble(),
 
-      paymentStatus: _parsePaymentStatus(data['paymentStatus']),
+      userPaymentStatus: _parsePaymentStatus(data['userPaymentStatus'] ?? data['paymentStatus']),
+      vendorPaymentStatus: _parsePaymentStatus(data['vendorPaymentStatus'] ?? 'unpaid'),
       paymentMethod: data['paymentMethod'],
       transactionId: data['transactionId'],
       createdAt: (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
@@ -183,7 +192,8 @@ class VendorBookingModel {
       'eventDate': eventDate != null ? Timestamp.fromDate(eventDate!) : null,
       'status': status.name,
       'vendorPrice': vendorPrice,
-      'paymentStatus': paymentStatus.name,
+      'userPaymentStatus': userPaymentStatus.name,
+      'vendorPaymentStatus': vendorPaymentStatus.name,
       'createdAt': Timestamp.fromDate(createdAt),
       'assignmentDeadline': assignmentDeadline != null ? Timestamp.fromDate(assignmentDeadline!) : null,
       'updatedAt': FieldValue.serverTimestamp(),

@@ -1,0 +1,75 @@
+{
+  "categories": [
+
+  {
+    "id": "wedding",
+    "name": "Wedding",
+    "emoji": "💍",
+    "imageUrl": "https://i.pinimg.com/736x/24/4c/b0/244cb0a18c14e25d05d42f08b4b391cb.jpg",
+    "description": "Elegant planning for your big day",
+    "order": 1,
+    "isActive": true
+  },
+  {
+    "id": "birthday",
+    "name": "Birthday",
+    "emoji": "🎂",
+    "imageUrl": "https://i.pinimg.com/736x/f6/cd/b3/f6cdb3f9109a52eaf619d53361a853e3.jpg",
+    "description": "Fun and memorable celebrations",
+    "order": 2,
+    "isActive": true
+  },
+  {
+    "id": "corporate",
+    "name": "Corporate",
+    "emoji": "🏢",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkELF8ywpHsp4ihNwoSa7DnPiyPveLRWL8Q&s",
+    "description": "Professional events and seminars",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "id": "engagement",
+    "name": "Engagement",
+    "emoji": "💑",
+    "imageUrl": "https://i.pinimg.com/736x/e4/78/13/e47813c64725302f8b0ef38e3a623eeb.jpg",
+    "description": "Start your journey with love",
+    "order": 4,
+    "isActive": true
+  },
+  {
+    "id": "babyshower",
+    "name": "Baby Shower",
+    "emoji": "👶",
+    "imageUrl": "https://i.pinimg.com/236x/bd/5e/ef/bd5eefe1fcf87fa15ad2e79ceb7b047c.jpg",
+    "description": "Welcome the little one with joy",
+    "order": 5,
+    "isActive": true
+  },
+  {
+    "id": "graduation",
+    "name": "Graduation",
+    "emoji": "🎓",
+    "imageUrl": "https://i.pinimg.com/736x/2f/12/6e/2f126e96ff90f7a427213c77157a8e47.jpg",
+    "description": "Celebrate the achievement milestone",
+    "order": 6,
+    "isActive": true
+  },
+  {
+    "id": "anniversary",
+    "name": "Anniversary",
+    "emoji": "❤️",
+    "imageUrl": "https://i.pinimg.com/736x/7a/b1/d0/7ab1d0f0752106a56508e7344002ffbe.jpg",
+    "description": "Honor your years together",
+    "order": 7,
+    "isActive": true
+  },
+    {
+      "id": "party",
+      "name": "Party",
+      "emoji": "🎉",
+      "imageUrl": "https://i.pinimg.com/736x/8c/91/91/8c919134c08992a7cc8f00ba23b02028.jpg",
+      "description": "Vibrant events for everyone",
+      "order": 8,
+      "isActive": true
+    }]}

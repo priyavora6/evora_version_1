@@ -105,6 +105,13 @@ class UserEvent {
   final DateTime? completedAt;
   final DateTime? cancelledAt;
   final DateTime? updatedAt;
+  final bool wantsVendors;
+
+  // Vendor Preference Fields
+  final String vendorPreference; // 'platform', 'own', 'none'
+  final bool wantsPlatformVendors;
+  final bool usesOwnVendors;
+  final List<Map<String, dynamic>> ownProfessionals; // For own vendors
 
   UserEvent({
     required this.id,
@@ -142,6 +149,11 @@ class UserEvent {
     this.completedAt,
     this.cancelledAt,
     this.updatedAt,
+    this.wantsVendors = true,
+    this.vendorPreference = 'platform',
+    this.wantsPlatformVendors = true,
+    this.usesOwnVendors = false,
+    this.ownProfessionals = const [],
   });
 
   // Helper getters
@@ -150,6 +162,26 @@ class UserEvent {
 
   factory UserEvent.fromFirestore(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    
+    // ✅ Safely parse status string to Enum
+    String statusString = (data['status'] ?? 'pending').toString().toLowerCase();
+    EventStatus eventStatus;
+    if (statusString == 'approved') {
+      eventStatus = EventStatus.approved;
+    } else if (statusString == 'rejected') {
+      eventStatus = EventStatus.rejected;
+    } else if (statusString == 'confirmed') {
+      eventStatus = EventStatus.confirmed;
+    } else if (statusString == 'completed') {
+      eventStatus = EventStatus.completed;
+    } else if (statusString == 'cancelled') {
+      eventStatus = EventStatus.cancelled;
+    } else if (statusString == 'inprogress') {
+      eventStatus = EventStatus.inProgress;
+    } else {
+      eventStatus = EventStatus.pending;
+    }
+
     return UserEvent(
       id: doc.id,
       userId: data['userId'] ?? '',
@@ -168,7 +200,7 @@ class UserEvent {
       guestCount: data['guestCount'] ?? 0,
       checkedInCount: data['checkedInCount'] ?? 0,
       eventPassCode: data['eventPassCode'] ?? '',
-      status: _parseEventStatus(data['status']),
+      status: eventStatus,
       adminNote: data['adminNote'] ?? '',
       rejectionReason: data['rejectionReason'],
       assignedVendors: (data['assignedVendors'] as List<dynamic>?)
@@ -190,11 +222,14 @@ class UserEvent {
       completedAt: (data['completedAt'] as Timestamp?)?.toDate(),
       cancelledAt: (data['cancelledAt'] as Timestamp?)?.toDate(),
       updatedAt: (data['updatedAt'] as Timestamp?)?.toDate(),
+      wantsVendors: data['wantsVendors'] ?? true,
+      vendorPreference: data['vendorPreference'] ?? 'platform',
+      wantsPlatformVendors: data['wantsPlatformVendors'] ?? true,
+      usesOwnVendors: data['usesOwnVendors'] ?? false,
+      ownProfessionals: (data['ownProfessionals'] as List<dynamic>?)
+          ?.map((item) => item as Map<String, dynamic>)
+          .toList() ?? [],
     );
-  }
-
-  static EventStatus _parseEventStatus(String? status) {
-    return EventStatus.values.firstWhere((e) => e.name == status, orElse: () => EventStatus.pending);
   }
 
   static PaymentStatus _parsePaymentStatus(String? status) {
@@ -232,11 +267,16 @@ class UserEvent {
       'paymentDeadline': paymentDeadline != null ? Timestamp.fromDate(paymentDeadline!) : null,
       'paymentMethod': paymentMethod,
       'transactionIds': transactionIds,
-      'createdAt': Timestamp.fromDate(createdAt), // ✅ FIXED: DateTime to Timestamp
-      'approvedAt': approvedAt != null ? Timestamp.fromDate(approvedAt!) : null, // ✅ FIXED
-      'completedAt': completedAt != null ? Timestamp.fromDate(completedAt!) : null, // ✅ FIXED
-      'cancelledAt': cancelledAt != null ? Timestamp.fromDate(cancelledAt!) : null, // ✅ FIXED
+      'createdAt': Timestamp.fromDate(createdAt),
+      'approvedAt': approvedAt != null ? Timestamp.fromDate(approvedAt!) : null,
+      'completedAt': completedAt != null ? Timestamp.fromDate(completedAt!) : null,
+      'cancelledAt': cancelledAt != null ? Timestamp.fromDate(cancelledAt!) : null,
       'updatedAt': FieldValue.serverTimestamp(),
+      'wantsVendors': wantsVendors,
+      'vendorPreference': vendorPreference,
+      'wantsPlatformVendors': wantsPlatformVendors,
+      'usesOwnVendors': usesOwnVendors,
+      'ownProfessionals': ownProfessionals,
     };
   }
 
@@ -277,6 +317,11 @@ class UserEvent {
       'completedAt': completedAt?.toIso8601String(),
       'cancelledAt': cancelledAt?.toIso8601String(),
       'updatedAt': updatedAt?.toIso8601String(),
+      'wantsVendors': wantsVendors,
+      'vendorPreference': vendorPreference,
+      'wantsPlatformVendors': wantsPlatformVendors,
+      'usesOwnVendors': usesOwnVendors,
+      'ownProfessionals': ownProfessionals,
     };
   }
 
@@ -316,6 +361,11 @@ class UserEvent {
     DateTime? completedAt,
     DateTime? cancelledAt,
     DateTime? updatedAt,
+    bool? wantsVendors,
+    String? vendorPreference,
+    bool? wantsPlatformVendors,
+    bool? usesOwnVendors,
+    List<Map<String, dynamic>>? ownProfessionals,
   }) {
     return UserEvent(
       id: id ?? this.id,
@@ -353,6 +403,11 @@ class UserEvent {
       completedAt: completedAt ?? this.completedAt,
       cancelledAt: cancelledAt ?? this.cancelledAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      wantsVendors: wantsVendors ?? this.wantsVendors,
+      vendorPreference: vendorPreference ?? this.vendorPreference,
+      wantsPlatformVendors: wantsPlatformVendors ?? this.wantsPlatformVendors,
+      usesOwnVendors: usesOwnVendors ?? this.usesOwnVendors,
+      ownProfessionals: ownProfessionals ?? this.ownProfessionals,
     );
   }
 

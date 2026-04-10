@@ -1,16 +1,35 @@
 // lib/services/notification_service.dart
 
-import 'dart:io';
 import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:timezone/data/latest.dart' as tz_data;
-import 'package:timezone/timezone.dart' as tz;
-import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../config/app_routes.dart';
+import '../models/notification_model.dart';
+import 'local_notification_service.dart';
+
+class NotificationType {
+  static const String general = 'general';
+  static const String bookingApproved = 'booking_approved';
+  static const String bookingRejected = 'booking_rejected';
+  static const String paymentSuccess = 'payment_success';
+  static const String paymentReminder = 'payment_reminder';
+  static const String paymentReceived = 'payment_received';
+  static const String newWorkRequest = 'new_work_request';
+  static const String vendorAssigned = 'vendor_assigned';
+  static const String taskReminder = 'task_reminder';
+  static const String vendorApproved = 'vendor_approved';
+  static const String vendorRejected = 'vendor_rejected';
+  static const String login = 'login';
+}
+
+// Background message handler (must be top-level)
+@pragma('vm:entry-point')
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  debugPrint("📩 Background Message: ${message.messageId}");
+}
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
@@ -18,216 +37,200 @@ class NotificationService {
   NotificationService._internal();
 
   final FirebaseMessaging _fcm = FirebaseMessaging.instance;
-  final FlutterLocalNotificationsPlugin _localNotifications = FlutterLocalNotificationsPlugin();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+  static GlobalKey<NavigatorState>? navigatorKey;
+  bool _isInitialized = false;
 
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  Future<void> init({GlobalKey<NavigatorState>? navKey}) async {
+    if (_isInitialized) return;
+    navigatorKey = navKey;
 
-  Future<void> init() async {
-    tz_data.initializeTimeZones();
-    try {
-      final String timeZoneName = await FlutterTimezone.getLocalTimezone();
-      tz.setLocalLocation(tz.getLocation(timeZoneName));
-    } catch (e) {
-      tz.setLocalLocation(tz.getLocation('UTC'));
+    if (!kIsWeb) {
+      await LocalNotificationService.init(
+        onNotificationTap: (payload) => _handleNavigation(jsonDecode(payload ?? '{}')),
+      );
     }
 
     await _fcm.requestPermission(alert: true, badge: true, sound: true);
 
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const iosSettings = DarwinInitializationSettings();
+    // Foreground Listener
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null && !kIsWeb) {
+        LocalNotificationService.show(
+          id: message.messageId.hashCode,
+          title: message.notification!.title!,
+          body: message.notification!.body!,
+          payload: jsonEncode(message.data),
+        );
+      }
+    });
 
-    await _localNotifications.initialize(
-      const InitializationSettings(android: androidSettings, iOS: iosSettings),
-      onDidReceiveNotificationResponse: (details) {
-        if (details.payload != null) {
-          final data = jsonDecode(details.payload!);
-          _handleNavigation(data);
-        }
-      },
-    );
+    // Background Tap Listener
+    FirebaseMessaging.onMessageOpenedApp.listen((message) => _handleNavigation(message.data));
 
-    if (Platform.isAndroid) {
-      final androidPlugin = _localNotifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
-      await androidPlugin?.createNotificationChannel(const AndroidNotificationChannel(
-        'high_importance_channel', 'General Alerts', importance: Importance.max, playSound: true,
-      ));
-      await androidPlugin?.createNotificationChannel(const AndroidNotificationChannel(
-        'vendor_channel', 'Vendor Business Alerts', importance: Importance.max, playSound: true,
-      ));
+    // Terminated Tap Listener
+    _fcm.getInitialMessage().then((message) {
+      if (message != null) _handleNavigation(message.data);
+    });
+
+    if (!kIsWeb) {
+      FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     }
 
-    FirebaseMessaging.onMessage.listen((msg) => _showLocalNotification(msg));
-    FirebaseMessaging.onMessageOpenedApp.listen((msg) => _handleNavigation(msg.data));
-    debugPrint("✅ Notification Service Initialized");
+    _isInitialized = true;
+    debugPrint("✅ NotificationService Initialized");
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // 🚀 THE 8 SCENARIOS LOGIC
-  // ═══════════════════════════════════════════════════════════════════════
+  void _handleNavigation(Map<String, dynamic> data) {
+    if (navigatorKey?.currentState == null) return;
 
-  // 1. Login (User/Vendor)
-  Future<void> sendLoginAlert(String uid, String name, bool isVendor) async {
-    await _saveToFirestore(
-      uid: uid, isVendor: isVendor, type: 'login',
-      title: "Welcome back, $name! 👋",
-      msg: "Successfully logged in to Evora.",
-    );
+    final String type = data['type'] ?? 'general';
+    final String? relatedId = data['relatedId'] ?? data['eventId'] ?? data['bookingId'];
+    final bool isVendor = data['isVendorSide']?.toString().toLowerCase() == 'true';
+
+    debugPrint("🧭 Navigating to: $type (Vendor: $isVendor, ID: $relatedId)");
+
+    if (isVendor) {
+      switch (type) {
+        case NotificationType.vendorAssigned:
+        case NotificationType.newWorkRequest:
+          if (relatedId != null) {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.vendorEventDetails, arguments: {'eventId': relatedId});
+          } else {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.vendorMain);
+          }
+          break;
+        case NotificationType.paymentReceived:
+          navigatorKey!.currentState!.pushNamed(AppRoutes.vendorMain);
+          break;
+        default:
+          navigatorKey!.currentState!.pushNamed(AppRoutes.vendorNotifications);
+      }
+    } else {
+      switch (type) {
+        case NotificationType.bookingApproved:
+        case NotificationType.bookingRejected:
+          if (relatedId != null) {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.eventDetail, arguments: {'eventId': relatedId});
+          } else {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.myEvents);
+          }
+          break;
+        case NotificationType.paymentSuccess:
+        case NotificationType.paymentReminder:
+          navigatorKey!.currentState!.pushNamed(AppRoutes.myEvents);
+          break;
+        case NotificationType.taskReminder:
+          if (relatedId != null) {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.eventDetail, arguments: {'eventId': relatedId, 'initialTab': 4});
+          } else {
+            navigatorKey!.currentState!.pushNamed(AppRoutes.dashboard);
+          }
+          break;
+        default:
+          navigatorKey!.currentState!.pushNamed(AppRoutes.notifications);
+      }
+    }
   }
 
-  // 2 & 4. Booking Approved + 7 Day Payment Reminder
-  Future<void> sendBookingApproval(String uid, String eventName, String bookingId) async {
-    await _saveToFirestore(
-      uid: uid, isVendor: false, type: 'booking_approved', relatedId: bookingId,
-      title: "✅ Booking Approved!",
-      msg: "Your request for $eventName is approved. Please pay within 7 days.",
-    );
-
-    // Schedule 7th day local alert (Scenario 4)
-    final lastDay = DateTime.now().add(const Duration(days: 6, hours: 23));
-    await scheduleLocalAlert(
-      id: bookingId.hashCode,
-      title: "⏳ Urgent: Payment Deadline",
-      body: "Today is the last day to pay for $eventName.",
-      scheduledDate: lastDay,
-    );
+  Future<String?> sendNotification(NotificationModel notification) async {
+    try {
+      final docRef = await _db.collection('notifications').add({
+        'userId': notification.userId,
+        'title': notification.title,
+        'message': notification.message,
+        'type': notification.type,
+        'isRead': notification.isRead,
+        'isVendorSide': notification.isVendorSide, // ✅ This keeps them separated
+        'relatedId': notification.relatedId,
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+      return docRef.id;
+    } catch (e) {
+      debugPrint("❌ Error sending notification: $e");
+      return null;
+    }
   }
 
-  // 3 & 8. Payment Success (User) & Payment Received (Vendor)
-  Future<void> sendPaymentNotifications({
+  // ✅ welcome notification ensures it goes to the correct list
+  Future<void> sendWelcomeNotification({
     required String userId,
-    required String vendorId,
-    required String eventName,
-    required double amount
+    required String userName,
+    required bool isVendorMode, // Changed to isVendorMode for clarity
   }) async {
-    // To User
-    await _saveToFirestore(
-      uid: userId, isVendor: false, type: 'payment_success',
-      title: "💳 Payment Successful",
-      msg: "₹${amount.toInt()} paid for $eventName.",
-    );
-    // To Vendor (Scenario 8)
-    await _saveToFirestore(
-      uid: vendorId, isVendor: true, type: 'payment_received',
-      title: "💰 Money Received!",
-      msg: "You received ₹${amount.toInt()} for $eventName.",
-    );
-  }
+    final title = "Welcome back, $userName! ✨";
+    final message = isVendorMode 
+        ? "Ready to manage your business today? Check your work alerts!"
+        : "Your journey to an unforgettable event starts here. Let's plan!";
 
-  // 5. Task Reminders (1 Day & 1 Hour Before)
-  Future<void> scheduleTaskReminders(String taskId, String taskName, DateTime deadline) async {
-    // 1 Day Before
-    await scheduleLocalAlert(
-      id: taskId.hashCode + 1,
-      title: "📅 Task Tomorrow",
-      body: "Reminder: '$taskName' is due in 24 hours.",
-      scheduledDate: deadline.subtract(const Duration(days: 1)),
-    );
-    // 1 Hour Before
-    await scheduleLocalAlert(
-      id: taskId.hashCode + 2,
-      title: "⏳ Task Due Soon",
-      body: "Action Required: '$taskName' is due in 1 hour!",
-      scheduledDate: deadline.subtract(const Duration(hours: 1)),
-    );
-  }
+    await sendNotification(NotificationModel(
+      id: '',
+      userId: userId,
+      title: title,
+      message: message,
+      type: NotificationType.login,
+      isVendorSide: isVendorMode, // ✅ Ensures user side only sees user welcome, vendor sees vendor welcome
+      createdAt: DateTime.now(),
+    ));
 
-  // 6. Vendor Request Approved
-  Future<void> sendVendorAccountApproved(String vendorId) async {
-    await _saveToFirestore(
-      uid: vendorId, isVendor: true, type: 'vendor_approved',
-      title: "🎊 Account Approved!",
-      msg: "Congratulations! Your vendor profile is now active.",
-    );
-  }
-
-  // 7. Admin Assigns Work
-  Future<void> sendWorkAssignment(String vendorId, String eventName, String eventId) async {
-    await _saveToFirestore(
-      uid: vendorId, isVendor: true, type: 'vendor_assigned', relatedId: eventId,
-      title: "🚀 New Work Assigned",
-      msg: "You have been assigned to: $eventName. Check 'My Work' tab.",
-    );
-  }
-
-  // ═══════════════════════════════════════════════════════════════════════
-  // 🛠️ INTERNAL HELPERS
-  // ═══════════════════════════════════════════════════════════════════════
-
-  Future<void> _saveToFirestore({
-    required String uid, required bool isVendor, required String title,
-    required String msg, required String type, String? relatedId
-  }) async {
-    await _db.collection('notifications').add({
-      'userId': uid,
-      'isVendorSide': isVendor,
-      'title': title,
-      'message': msg,
-      'type': type,
-      'isRead': false,
-      'createdAt': FieldValue.serverTimestamp(),
-      'relatedId': relatedId,
-    });
-  }
-
-  Future<void> scheduleLocalAlert({required int id, required String title, required String body, required DateTime scheduledDate}) async {
-    if (scheduledDate.isBefore(DateTime.now())) return;
-    await _localNotifications.zonedSchedule(
-      id, title, body, tz.TZDateTime.from(scheduledDate, tz.local),
-      const NotificationDetails(android: AndroidNotificationDetails('task_reminders', 'Planning Reminders', importance: Importance.high)),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-    );
-  }
-
-  void _showLocalNotification(RemoteMessage message) {
-    RemoteNotification? notification = message.notification;
-    if (notification != null) {
-      String channelId = message.data['isVendorSide'].toString() == 'true' ? 'vendor_channel' : 'high_importance_channel';
-      _localNotifications.show(
-        notification.hashCode, notification.title, notification.body,
-        NotificationDetails(android: AndroidNotificationDetails(channelId, 'Alerts', importance: Importance.max)),
-        payload: jsonEncode(message.data),
+    if (!kIsWeb) {
+      await LocalNotificationService.show(
+        id: userId.hashCode,
+        title: title,
+        body: message,
+        payload: jsonEncode({'type': NotificationType.login, 'isVendorSide': isVendorMode}),
       );
     }
   }
 
-  void _handleNavigation(Map<String, dynamic> data) {
-    final bool isVendor = data['isVendorSide'].toString() == 'true';
-    final String? type = data['type']?.toString();
-    final String? id = data['relatedId']?.toString();
-
-    if (isVendor) {
-      if (type == 'vendor_assigned') {
-        navigatorKey.currentState?.pushNamed('/vendor-event-details', arguments: {'eventId': id});
-      } else {
-        navigatorKey.currentState?.pushNamed('/vendor-notifications');
-      }
-    } else {
-      if (id != null) {
-        navigatorKey.currentState?.pushNamed(AppRoutes.eventDetail, arguments: {'eventId': id});
-      } else {
-        navigatorKey.currentState?.pushNamed(AppRoutes.dashboard);
-      }
-    }
+  Future<void> scheduleTaskReminders({
+    required String userId,
+    required String taskId,
+    required String taskName,
+    required DateTime deadline,
+  }) async {
+    if (kIsWeb) return;
+    await LocalNotificationService.scheduleTaskReminders(
+      taskId: taskId,
+      taskName: taskName,
+      deadline: deadline,
+      userId: userId,
+    );
   }
 
-  Future<void> updateDeviceToken() async {
+  Future<void> updateFCMToken() async {
     final user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      String? token = await _fcm.getToken();
+    if (user == null) return;
+
+    try {
+      String? token = await _fcm.getToken(
+        vapidKey: "BKj9TEN6enaimm1BdbnUCEYXOmvTtTgBfDL-9DabLsOhQ3CC6Sb2qIHTJorsjqjAFlodwZssV4aTH0SoMvFn-G0",
+      );
       if (token != null) {
-        await _db.collection('users').doc(user.uid).set({'fcmToken': token, 'lastActive': FieldValue.serverTimestamp()}, SetOptions(merge: true));
+        await _db.collection('users').doc(user.uid).set({
+          'fcmToken': token,
+          'lastTokenUpdate': FieldValue.serverTimestamp(),
+          'platform': kIsWeb ? 'web' : 'mobile',
+        }, SetOptions(merge: true));
       }
+    } catch (e) {
+      debugPrint("❌ Error updating FCM token: $e");
     }
   }
 
-  Future<void> deleteDeviceToken() async {
+  Future<void> deleteFCMToken() async {
     final user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
+    if (user == null) return;
+
+    try {
       await _db.collection('users').doc(user.uid).update({
         'fcmToken': FieldValue.delete(),
       });
+      if (!kIsWeb) {
+        await _fcm.deleteToken();
+      }
+    } catch (e) {
+      debugPrint("❌ Error deleting FCM token: $e");
     }
   }
 }

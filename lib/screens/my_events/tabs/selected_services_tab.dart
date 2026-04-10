@@ -1,10 +1,8 @@
 // lib/screens/my_events/tabs/selected_services_tab.dart
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../config/app_colors.dart';
-import '../../../providers/user_event_provider.dart';
 import '../../../models/cart_item_model.dart';
 import '../../../widgets/loading_indicator.dart';
 
@@ -78,16 +76,16 @@ class SelectedServicesTab extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
-                    _getCategoryIcon(item.sectionName),
+                    _getCategoryIcon(item.subcategoryName),
                     color: AppColors.primary,
                   ),
                 ),
                 title: Text(
-                  item.itemName,
+                  item.name,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
-                  item.sectionName,
+                  item.subcategoryName,
                   style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
                 ),
                 trailing: Column(

@@ -26,7 +26,6 @@ class UserEventProvider extends ChangeNotifier {
   String? get error => _error;
 
   // 🔥 THIS GETTER MAKES THE SERVICE TAB WORK
-  // It pulls the services directly from the event document we fetched
   List<CartItem> get selectedItems => _selectedEvent?.selectedItems ?? [];
 
   List<UserEvent> get upcomingEvents {
@@ -40,26 +39,18 @@ class UserEventProvider extends ChangeNotifier {
   }
 
   // ═══════════════════════════════════════════════════════════════════════
-  // 🔍 FETCH EVENT BY ID (Detailed View)
+  // 🔍 FETCH EVENT BY ID
   // ═══════════════════════════════════════════════════════════════════════
   Future<void> fetchEventById(String eventId) async {
     _isLoading = true;
     _error = null;
 
-    // Notify listeners after the frame to prevent "SetState during build" crash
     WidgetsBinding.instance.addPostFrameCallback((_) => notifyListeners());
 
     try {
       _selectedEvent = await _service.getEventById(eventId);
-
-      if (_selectedEvent != null) {
-        debugPrint('✅ Event Loaded: ${_selectedEvent!.eventName} with ${_selectedEvent!.selectedItems.length} services');
-      } else {
-        _error = "Event not found";
-      }
     } catch (e) {
       _error = e.toString();
-      debugPrint('❌ Error fetching event detail: $e');
     }
 
     _isLoading = false;
@@ -67,7 +58,7 @@ class UserEventProvider extends ChangeNotifier {
   }
 
   // ═══════════════════════════════════════════════════════════════════════
-  // 📋 FETCH USER EVENTS (List View)
+  // 📋 FETCH USER EVENTS
   // ═══════════════════════════════════════════════════════════════════════
   Future<void> fetchUserEvents(String userId) async {
     _isLoading = true;
@@ -78,7 +69,6 @@ class UserEventProvider extends ChangeNotifier {
       _error = null;
     } catch (e) {
       _error = 'Failed to fetch events: ${e.toString()}';
-      debugPrint('❌ Error fetching events list: $e');
     }
 
     _isLoading = false;
@@ -105,7 +95,13 @@ class UserEventProvider extends ChangeNotifier {
     required int guestCount,
     double estimatedBudget = 0.0,
     required double totalEstimatedCost,
-    required List<CartItem> selectedItems, // ✅ Mandatory now
+    required List<CartItem> selectedItems,
+    bool wantsVendors = true,
+    // ✅ NEW
+    String vendorPreference = 'platform',
+    bool wantsPlatformVendors = true,
+    bool usesOwnVendors = false,
+    List<Map<String, dynamic>> ownProfessionals = const [],
   }) async {
     _isLoading = true;
     notifyListeners();
@@ -128,8 +124,14 @@ class UserEventProvider extends ChangeNotifier {
       guestCount: guestCount,
       estimatedBudget: estimatedBudget,
       totalEstimatedCost: totalEstimatedCost,
-      selectedItems: selectedItems, // ✅ Correctly saved to model
+      selectedItems: selectedItems,
       createdAt: DateTime.now(),
+      wantsVendors: wantsVendors,
+      // ✅ NEW
+      vendorPreference: vendorPreference,
+      wantsPlatformVendors: wantsPlatformVendors,
+      usesOwnVendors: usesOwnVendors,
+      ownProfessionals: ownProfessionals,
     );
 
     try {
@@ -143,12 +145,27 @@ class UserEventProvider extends ChangeNotifier {
       }
     } catch (e) {
       _error = 'Failed to create event: ${e.toString()}';
-      debugPrint('❌ Create Event Error: $e');
     }
 
     _isLoading = false;
     notifyListeners();
     return null;
+  }
+
+  // ✅ ADDED: Update wantsVendors preference
+  Future<void> updateVendorPreference(String eventId, bool wantsVendors) async {
+    try {
+      await _firestore.collection('userEvents').doc(eventId).update({
+        'wantsVendors': wantsVendors,
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+      if (_selectedEvent?.id == eventId) {
+        _selectedEvent = _selectedEvent?.copyWith(wantsVendors: wantsVendors);
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('❌ Error updating vendor preference: $e');
+    }
   }
 
   // ═══════════════════════════════════════════════════════════════════════
@@ -157,11 +174,11 @@ class UserEventProvider extends ChangeNotifier {
 
   Future<void> incrementGuestCount(String eventId) async {
     try {
-      await _firestore.collection('events').doc(eventId).update({
+      await _firestore.collection('userEvents').doc(eventId).update({
         'guestCount': FieldValue.increment(1),
         'updatedAt': FieldValue.serverTimestamp(),
       });
-      await fetchEventById(eventId); // Refresh local data
+      await fetchEventById(eventId);
     } catch (e) {
       debugPrint('❌ Error incrementing guest count: $e');
     }
@@ -169,11 +186,11 @@ class UserEventProvider extends ChangeNotifier {
 
   Future<void> decrementGuestCount(String eventId) async {
     try {
-      await _firestore.collection('events').doc(eventId).update({
+      await _firestore.collection('userEvents').doc(eventId).update({
         'guestCount': FieldValue.increment(-1),
         'updatedAt': FieldValue.serverTimestamp(),
       });
-      await fetchEventById(eventId); // Refresh local data
+      await fetchEventById(eventId);
     } catch (e) {
       debugPrint('❌ Error decrementing guest count: $e');
     }
@@ -196,7 +213,7 @@ class UserEventProvider extends ChangeNotifier {
       if (newCount < 0) newCount = 0;
 
       await _service.updateEventCount(eventId, newCount);
-      await fetchEventById(eventId); // Sync UI
+      await fetchEventById(eventId);
     } catch (e) {
       debugPrint('❌ Error updating check-in count: $e');
     }

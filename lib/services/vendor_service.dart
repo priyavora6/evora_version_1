@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../models/vendor_model.dart';
+import 'notification_service.dart';
 
 class VendorService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -140,14 +141,27 @@ class VendorService {
         final userId = vendorDoc.data()?['userId'];
         final businessName = vendorDoc.data()?['businessName'] ?? 'Your business';
 
-        // Send notification
+        // ✅ Send vendor-side notification
         await _firestore.collection('notifications').add({
           'userId': userId,
           'title': '🎉 Vendor Application Approved!',
           'message': 'Congratulations! $businessName has been approved. You can now start receiving event assignments.',
-          'type': 'vendor_approved',
+          'type': NotificationType.vendorApproved,
           'relatedId': vendorId,
           'isRead': false,
+          'isVendorSide': true, // ✅ Separates from user panel
+          'createdAt': FieldValue.serverTimestamp(),
+        });
+
+        // ✅ Also send a user-side notification so they know they can switch
+        await _firestore.collection('notifications').add({
+          'userId': userId,
+          'title': 'You are now an approved Vendor!',
+          'message': 'Switch to Vendor Mode to start receiving assignments.',
+          'type': NotificationType.vendorApproved,
+          'relatedId': vendorId,
+          'isRead': false,
+          'isVendorSide': false, // ✅ Shows in user panel
           'createdAt': FieldValue.serverTimestamp(),
         });
       }
@@ -178,15 +192,15 @@ class VendorService {
       if (vendorDoc.exists) {
         final userId = vendorDoc.data()?['userId'];
 
-        // Send notification
+        // ✅ Send notification to both sides or just one as needed
         await _firestore.collection('notifications').add({
           'userId': userId,
           'title': '❌ Vendor Application Rejected',
           'message': 'Unfortunately, your vendor application was rejected. Reason: $reason',
-          'type': 'vendor_rejected',
+          'type': NotificationType.vendorRejected,
           'relatedId': vendorId,
-          'data': {'reason': reason},
           'isRead': false,
+          'isVendorSide': false, // Show on user side since they are applying as user
           'createdAt': FieldValue.serverTimestamp(),
         });
       }
@@ -233,9 +247,7 @@ class VendorService {
     }
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
   // 📡 STREAM: APPROVED VENDORS
-  // ═══════════════════════════════════════════════════════════════════════
   Stream<List<VendorModel>> getApprovedVendorsStream() {
     return _firestore
         .collection('vendors')
@@ -247,9 +259,7 @@ class VendorService {
         snapshot.docs.map((doc) => VendorModel.fromFirestore(doc)).toList());
   }
 
-  // ═══════════════════════════════════════════════════════════════════════
   // 📡 STREAM: VENDOR BY ID
-  // ═══════════════════════════════════════════════════════════════════════
   Stream<VendorModel?> getVendorStream(String vendorId) {
     return _firestore
         .collection('vendors')

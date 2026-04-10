@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider; // ✅ Fix: Hide conflicting AuthProvider
 import '../../../config/app_colors.dart';
+import '../../../providers/auth_provider.dart';
 import '../../../providers/vendor_panel_provider.dart';
 
 class VendorHomeTab extends StatefulWidget {
@@ -16,7 +17,7 @@ class VendorHomeTab extends StatefulWidget {
 
 class _VendorHomeTabState extends State<VendorHomeTab> {
   String? vendorId;
-  String? displayName; // Changed from businessName to displayName
+  String? displayName;
   bool _isLoadingVendor = true;
 
   @override
@@ -27,56 +28,76 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
 
   Future<void> _loadVendorData() async {
     try {
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final currentUser = FirebaseAuth.instance.currentUser;
+      
       if (currentUser == null) {
         if (mounted) setState(() => _isLoadingVendor = false);
         return;
       }
 
-      // 1. Fetch Vendor Document
-      final vendorDoc = await FirebaseFirestore.instance
+      // 1. Try to get from AuthProvider first (Fastest)
+      if (authProvider.currentVendor != null) {
+        _setVendorData(authProvider.currentVendor!.id, authProvider.currentVendor!.businessName);
+        return;
+      }
+
+      // 2. Try Fetch by Document ID (UID)
+      var vendorDoc = await FirebaseFirestore.instance
           .collection('vendors')
           .doc(currentUser.uid)
           .get();
 
-      if (vendorDoc.exists && mounted) {
-        final data = vendorDoc.data() as Map<String, dynamic>;
-
-        // 🔍 LOGIC: Get the best name available
-        // 1. Try Business Name
-        String name = data['businessName'] ?? '';
-
-        // 2. If Business Name is empty, try User Name
-        if (name.isEmpty) {
-          name = data['name'] ?? '';
-        }
-
-        // 3. Fallback
-        if (name.isEmpty) {
-          name = 'Partner';
-        }
-
-        // 4. ✨ CAPITALIZE (Fixes "photography" -> "Photography")
-        if (name.isNotEmpty) {
-          name = name[0].toUpperCase() + name.substring(1);
-        }
-
-        setState(() {
-          vendorId = vendorDoc.id;
-          displayName = name; // Set the formatted name
-          _isLoadingVendor = false;
-        });
-
-        // Load provider data
-        Provider.of<VendorPanelProvider>(context, listen: false)
-            .loadVendorData(vendorId!);
-      } else {
-        if (mounted) setState(() => _isLoadingVendor = false);
+      if (vendorDoc.exists) {
+        _processVendorDoc(vendorDoc);
+        return;
       }
+
+      // 3. Fallback: Query by userId field (In case Doc ID is different)
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('vendors')
+          .where('userId', isEqualTo: currentUser.uid)
+          .limit(1)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        _processVendorDoc(querySnapshot.docs.first);
+        return;
+      }
+
+      // 4. No profile found
+      if (mounted) setState(() => _isLoadingVendor = false);
     } catch (e) {
       debugPrint('Error loading vendor data: $e');
       if (mounted) setState(() => _isLoadingVendor = false);
     }
+  }
+
+  void _processVendorDoc(DocumentSnapshot doc) {
+    if (!mounted) return;
+    final data = doc.data() as Map<String, dynamic>;
+    
+    String name = data['vendorName'] ?? data['businessName'] ?? data['name'] ?? 'Partner';
+    if (name.isNotEmpty) {
+      name = name[0].toUpperCase() + name.substring(1);
+    }
+
+    _setVendorData(doc.id, name);
+    
+    // Refresh the auth provider data if it was missing vendorId
+    Provider.of<AuthProvider>(context, listen: false).refreshUserData();
+  }
+
+  void _setVendorData(String id, String name) {
+    if (!mounted) return;
+    setState(() {
+      vendorId = id;
+      displayName = name;
+      _isLoadingVendor = false;
+    });
+
+    // Load dashboard data
+    Provider.of<VendorPanelProvider>(context, listen: false).loadVendorData(id);
   }
 
   @override
@@ -87,54 +108,74 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
 
     if (vendorId == null) {
       return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline, size: 48, color: Colors.red.shade300),
-            const SizedBox(height: 16),
-            const Text('Vendor profile not found.'),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.red.shade50,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.storefront_outlined, size: 64, color: Colors.red.shade300),
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Vendor Profile Not Found',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'We couldn\'t find a vendor account linked to your profile. Please contact support or try logging in again.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () => _loadVendorData(),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primary,
+                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                ),
+                child: const Text('Try Refreshing'),
+              ),
+            ],
+          ),
         ),
       );
     }
 
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 👋 Welcome Header (Updated with correct name)
-          _buildWelcomeHeader(displayName ?? 'Vendor'),
-
-          const SizedBox(height: 24),
-
-          // 💰 Earnings Summary (Real-time)
-          _buildEarningsSummaryCard(vendorId!),
-          const SizedBox(height: 24),
-
-          // 📊 Stats Grid
-          _buildStatsGrid(vendorId!),
-          const SizedBox(height: 24),
-
-          // 📅 Upcoming Events
-          _buildUpcomingEventsSection(vendorId!),
-          const SizedBox(height: 24),
-
-          // 💳 Recent Payments
-          _buildRecentPaymentsSection(vendorId!),
-          const SizedBox(height: 24),
-
-          // ⭐ Recent Reviews
-          _buildRecentReviewsSection(vendorId!),
-          const SizedBox(height: 40),
-        ],
+    return RefreshIndicator(
+      onRefresh: _loadVendorData,
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildWelcomeHeader(displayName ?? 'Vendor'),
+            const SizedBox(height: 24),
+            _buildEarningsSummaryCard(vendorId!),
+            const SizedBox(height: 24),
+            _buildStatsGrid(vendorId!),
+            const SizedBox(height: 24),
+            _buildUpcomingEventsSection(vendorId!),
+            const SizedBox(height: 24),
+            _buildRecentPaymentsSection(vendorId!),
+            const SizedBox(height: 24),
+            _buildRecentReviewsSection(vendorId!),
+            const SizedBox(height: 40),
+          ],
+        ),
       ),
     );
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // 👋 WELCOME HEADER (Blue Card)
+  // 👋 WELCOME HEADER
   // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildWelcomeHeader(String name) {
     final hour = DateTime.now().hour;
@@ -155,7 +196,7 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1E293B), // Dark Navy Blue like your screenshot
+        color: const Color(0xFF1E293B),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -187,7 +228,7 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  name, // ✅ This will now be the User/Business Name
+                  name,
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -207,7 +248,7 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(
-              Icons.storefront_rounded, // Business Icon
+              Icons.storefront_rounded,
               color: Colors.white,
               size: 24,
             ),
@@ -217,11 +258,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ... (Keep the rest of your widgets: _buildEarningsSummaryCard, etc. exactly the same)
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 💰 EARNINGS SUMMARY CARD
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildEarningsSummaryCard(String vendorId) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
@@ -399,9 +435,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 📊 STATS GRID
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildStatsGrid(String vendorId) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance.collection('userEvents').snapshots(),
@@ -490,9 +523,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 📅 UPCOMING EVENTS
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildUpcomingEventsSection(String vendorId) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -652,9 +682,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 💳 RECENT PAYMENTS
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildRecentPaymentsSection(String vendorId) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -742,9 +769,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ⭐ RECENT REVIEWS
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildRecentReviewsSection(String vendorId) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -822,9 +846,6 @@ class _VendorHomeTabState extends State<VendorHomeTab> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🛠️ HELPERS
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildEmptyState(String text, IconData icon) {
     return Container(
       width: double.infinity,

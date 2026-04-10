@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../config/app_colors.dart';
 import '../../../config/app_strings.dart';
 import '../../../models/user_event_model.dart';
+import '../../../providers/user_event_provider.dart';
 import '../../dashboard/widgets/countdown_timer.dart';
 
 class OverviewTab extends StatelessWidget {
@@ -11,16 +13,11 @@ class OverviewTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🔥 SAFER CALCULATION (Handles null, int, and double)
     double paidAmount = 0.0;
-
-    // Safely cast amountPaid
-    if (event.amountPaid != null) {
-      if (event.amountPaid is int) {
-        paidAmount = (event.amountPaid as int).toDouble();
-      } else if (event.amountPaid is double) {
-        paidAmount = event.amountPaid as double;
-      }
+    if (event.amountPaid is int) {
+      paidAmount = (event.amountPaid as int).toDouble();
+    } else if (event.amountPaid is double) {
+      paidAmount = event.amountPaid as double;
     }
 
     double remainingAmount = event.totalEstimatedCost - paidAmount;
@@ -59,8 +56,54 @@ class OverviewTab extends StatelessWidget {
           _buildDetailCard(
             title: 'Event Details',
             children: [
+              // 🏆 PROPER EVENT TYPE DISPLAY
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                margin: const EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withOpacity(0.05),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.primary.withOpacity(0.1)),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.celebration, color: AppColors.primary, size: 24),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'EVENT CATEGORY',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.2,
+                            color: AppColors.textSecondary,
+                          ),
+                        ),
+                        Text(
+                          event.eventTypeName.toUpperCase(),
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              
               _buildDetailRow(Icons.event, 'Event Name', event.eventName),
-              _buildDetailRow(Icons.category, 'Event Type', event.eventTypeName),
               _buildDetailRow(Icons.calendar_today, 'Date', _formatDate(event.eventDate)),
               _buildDetailRow(Icons.access_time, 'Time', event.eventTime),
               _buildDetailRow(Icons.location_on, 'Location', event.location),
@@ -70,16 +113,12 @@ class OverviewTab extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // 💰 BUDGET CARD (UPDATED)
+          // Budget Card
           _buildDetailCard(
             title: 'Budget Overview',
             children: [
               _buildBudgetRow('Estimated Cost', event.totalEstimatedCost, AppColors.primary),
-
-              // ✅ Shows Real Paid Amount
               _buildBudgetRow('Paid Amount', paidAmount, AppColors.success),
-
-              // ✅ Shows Real Remaining Amount
               _buildBudgetRow('Remaining', remainingAmount, remainingAmount > 0 ? AppColors.warning : Colors.grey),
             ],
           ),

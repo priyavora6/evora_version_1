@@ -11,6 +11,7 @@ import '../../providers/notification_provider.dart';
 import '../../providers/budget_provider.dart';
 import '../../screens/payment/payment_success_screen.dart';
 import '../../models/notification_model.dart';
+import '../../services/notification_service.dart';
 
 class PaymentScreen extends StatefulWidget {
   final double totalAmount;
@@ -52,9 +53,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     {'name': 'Wallet', 'icon': Icons.account_balance_wallet, 'color': Colors.orange},
   ];
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ⚡ PAYMENT LOGIC
-  // ═══════════════════════════════════════════════════════════════════════════
   Future<void> _handlePayment() async {
     final paymentProvider = Provider.of<PaymentProvider>(context, listen: false);
     final notificationProvider = Provider.of<NotificationProvider>(context, listen: false);
@@ -67,7 +65,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
       return;
     }
 
-    // 1. Process Transaction via Provider (Creates record in 'payments' collection)
     bool success = await paymentProvider.processPayment(
       userId: user.id,
       userName: user.name,
@@ -86,7 +83,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     if (!mounted) return;
 
     if (success) {
-      // 2. Post-Payment Updates (Update Event/Expense status + Notifications)
       await _handlePostPayment(
         budgetProvider,
         notificationProvider,
@@ -96,7 +92,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
       if (!mounted) return;
 
-      // 3. Navigate to Success Screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -124,11 +119,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
     final paymentType = widget.paymentType ?? 'event';
 
     switch (paymentType) {
-    // ✅ VENDOR PAYMENT
       case 'vendor':
         if (widget.vendorId != null) {
           await _updateVendorPaymentStatus(transactionId);
-          // Notify User
           await _sendNotification(
             notificationProvider,
             userId,
@@ -139,7 +132,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
         }
         break;
 
-    // ✅ EXPENSE PAYMENT
       case 'expense':
         if (widget.expenseId != null) {
           await budgetProvider.markExpenseAsPaidById(widget.eventId, widget.expenseId!);
@@ -153,7 +145,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
         }
         break;
 
-    // ✅ BOOKING PAYMENT
       case 'booking':
         if (widget.bookingId.isNotEmpty) {
           await budgetProvider.markBookingAsPaid(widget.eventId, widget.bookingId);
@@ -195,7 +186,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     }
   }
 
-  // ✅ UPDATE FIRESTORE: Mark Vendor as Paid inside Event
   Future<void> _updateVendorPaymentStatus(String? transactionId) async {
     if (widget.vendorId == null) return;
 
@@ -208,7 +198,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
       final data = eventDoc.data() as Map<String, dynamic>;
       final List<dynamic> assignedVendors = List.from(data['assignedVendors'] ?? []);
 
-      // Find specific vendor and update status
       bool found = false;
       for (int i = 0; i < assignedVendors.length; i++) {
         if (assignedVendors[i]['vendorId'] == widget.vendorId) {
@@ -225,7 +214,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
       }
 
       if (found) {
-        // Recalculate Total Paid
         double totalVendorPaid = 0;
         for (var v in assignedVendors) {
           if (v['paymentStatus'] == 'paid') {
@@ -251,9 +239,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🎨 UI BUILD
-  // ═══════════════════════════════════════════════════════════════════════════
   @override
   Widget build(BuildContext context) {
     final isLoading = Provider.of<PaymentProvider>(context).isLoading;
@@ -263,7 +248,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     String subtitle = "Event Payment";
     Color accentColor = AppColors.primary;
 
-    // Dynamic UI Styling
     if (paymentType == 'vendor') {
       title = "Pay Vendor";
       subtitle = widget.serviceType ?? "Vendor Services";
@@ -294,7 +278,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
             _buildAmountCard(subtitle, accentColor),
             const SizedBox(height: 20),
 
-            // ✅ SHOW VENDOR INFO CARD
             if (paymentType == 'vendor' && widget.vendorName != null)
               _buildVendorInfoCard(),
 
@@ -329,10 +312,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
       bottomNavigationBar: _buildPayButton(isLoading, accentColor),
     );
   }
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🎨 WIDGETS
-  // ═══════════════════════════════════════════════════════════════════════════
 
   Widget _buildVendorInfoCard() {
     return Container(

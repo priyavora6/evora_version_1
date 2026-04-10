@@ -1,13 +1,13 @@
-// lib/screens/vendor_panel/notifications/vendor_notifications_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
+
 import '../../../config/app_colors.dart';
-import '../../../providers/notification_provider.dart';
+import '../../../config/app_routes.dart';
 import '../../../models/notification_model.dart';
-import '../widgets/vendor_app_bar.dart';
+import '../../../providers/notification_provider.dart';
+import '../../../services/notification_service.dart';
 
 class VendorNotificationsScreen extends StatefulWidget {
   const VendorNotificationsScreen({super.key});
@@ -20,12 +20,16 @@ class _VendorNotificationsScreenState extends State<VendorNotificationsScreen> {
   @override
   void initState() {
     super.initState();
+    _initNotifications();
+  }
+
+  void _initNotifications() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final uid = FirebaseAuth.instance.currentUser?.uid;
       if (uid != null) {
-        // ✅ Start listening for VENDOR-SIDE notifications only
+        // ✅ Start listening specifically for Vendor Side notifications
         Provider.of<NotificationProvider>(context, listen: false)
-            .startNotificationsListener(uid, true); // 👈 true = Vendor side
+            .startListening(userId: uid, isVendorSide: true);
       }
     });
   }
@@ -34,56 +38,49 @@ class _VendorNotificationsScreenState extends State<VendorNotificationsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
-      appBar: const VendorAppBar(
-        title: "Business Alerts",
-        showBackButton: true,
+      appBar: AppBar(
+        title: const Text("Business Alerts", style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+        backgroundColor: Colors.deepPurple, // Distinct color for Vendor Panel
+        foregroundColor: Colors.white,
+        actions: [
+          Consumer<NotificationProvider>(
+            builder: (context, provider, _) => provider.unreadCount > 0
+                ? IconButton(icon: const Icon(Icons.done_all), onPressed: () => provider.markAllAsRead())
+                : const SizedBox.shrink(),
+          ),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            onSelected: (val) => val == 'clear' ? _showClearDialog(context) : null,
+            itemBuilder: (context) => [
+              const PopupMenuItem(value: 'clear', child: Text('Clear All Notifications', style: TextStyle(color: Colors.red))),
+            ],
+          ),
+        ],
       ),
       body: Consumer<NotificationProvider>(
         builder: (context, provider, _) {
-          if (provider.isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
+          if (provider.isLoading) return const Center(child: CircularProgressIndicator());
+          if (provider.notifications.isEmpty) return _buildEmptyState();
 
-          if (provider.notifications.isEmpty) {
-            return _buildEmptyState();
-          }
-
-          return ListView.builder(
-            padding: const EdgeInsets.all(16),
-            itemCount: provider.notifications.length,
-            itemBuilder: (context, index) {
-              final notification = provider.notifications[index];
-              return _NotificationCard(
-                notification: notification,
-                onTap: () => _handleTap(context, notification, provider),
-              );
-            },
+          return RefreshIndicator(
+            onRefresh: () async => await provider.refresh(),
+            child: ListView.builder(
+              padding: const EdgeInsets.all(12),
+              itemCount: provider.notifications.length,
+              itemBuilder: (context, index) {
+                final notification = provider.notifications[index];
+                return _VendorNotificationCard(
+                  notification: notification,
+                  onTap: () => _handleTap(context, notification),
+                  onDismiss: () => provider.deleteNotification(notification.id),
+                );
+              },
+            ),
           );
         },
       ),
     );
-  }
-
-  void _handleTap(BuildContext context, NotificationModel n, NotificationProvider prov) {
-    // 1. Mark as read
-    if (!n.isRead) prov.markAsRead(n.id);
-
-    // 2. Navigate based on type
-    switch (n.type) {
-      case NotificationType.vendorAssigned:
-        if (n.relatedId != null) {
-          Navigator.pushNamed(context, '/vendor-event-details', arguments: {'eventId': n.relatedId});
-        }
-        break;
-      case NotificationType.vendorApproved:
-        Navigator.pushNamed(context, '/vendor-panel');
-        break;
-      case NotificationType.paymentReceived:
-      // Navigate to Earnings or Payments screen if you have one
-        break;
-      default:
-        break;
-    }
   }
 
   Widget _buildEmptyState() {
@@ -91,124 +88,134 @@ class _VendorNotificationsScreenState extends State<VendorNotificationsScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.notifications_none_rounded, size: 80, color: Colors.grey[300]),
+          Icon(Icons.work_off_outlined, size: 80, color: Colors.grey[300]),
           const SizedBox(height: 16),
-          const Text("No Business Alerts", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black54)),
-          const SizedBox(height: 8),
-          const Text(
-            "New bookings, approvals, and payments\nwill appear here.",
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.grey, fontSize: 14),
-          ),
+          Text("No business alerts", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey[600])),
+          const Text("New work assignments will appear here", style: TextStyle(color: Colors.grey)),
+        ],
+      ),
+    );
+  }
+
+  void _handleTap(BuildContext context, NotificationModel notification) {
+    Provider.of<NotificationProvider>(context, listen: false).markAsRead(notification.id);
+
+    // ✅ NAVIGATION: Synchronized with AppRoutes
+    switch (notification.type) {
+      case NotificationType.vendorAssigned:
+      case NotificationType.newWorkRequest:
+        if (notification.relatedId != null) {
+          Navigator.pushNamed(
+            context,
+            AppRoutes.vendorEventDetails,
+            arguments: {'eventId': notification.relatedId},
+          );
+        } else {
+          Navigator.pushNamed(context, AppRoutes.vendorMain);
+        }
+        break;
+
+      case NotificationType.paymentReceived:
+      // Logic to navigate to your vendor earnings page
+        Navigator.pushNamed(context, AppRoutes.vendorMain);
+        break;
+
+      default:
+        _showDetails(context, notification);
+    }
+  }
+
+  void _showDetails(BuildContext context, NotificationModel notification) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (_) => Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(notification.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 12),
+            Text(notification.message, textAlign: TextAlign.center, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 24),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showClearDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text("Clear All?"),
+        content: const Text("Delete all business notifications?"),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text("Cancel")),
+          TextButton(onPressed: () {
+            Provider.of<NotificationProvider>(context, listen: false).clearAll();
+            Navigator.pop(ctx);
+          }, child: const Text("Clear", style: TextStyle(color: Colors.red))),
         ],
       ),
     );
   }
 }
 
-// ══════════════════════════════════════════════════════════════════════════
-// 🎨 REUSABLE NOTIFICATION CARD
-// ══════════════════════════════════════════════════════════════════════════
-class _NotificationCard extends StatelessWidget {
+class _VendorNotificationCard extends StatelessWidget {
   final NotificationModel notification;
   final VoidCallback onTap;
+  final VoidCallback onDismiss;
 
-  const _NotificationCard({required this.notification, required this.onTap});
+  const _VendorNotificationCard({required this.notification, required this.onTap, required this.onDismiss});
 
   @override
   Widget build(BuildContext context) {
+    final bool isUnread = !notification.isRead;
     final style = _getStyle(notification.type);
-    final timeAgo = _formatTime(notification.createdAt);
 
     return Dismissible(
       key: Key(notification.id),
+      onDismissed: (_) => onDismiss(),
       direction: DismissDirection.endToStart,
       background: Container(
-        margin: const EdgeInsets.only(bottom: 12),
-        decoration: BoxDecoration(color: Colors.red.shade400, borderRadius: BorderRadius.circular(12)),
-        alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
-        child: const Icon(Icons.delete_outline, color: Colors.white),
+        alignment: Alignment.centerRight,
+        color: Colors.red,
+        child: const Icon(Icons.delete, color: Colors.white),
       ),
-      onDismissed: (_) {
-        Provider.of<NotificationProvider>(context, listen: false).deleteNotification(notification.id);
-      },
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 12),
-        decoration: BoxDecoration(
-          color: notification.isRead ? Colors.white : const Color(0xFFF0F7FF),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: notification.isRead ? Colors.grey.shade200 : AppColors.primary.withOpacity(0.2),
-            width: notification.isRead ? 1 : 1.5,
-          ),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 4, offset: const Offset(0, 2))],
+      child: Card(
+        color: isUnread ? Colors.deepPurple.shade50 : Colors.white,
+        elevation: isUnread ? 2 : 0,
+        margin: const EdgeInsets.only(bottom: 10),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: BorderSide(color: isUnread ? Colors.deepPurple.withOpacity(0.3) : Colors.grey.shade200),
         ),
         child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          leading: Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(color: style.bgColor, shape: BoxShape.circle),
-            child: Icon(style.icon, color: style.color, size: 24),
-          ),
-          title: Text(
-            notification.title,
-            style: TextStyle(
-              fontWeight: notification.isRead ? FontWeight.w600 : FontWeight.w900,
-              fontSize: 15,
-              color: notification.isRead ? Colors.black87 : AppColors.primary,
-            ),
-          ),
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 4),
-              Text(
-                notification.message,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: notification.isRead ? Colors.grey.shade600 : Colors.black87,
-                  fontSize: 13,
-                  height: 1.3,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(timeAgo, style: TextStyle(color: Colors.grey.shade400, fontSize: 11)),
-            ],
-          ),
           onTap: onTap,
+          leading: CircleAvatar(
+            backgroundColor: style.color.withOpacity(0.1),
+            child: Icon(style.icon, color: style.color, size: 20),
+          ),
+          title: Text(notification.title, style: TextStyle(fontWeight: isUnread ? FontWeight.bold : FontWeight.normal)),
+          subtitle: Text(notification.message, maxLines: 2, overflow: TextOverflow.ellipsis),
+          trailing: isUnread ? Container(width: 8, height: 8, decoration: const BoxDecoration(color: Colors.deepPurple, shape: BoxShape.circle)) : null,
         ),
       ),
     );
   }
 
-  _NotifStyle _getStyle(String type) {
-    switch (type) {
-      case NotificationType.vendorApproved:
-        return _NotifStyle(Icons.verified_rounded, Colors.teal, Colors.teal.withOpacity(0.1));
-      case NotificationType.paymentReceived:
-        return _NotifStyle(Icons.attach_money_rounded, Colors.green, Colors.green.withOpacity(0.1));
-      case NotificationType.vendorAssigned:
-        return _NotifStyle(Icons.assignment_ind_rounded, AppColors.primary, AppColors.primary.withOpacity(0.1));
-      default:
-        return _NotifStyle(Icons.notifications_rounded, Colors.grey, Colors.grey.withOpacity(0.1));
-    }
-  }
-
-  String _formatTime(DateTime? time) {
-    if (time == null) return '';
-    final diff = DateTime.now().difference(time);
-    if (diff.inMinutes < 1) return 'Just now';
-    if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
-    if (diff.inHours < 24) return '${diff.inHours}h ago';
-    return DateFormat('dd MMM, hh:mm a').format(time);
+  _CardStyle _getStyle(String type) {
+    if (type.contains('assign')) return _CardStyle(Icons.assignment_turned_in, Colors.purple);
+    if (type.contains('payment')) return _CardStyle(Icons.account_balance_wallet, Colors.green);
+    if (type.contains('approve')) return _CardStyle(Icons.verified_user, Colors.blue);
+    return _CardStyle(Icons.notifications, Colors.grey);
   }
 }
 
-class _NotifStyle {
+class _CardStyle {
   final IconData icon;
   final Color color;
-  final Color bgColor;
-  _NotifStyle(this.icon, this.color, this.bgColor);
+  _CardStyle(this.icon, this.color);
 }

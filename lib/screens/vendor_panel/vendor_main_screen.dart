@@ -43,8 +43,11 @@ class _VendorMainScreenState extends State<VendorMainScreen> {
   @override
   void initState() {
     super.initState();
-    _initializeNotifications();
-    _loadVendorData();
+    // ✅ Wrap in post-frame callback to avoid "setState() called during build" error
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initializeNotifications();
+      _loadVendorData();
+    });
   }
 
   void _initializeNotifications() {
@@ -52,22 +55,21 @@ class _VendorMainScreenState extends State<VendorMainScreen> {
     final notificationProvider = Provider.of<NotificationProvider>(context, listen: false);
 
     if (authProvider.currentUser != null) {
-      notificationProvider.startNotificationsListener(authProvider.currentUser!.id, true);
+      notificationProvider.startListening(
+        userId: authProvider.currentUser!.id, 
+        isVendorSide: true,
+      );
     }
   }
 
   void _loadVendorData() {
-    // Determine vendor ID safely after build
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final authProvider = Provider.of<AuthProvider>(context, listen: false);
-      final user = authProvider.currentUser;
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final user = authProvider.currentUser;
 
-      if (user != null && user.vendorId != null) {
-        // Pre-fetch general stats (optional, as HomeTab now streams data too)
-        Provider.of<VendorPanelProvider>(context, listen: false)
-            .fetchDashboardStats(user.vendorId!);
-      }
-    });
+    if (user != null && user.vendorId != null) {
+      Provider.of<VendorPanelProvider>(context, listen: false)
+          .fetchDashboardStats(user.vendorId!);
+    }
   }
 
   @override
